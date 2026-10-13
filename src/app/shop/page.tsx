@@ -7,82 +7,105 @@ export const metadata: Metadata = { title: "כל השעונים" };
 
 const sorts = {
   featured: "מומלצים",
-  "price-asc": "מחיר, מהנמוך",
-  "price-desc": "מחיר, מהגבוה",
+  "price-asc": "מחיר עולה",
+  "price-desc": "מחיר יורד",
 } as const;
 type Sort = keyof typeof sorts;
 
-export default async function ShopPage({ searchParams }: { searchParams: Promise<{ c?: string; s?: string }> }) {
-  const { c, s } = await searchParams;
+const bands = {
+  low: { label: "עד 250 ש״ח", test: (n: number) => n <= 250 },
+  mid: { label: "250 עד 600 ש״ח", test: (n: number) => n > 250 && n <= 600 },
+  high: { label: "מעל 600 ש״ח", test: (n: number) => n > 600 },
+} as const;
+type Band = keyof typeof bands;
+
+type Params = { c?: string; s?: string; p?: string };
+
+export default async function ShopPage({ searchParams }: { searchParams: Promise<Params> }) {
+  const { c, s, p } = await searchParams;
   const active = c && c in collections ? (c as Collection) : undefined;
   const sort: Sort = s && s in sorts ? (s as Sort) : "featured";
+  const band = p && p in bands ? (p as Band) : undefined;
 
-  let list = active ? products.filter((p) => p.collection === active) : [...products];
+  let list = products.filter((x) => (!active || x.collection === active) && (!band || bands[band].test(x.price)));
   if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
   if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
 
-  const href = (next: { c?: string; s?: string }) => {
+  const href = (next: Params) => {
+    const merged = { c: active, s: sort === "featured" ? undefined : sort, p: band, ...next };
     const q = new URLSearchParams();
-    const cc = "c" in next ? next.c : active;
-    const ss = "s" in next ? next.s : sort;
-    if (cc) q.set("c", cc);
-    if (ss && ss !== "featured") q.set("s", ss);
+    for (const [k, v] of Object.entries(merged)) if (v && v !== "featured") q.set(k, v);
     const str = q.toString();
     return str ? `/shop?${str}` : "/shop";
   };
 
-  const chip = (on: boolean) =>
-    `inline-block rounded-full border px-5 py-2.5 text-[15px] transition-colors ${
-      on ? "border-ink bg-cta text-on-cta" : "border-line-strong hover:border-ink"
-    }`;
+  const tab = (on: boolean) =>
+    `inline-block border-b-2 pb-1 transition-colors ${on ? "border-ink font-semibold" : "border-transparent text-ink-soft hover:text-ink"}`;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-      <h1 className="font-display text-5xl font-black tracking-tight">
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-14">
+      <nav aria-label="פירורי לחם" className="text-sm text-muted">
+        <Link href="/" className="hover:text-ink">בית</Link>
+        <span className="mx-2" aria-hidden>‹</span>
+        <span className="text-ink">{active ? collections[active].name : "כל השעונים"}</span>
+      </nav>
+      <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight">
         {active ? collections[active].name : "כל השעונים"}
       </h1>
-      <p className="mt-3 max-w-lg text-lg text-ink-soft">
-        {active ? collections[active].blurb : "כל השעונים שלנו במקום אחד. בחרו סגנון או מיינו לפי מחיר."}
-      </p>
+      {active && <p className="mt-2 max-w-lg text-[17px] text-ink-soft">{collections[active].blurb}</p>}
 
-      <div className="mt-10 flex flex-col gap-4 border-b border-line pb-6 md:flex-row md:items-center md:justify-between">
-        <nav aria-label="סינון לפי קולקציה">
-          <ul className="flex flex-wrap gap-2">
+      <div className="mt-8 space-y-4 border-y border-line py-4">
+        <nav aria-label="קטגוריה">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
             <li>
-              <Link href={href({ c: undefined })} className={chip(!active)} aria-current={!active ? "page" : undefined}>
+              <Link href={href({ c: undefined })} className={tab(!active)} aria-current={!active ? "page" : undefined}>
                 הכל
               </Link>
             </li>
             {(Object.keys(collections) as Collection[]).map((k) => (
               <li key={k}>
-                <Link href={href({ c: k })} className={chip(active === k)} aria-current={active === k ? "page" : undefined}>
+                <Link href={href({ c: k })} className={tab(active === k)} aria-current={active === k ? "page" : undefined}>
                   {collections[k].name}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
-        <nav aria-label="מיון" className="flex items-center gap-3 text-[15px]">
-          <span className="text-muted">מיון:</span>
-          {(Object.keys(sorts) as Sort[]).map((k) => (
-            <Link
-              key={k}
-              href={href({ s: k })}
-              className={`underline-offset-4 ${sort === k ? "font-medium underline" : "text-ink-soft hover:text-ink"}`}
-              aria-current={sort === k ? "true" : undefined}
-            >
-              {sorts[k]}
+        <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <nav aria-label="מחיר" className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-muted">מחיר:</span>
+            <Link href={href({ p: undefined })} className={!band ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
+              הכל
             </Link>
-          ))}
-        </nav>
+            {(Object.keys(bands) as Band[]).map((k) => (
+              <Link key={k} href={href({ p: k })} className={band === k ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
+                {bands[k].label}
+              </Link>
+            ))}
+          </nav>
+          <nav aria-label="מיון" className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-muted">מיון:</span>
+            {(Object.keys(sorts) as Sort[]).map((k) => (
+              <Link key={k} href={href({ s: k })} className={sort === k ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
+                {sorts[k]}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
 
-      <p className="mt-6 text-sm text-muted">{list.length} שעונים</p>
-      <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 lg:grid-cols-3">
-        {list.map((p, i) => (
-          <ProductCard key={p.slug} product={p} priority={i < 3} />
-        ))}
-      </div>
+      <p className="mt-6 text-sm text-muted">{list.length} דגמים</p>
+      {list.length === 0 ? (
+        <p className="mt-10 text-ink-soft">
+          אין דגמים שמתאימים לסינון הזה. <Link href="/shop" className="underline underline-offset-4">לניקוי הסינון</Link>
+        </p>
+      ) : (
+        <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+          {list.map((x, i) => (
+            <ProductCard key={x.slug} product={x} priority={i < 4} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

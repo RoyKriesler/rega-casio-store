@@ -65,7 +65,7 @@ export default function LcdClock() {
       className="relative mx-auto w-full max-w-[460px] select-none"
     >
       {/* Case */}
-      <div className="rounded-[2.4rem] bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-3 shadow-[0_30px_80px_-20px_rgba(255,90,31,0.35)] ring-1 ring-white/10">
+      <div className="rounded-[2.4rem] bg-zinc-800 p-3 ring-1 ring-black/20">
         <div className="rounded-[1.9rem] bg-zinc-950 p-4 ring-1 ring-black sm:p-5">
           {/* Bezel text */}
           <div className="mb-3 flex items-center justify-between gap-2 px-1 font-sans text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-zinc-400">
@@ -75,7 +75,7 @@ export default function LcdClock() {
           </div>
 
           {/* Screen */}
-          <div className="relative overflow-hidden rounded-xl bg-lcd px-5 pt-3 pb-4 text-lcd-ink shadow-[inset_0_2px_10px_rgba(0,0,0,0.35)]">
+          <div className="relative overflow-hidden rounded-sm bg-lcd px-5 pt-3 pb-4 text-lcd-ink shadow-[inset_0_2px_10px_rgba(0,0,0,0.35)]">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-black/10" />
             <div className="relative flex items-center justify-between text-[13px] font-bold tracking-widest">
               <span>{day}</span>

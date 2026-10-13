@@ -12,8 +12,8 @@ export function useTotals() {
 export default function OrderSummary({ children }: { children?: React.ReactNode }) {
   const { subtotal, shipping, total } = useTotals();
   return (
-    <div className="rounded-2xl border border-line bg-card p-6">
-      <h2 className="font-display text-2xl font-bold">סיכום</h2>
+    <div className="rounded-none border border-line bg-card p-6">
+      <h2 className="text-xl font-semibold">סיכום</h2>
       <dl className="mt-5 space-y-3 text-[15px]">
         <div className="flex justify-between">
           <dt className="text-ink-soft">סכום ביניים</dt>

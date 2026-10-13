@@ -43,6 +43,9 @@ export function photoUrl(id: string, w: number, h?: number) {
   return `https://images.unsplash.com/${id}?auto=format&q=80&w=${w}${size}`;
 }
 
+const f91Black: Photo = { id: "photo-1599673476987-ca50550c4b9d", alt: "שעון דיגיטלי שחור עם רצועת גומי", credit: "Adriano Pucciarelli" };
+const f91Pink: Photo = { id: "photo-1669906858258-790e754a98e5", alt: "שעון דיגיטלי ורוד עם רצועת גומי", credit: "Bagzhan Sadvakassov" };
+const gaBlack: Photo = { id: "photo-1759166447139-b816226ca312", alt: "שעון ג׳י־שוק מתומן שחור עם לוח לבן", credit: "Reinis Brūzītis" };
 const gaPurple: Photo = { id: "photo-1700762151241-ea2e6d9a6c6b", alt: "שעון ג׳י־שוק מתומן בצבע סגול", credit: "Dmitry Spravko" };
 const gaGreen: Photo = { id: "photo-1700762118431-ee3a19c75ebc", alt: "שעון ג׳י־שוק מתומן בצבע ירוק זית", credit: "Dmitry Spravko" };
 const gaClear: Photo = { id: "photo-1641979731464-297f60d076ab", alt: "שעון ג׳י־שוק מתומן עם רצועה שקופה", credit: "WELCHEUHR" };
@@ -50,15 +53,19 @@ const gaClear: Photo = { id: "photo-1641979731464-297f60d076ab", alt: "שעון 
 export const products: Product[] = [
   {
     slug: "f91w",
-    name: "הקלאסי השחור",
+    name: "הקלאסי",
     model: "F-91W",
-    tagline: "השעון הדיגיטלי הכי מזוהה בעולם",
+    tagline: "דיגיטלי, קל ופשוט, בשחור או בוורוד",
     collection: "vintage",
     price: 89,
     badge: "רב מכר",
-    photos: [{ id: "photo-1599673476987-ca50550c4b9d", alt: "שעון דיגיטלי שחור עם רצועת גומי", credit: "Adriano Pucciarelli" }],
+    photos: [f91Black],
+    variants: [
+      { name: "שחור", swatch: "#1a1a1a", photo: f91Black },
+      { name: "ורוד", swatch: "#e8418f", photo: f91Pink },
+    ],
     description:
-      "קל, פשוט ובלתי נגמר. רצועת שרף שחורה, מסך דיגיטלי עם תאורה, שעון מעורר וסטופר. סוללה אחת מחזיקה שנים.",
+      "קל, פשוט ובלתי נגמר. רצועת שרף, מסך דיגיטלי עם תאורה, שעון מעורר וסטופר. סוללה אחת מחזיקה שנים.",
     specs: [
       { label: "מארז", value: "שרף" },
       { label: "תצוגה", value: "דיגיטלית עם תאורה" },
@@ -121,7 +128,7 @@ export const products: Product[] = [
     slug: "ga2100",
     name: "המתומן",
     model: "GA-2100",
-    tagline: "שלושה צבעים, אותו כוח",
+    tagline: "ארבעה צבעים, אותו כוח",
     collection: "gshock",
     price: 549,
     badge: "רב מכר",
@@ -130,6 +137,7 @@ export const products: Product[] = [
       { name: "סגול", swatch: "#6d4bd8", photo: gaPurple },
       { name: "ירוק זית", swatch: "#5b6b55", photo: gaGreen },
       { name: "שקוף", swatch: "#cfd4d8", photo: gaClear },
+      { name: "שחור", swatch: "#1a1a1a", photo: gaBlack },
     ],
     description:
       "מארז מתומן דק שהפך לסמל, עם מבנה פנימי מסיבי שעומד בנפילות. מחוגים אנלוגיים מעל מסך דיגיטלי, כדי שלא תצטרכו לבחור.",
@@ -208,6 +216,117 @@ export const products: Product[] = [
       { label: "עמידות במים", value: "100 מטר" },
     ],
   },
+  {
+    slug: "a-blue",
+    name: "וינטג׳ כחול",
+    model: "VINTAGE",
+    tagline: "מסגרת כחולה למסך הקלאסי",
+    collection: "vintage",
+    price: 249,
+    photos: [{ id: "photo-1709140493144-4600d13e98c1", alt: "שעון דיגיטלי כסוף עם מסגרת כחולה סביב המסך", credit: "Alexandra Dobrin" }],
+    description: "אותו מסך דיגיטלי שאוהבים, עם מסגרת כחולה שנותנת לו קצת צבע. רצועת מתכת ותאורה שמאירה את המסך.",
+    specs: [
+      { label: "מארז", value: "שרף בציפוי מתכתי" },
+      { label: "רצועה", value: "פלדת אל־חלד" },
+      { label: "תצוגה", value: "דיגיטלית עם תאורה" },
+    ],
+  },
+  {
+    slug: "gbd-200",
+    name: "המרובע הספורטיבי",
+    model: "GBD-200",
+    tagline: "ג׳י־שוק שסופר צעדים",
+    collection: "gshock",
+    price: 749,
+    badge: "חדש",
+    photos: [{ id: "photo-1737223899798-209dd4b31391", alt: "שעון ג׳י־שוק מרובע עם מסך דיגיטלי גדול", credit: "Aswin Karuvally" }],
+    description:
+      "מסך דיגיטלי גדול וברור, מד צעדים וסנכרון עם הטלפון. שעון לריצה בבוקר שנשאר על היד גם בשאר היום.",
+    specs: [
+      { label: "מארז", value: "שרף" },
+      { label: "חיבור", value: "סנכרון עם הטלפון" },
+      { label: "פונקציות", value: "מד צעדים, שעון עולמי, סטופר" },
+      { label: "עמידות במים", value: "200 מטר" },
+    ],
+  },
+  {
+    slug: "edifice-aviator",
+    name: "טייס",
+    model: "EDIFICE",
+    tagline: "כרונוגרף עם בזל חישוב",
+    collection: "analog",
+    price: 899,
+    photos: [{ id: "photo-1703505841379-2f863b201212", alt: "שעון כרונוגרף ממתכת עם לוח שחור ובזל מסתובב", credit: "Jayanth Muppaneni" }],
+    description:
+      "קו המתכת של קסיו, בגרסת טייס. כרונוגרף, בזל מסתובב עם סקאלת חישוב ורצועת פלדה כבדה שמרגישה רצינית על היד.",
+    specs: [
+      { label: "מארז", value: "פלדת אל־חלד" },
+      { label: "רצועה", value: "פלדת אל־חלד" },
+      { label: "פונקציות", value: "כרונוגרף, תאריך" },
+      { label: "בזל", value: "סקאלת חישוב מסתובבת" },
+    ],
+  },
+  {
+    slug: "mtp-1314",
+    name: "דו־גווני",
+    model: "MTP-1314SG",
+    tagline: "זהב ופלדה, לוח שחור",
+    collection: "analog",
+    price: 329,
+    photos: [{ id: "photo-1680509246036-ce5f09e1f51f", alt: "שעון אנלוגי בגווני זהב ופלדה עם לוח שחור", credit: "SOLEEs TIME" }],
+    description: "רצועה בשני גוונים ולוח שחור עם ספרות גדולות. שעון לעבודה שלא נראה כמו שעון לעבודה.",
+    specs: [
+      { label: "מארז", value: "פלדת אל־חלד" },
+      { label: "רצועה", value: "פלדה בשני גוונים" },
+      { label: "תצוגה", value: "אנלוגית עם תאריך ויום" },
+    ],
+  },
+  {
+    slug: "mtp-1175e",
+    name: "סטנדרט",
+    model: "MTP-1175E",
+    tagline: "לוח לבן, עור חום",
+    collection: "analog",
+    price: 249,
+    photos: [{ id: "photo-1587466412525-87497b34fc88", alt: "שעון אנלוגי כסוף עם לוח לבן", credit: "Hiroshi Tsubono" }],
+    description: "השעון הכי פשוט בחנות, ואולי הכי אלגנטי. לוח לבן נקי, מחוגים דקים ותאריך קטן.",
+    specs: [
+      { label: "מארז", value: "פלדת אל־חלד" },
+      { label: "רצועה", value: "עור" },
+      { label: "תצוגה", value: "אנלוגית עם תאריך" },
+    ],
+  },
+  {
+    slug: "mtp-vd200",
+    name: "כחול עמוק",
+    model: "MTP-VD200B",
+    tagline: "לוח כחול, מארז שחור",
+    collection: "analog",
+    price: 299,
+    badge: "חדש",
+    photos: [{ id: "photo-1679716887633-7a2e2f0fd521", alt: "שעון אנלוגי עם לוח כחול ומחוגים מוזהבים", credit: "SOLEEs TIME" }],
+    description: "לוח כחול מבריק שמשנה גוון לפי האור, עם מחוגים מוזהבים ומארז שחור. נראה יקר יותר ממה שהוא.",
+    specs: [
+      { label: "מארז", value: "פלדה בציפוי שחור" },
+      { label: "רצועה", value: "פלדה בציפוי שחור" },
+      { label: "תצוגה", value: "אנלוגית" },
+    ],
+  },
+  {
+    slug: "chrono-leather",
+    name: "כרונוגרף עור",
+    model: "CHRONOGRAPH",
+    tagline: "שלושה תת־לוחות על עור שחור",
+    collection: "analog",
+    price: 449,
+    photos: [{ id: "photo-1669214053030-2f732954afcb", alt: "שעון כרונוגרף עם לוח שחור ורצועת עור שחורה", credit: "Alvin Rahul" }],
+    description: "לוח שחור עם שלושה תת־לוחות ומחוג שניות אדום. רצועת עור שחורה שמתאימה גם לג׳ינס וגם לחליפה.",
+    specs: [
+      { label: "מארז", value: "פלדת אל־חלד" },
+      { label: "רצועה", value: "עור" },
+      { label: "פונקציות", value: "כרונוגרף, תאריך" },
+    ],
+  },
 ];
 
 export const storyPhoto: Photo = {
@@ -217,9 +336,9 @@ export const storyPhoto: Photo = {
 };
 
 export const collectionCovers: Record<Collection, Photo> = {
-  vintage: products[2].photos[0],
-  gshock: gaPurple,
-  analog: products[8].photos[0],
+  vintage: products[1].photos[0],
+  gshock: products[5].photos[0],
+  analog: products[13].photos[0],
 };
 
 export function getProduct(slug: string) {

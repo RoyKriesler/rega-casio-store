@@ -2,168 +2,136 @@ import Image from "next/image";
 import Link from "next/link";
 import LcdClock from "@/components/LcdClock";
 import ProductCard from "@/components/ProductCard";
-import { ArrowIcon, ReturnIcon, ShieldIcon, TruckIcon } from "@/components/icons";
-import { collectionCovers, collections, photoUrl, products, storyPhoto, type Collection } from "@/data/products";
+import { collectionCovers, collections, photoUrl, products, type Collection } from "@/data/products";
 
-const perks = [
-  { icon: TruckIcon, title: "משלוח חינם", text: "בכל הזמנה מעל 500 שקלים, עד הבית תוך שלושה ימי עסקים" },
-  { icon: ShieldIcon, title: "אחריות יבואן", text: "שנתיים על כל שעון, עם תעודה וקופסה מקורית" },
-  { icon: ReturnIcon, title: "14 יום להחזרה", text: "לא התחברתם? מחזירים ומקבלים את הכסף בחזרה" },
+const priceBands = [
+  { key: "low", label: "עד 250 ש״ח" },
+  { key: "mid", label: "250 עד 600 ש״ח" },
+  { key: "high", label: "מעל 600 ש״ח" },
 ];
 
-const stats = [
-  { value: "₪89", label: "המחיר של הקלאסי" },
-  { value: "200M", label: "עמידות במים בג׳י־שוק" },
-  { value: "1989", label: "השנה שהקלאסי נולד" },
+const info = [
+  { title: "משלוח", text: "חינם בהזמנה מעל 500 ש״ח. עד שלושה ימי עסקים לכל הארץ." },
+  { title: "אחריות", text: "שנתיים אחריות יבואן על כל שעון, עם קופסה ותעודה." },
+  { title: "החזרות", text: "14 יום להחזרה, בתנאי שהשעון לא נענד והמדבקות במקומן." },
 ];
 
 export default function Home() {
-  const featured = ["f91w", "ga2100", "a168", "gmw-b5000"].map((s) => products.find((p) => p.slug === s)!);
+  const fresh = products.filter((p) => p.badge === "חדש" || p.compareAt);
+  const popular = ["f91w", "ga2100", "a168", "mtp-1175e"].map((s) => products.find((p) => p.slug === s)!);
 
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-40 start-1/2 h-[520px] w-[520px] rounded-full bg-accent/20 blur-[120px]" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pt-12 pb-20 sm:px-6 md:grid-cols-2 md:pt-20 md:pb-28">
-          <div className="min-w-0 animate-fade-up">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-line-strong px-3 py-1 text-sm text-ink-soft">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
-              קולקציית הג׳י־שוק החדשה כבר כאן
-            </p>
-            <h1 className="font-display text-5xl leading-[1.02] font-black tracking-tight text-balance sm:text-6xl lg:text-7xl">
-              קשוח. אייקוני.
+      <section className="border-b border-line">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1fr_1.1fr] md:py-16">
+          <div className="min-w-0">
+            <p className="text-sm text-muted">{products.length} דגמים במלאי</p>
+            <h1 className="mt-3 font-display text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
+              שעוני קסיו.
               <br />
-              <span className="text-accent">בדיוק בזמן.</span>
+              מהקלאסי של 89 שקל ועד הג׳י־שוק ממתכת.
             </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
-              כל קסיו שאהבתם, מהדיגיטלי של שנות השמונים ועד הג׳י־שוק שעומד בכל דבר. השעה בשעון שכאן לידכם היא
-              השעה האמיתית שלכם, עכשיו.
+            <p className="mt-5 max-w-md text-[17px] leading-relaxed text-ink-soft">
+              דיגיטלי, אנלוגי וג׳י־שוק, עם אחריות יבואן ומשלוח לכל הארץ.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                href="/shop"
-                className="group inline-flex items-center gap-2 rounded-full bg-cta px-7 py-4 font-display font-bold text-on-cta transition-colors hover:bg-cta-hover"
-              >
+            <div className="mt-8 flex flex-wrap items-center gap-6">
+              <Link href="/shop" className="bg-cta px-6 py-3.5 text-[15px] font-semibold text-on-cta hover:bg-cta-hover">
                 לכל השעונים
-                <ArrowIcon width={18} height={18} className="transition-transform group-hover:-translate-x-1" />
               </Link>
-              <Link
-                href="/shop?c=gshock"
-                className="inline-flex items-center rounded-full border border-line-strong px-7 py-4 font-display font-bold transition-colors hover:border-ink"
-              >
+              <Link href="/shop?c=gshock" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
                 ג׳י־שוק
               </Link>
+              <Link href="/shop?c=vintage" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
+                וינטג׳ דיגיטלי
+              </Link>
             </div>
-            <dl className="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-line pt-6">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <dt className="sr-only">{s.label}</dt>
-                  <dd dir="ltr" className="text-end font-display text-2xl font-black">{s.value}</dd>
-                  <dd className="mt-1 text-xs text-muted">{s.label}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
-          <div className="min-w-0 animate-fade-up [animation-delay:150ms]">
+          <figure className="min-w-0 bg-sand px-6 py-10 sm:px-10">
             <LcdClock />
-          </div>
+            <figcaption className="mt-5 text-center text-[13px] text-muted">השעה אצלך עכשיו, על מסך של שעון דיגיטלי</figcaption>
+          </figure>
         </div>
       </section>
 
-      {/* Collections */}
-      <section id="collections" className="scroll-mt-20 border-y border-line bg-card">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <div className="mb-10 flex items-end justify-between gap-6">
-            <h2 className="font-display text-4xl font-black tracking-tight">בחרו את הסגנון</h2>
-            <p className="hidden max-w-xs text-ink-soft sm:block">שלוש משפחות, אותו דיוק יפני.</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {(Object.keys(collections) as Collection[]).map((c) => (
-              <Link
-                key={c}
-                href={`/shop?c=${c}`}
-                className="group relative block aspect-[3/4] overflow-hidden rounded-2xl bg-sand ring-1 ring-line transition-shadow hover:ring-accent/60"
-              >
-                <Image
-                  src={photoUrl(collectionCovers[c].id, 700, 930)}
-                  alt=""
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <h3 className="font-display text-3xl font-black">{collections[c].name}</h3>
-                  <p className="mt-2 max-w-[26ch] text-ink-soft">{collections[c].blurb}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-accent">
-                    לקולקציה
-                    <ArrowIcon width={16} height={16} className="transition-transform group-hover:-translate-x-1" />
-                  </span>
+      {/* Categories */}
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <h2 className="mb-6 font-display text-2xl font-semibold">קטגוריות</h2>
+        <div className="grid gap-x-6 gap-y-8 sm:grid-cols-3">
+          {(Object.keys(collections) as Collection[]).map((c) => {
+            const n = products.filter((p) => p.collection === c).length;
+            return (
+              <Link key={c} href={`/shop?c=${c}`} className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden bg-sand">
+                  <Image
+                    src={photoUrl(collectionCovers[c].id, 800, 600)}
+                    alt=""
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover transition-opacity duration-300 group-hover:opacity-90"
+                  />
                 </div>
+                <div className="mt-3 flex items-baseline justify-between gap-3">
+                  <h3 className="text-lg font-semibold group-hover:underline group-hover:underline-offset-4">{collections[c].name}</h3>
+                  <span className="text-sm text-muted">{n} דגמים</span>
+                </div>
+                <p className="mt-1 text-[15px] text-ink-soft">{collections[c].blurb}</p>
               </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Popular */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <div className="mb-6 flex items-baseline justify-between gap-6">
+            <h2 className="font-display text-2xl font-semibold">הנמכרים</h2>
+            <Link href="/shop" className="text-[15px] underline underline-offset-4">
+              לכל השעונים
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+            {popular.map((p) => (
+              <ProductCard key={p.slug} product={p} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <h2 className="font-display text-4xl font-black tracking-tight">הכי נמכרים</h2>
-          <Link href="/shop" className="group inline-flex items-center gap-2 text-ink-soft hover:text-ink">
-            לכל השעונים
-            <ArrowIcon width={18} height={18} className="transition-transform group-hover:-translate-x-1" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-          {featured.map((p) => (
-            <ProductCard key={p.slug} product={p} />
-          ))}
-        </div>
-      </section>
-
-      {/* Story */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid items-center overflow-hidden rounded-[2rem] bg-card ring-1 ring-line md:grid-cols-2">
-          <div className="relative aspect-[4/3] md:aspect-auto md:h-full md:min-h-[440px]">
-            <Image src={photoUrl(storyPhoto.id, 1000, 900)} alt={storyPhoto.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+      {/* New + price bands */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <div className="mb-6 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-2xl font-semibold">חדש ובמבצע</h2>
+            <nav aria-label="קנייה לפי מחיר" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[15px]">
+              <span className="text-muted">לפי מחיר:</span>
+              {priceBands.map((b) => (
+                <Link key={b.key} href={`/shop?p=${b.key}`} className="underline underline-offset-4 hover:text-ink-soft">
+                  {b.label}
+                </Link>
+              ))}
+            </nav>
           </div>
-          <div className="px-6 py-12 md:px-12">
-            <p className="mb-4 text-sm font-bold text-accent">למה קסיו</p>
-            <h2 className="font-display text-4xl leading-tight font-black">
-              שעון שלא צריך
-              <br />
-              להוכיח כלום.
-            </h2>
-            <p className="mt-5 max-w-md leading-relaxed text-ink-soft">
-              יש שעונים שעולים כמו רכב, ויש שעונים שפשוט עובדים. מסך שקל לקרוא, סוללה שמחזיקה שנים ומבנה שעומד
-              בנפילות. בגלל זה רואים אותם על הידיים של חיילים, ילדים בני עשר ומעצבים בתל אביב.
-            </p>
-            <Link href="/shop?c=vintage" className="mt-8 inline-flex items-center gap-2 font-display font-bold text-accent hover:underline">
-              לווינטג׳ הדיגיטלי
-              <ArrowIcon width={18} height={18} />
-            </Link>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+            {fresh.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Perks */}
-      <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6">
-        <ul className="grid gap-8 sm:grid-cols-3">
-          {perks.map(({ icon: Icon, title, text }) => (
-            <li key={title} className="flex gap-4">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-accent-soft text-accent">
-                <Icon />
-              </span>
-              <div>
-                <h3 className="font-display font-bold">{title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{text}</p>
-              </div>
-            </li>
+      {/* Info */}
+      <section className="border-t border-line">
+        <dl className="mx-auto grid max-w-6xl gap-8 px-4 pt-12 sm:grid-cols-3 sm:px-6">
+          {info.map((i) => (
+            <div key={i.title}>
+              <dt className="font-semibold">{i.title}</dt>
+              <dd className="mt-1 text-[15px] leading-relaxed text-ink-soft">{i.text}</dd>
+            </div>
           ))}
-        </ul>
+        </dl>
       </section>
     </>
   );

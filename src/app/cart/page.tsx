@@ -12,12 +12,12 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-      <h1 className="font-display text-5xl font-black tracking-tight">סל קניות</h1>
+      <h1 className="font-display text-4xl font-semibold tracking-tight">סל קניות</h1>
 
       {!ready ? null : lines.length === 0 ? (
-        <div className="mt-12 rounded-2xl border border-dashed border-line-strong py-20 text-center">
+        <div className="mt-12 rounded-none border border-dashed border-line-strong py-20 text-center">
           <p className="text-lg text-muted">הסל ריק כרגע</p>
-          <Link href="/shop" className="mt-6 inline-block rounded-full bg-cta px-7 py-4 text-on-cta hover:bg-cta-hover">
+          <Link href="/shop" className="mt-6 inline-block rounded-sm bg-cta px-7 py-4 text-on-cta hover:bg-cta-hover">
             לכל השעונים
           </Link>
         </div>
@@ -35,13 +35,13 @@ export default function CartPage() {
                       alt={ph.alt}
                       width={112}
                       height={138}
-                      className="h-[138px] w-28 rounded-xl bg-sand object-cover"
+                      className="h-[138px] w-28 rounded-sm bg-sand object-cover"
                     />
                   </Link>
                   <div className="flex flex-1 flex-col justify-between gap-3">
                     <div className="flex justify-between gap-3">
                       <div>
-                        <Link href={`/product/${p.slug}`} className="font-display text-2xl font-bold hover:underline">
+                        <Link href={`/product/${p.slug}`} className="text-xl font-semibold hover:underline">
                           {p.name}
                         </Link>
                         <p className="text-muted">{l.variant ? `צבע: ${l.variant}` : p.model}</p>
@@ -67,7 +67,7 @@ export default function CartPage() {
             <OrderSummary>
               <Link
                 href="/checkout"
-                className="mt-6 block rounded-full bg-cta py-4 text-center text-on-cta transition-colors hover:bg-cta-hover"
+                className="mt-6 block rounded-sm bg-cta py-4 text-center text-on-cta transition-colors hover:bg-cta-hover"
               >
                 למעבר לתשלום
               </Link>

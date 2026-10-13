@@ -1,23 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { useCart } from "@/lib/cart";
-import { BagIcon, CloseIcon, MenuIcon } from "./icons";
+import { CloseIcon, MenuIcon } from "./icons";
 
 const nav = [
-  { href: "/shop", label: "כל השעונים" },
-  { href: "/shop?c=vintage", label: "וינטג׳" },
-  { href: "/shop?c=gshock", label: "ג׳י־שוק" },
-  { href: "/shop?c=analog", label: "אנלוגי" },
+  { href: "/shop", c: null, label: "כל השעונים" },
+  { href: "/shop?c=vintage", c: "vintage", label: "וינטג׳ דיגיטלי" },
+  { href: "/shop?c=gshock", c: "gshock", label: "ג׳י־שוק" },
+  { href: "/shop?c=analog", c: "analog", label: "אנלוגי" },
 ];
 
 export function Logo() {
   return (
-    <Link href="/" className="font-display text-2xl font-black tracking-tight" aria-label="רגע, לדף הבית">
-      רגע<span className="text-accent">.</span>
+    <Link href="/" className="font-display text-[22px] font-semibold tracking-tight" aria-label="רגע, לדף הבית">
+      רגע
     </Link>
+  );
+}
+
+function NavLinks({ mobile }: { mobile?: boolean }) {
+  const pathname = usePathname();
+  const c = useSearchParams().get("c");
+  return (
+    <ul className={mobile ? "mx-auto max-w-6xl px-4 py-2" : "flex gap-7 text-[15px]"}>
+      {nav.map((n) => {
+        const active = pathname === "/shop" && c === n.c;
+        return (
+          <li key={n.href}>
+            <Link
+              href={n.href}
+              aria-current={active ? "page" : undefined}
+              className={
+                mobile
+                  ? "block border-b border-line py-3 text-lg"
+                  : `border-b py-1 transition-colors ${active ? "border-ink text-ink" : "border-transparent text-ink-soft hover:text-ink"}`
+              }
+            >
+              {n.label}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
@@ -29,41 +56,30 @@ export default function Header() {
   useEffect(() => setMenuOpen(false), [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-10">
           <Logo />
           <nav aria-label="ראשי" className="hidden md:block">
-            <ul className="flex gap-7 text-[15px] text-ink-soft">
-              {nav.map((n) => (
-                <li key={n.href}>
-                  <Link href={n.href} className="transition-colors hover:text-ink">
-                    {n.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <Suspense fallback={null}>
+              <NavLinks />
+            </Suspense>
           </nav>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="relative grid h-11 w-11 cursor-pointer place-items-center rounded-full transition-colors hover:bg-sand"
-            aria-label={`סל קניות, ${count} פריטים`}
+            className="h-11 cursor-pointer px-2 text-[15px] underline-offset-4 hover:underline"
+            aria-label={`סל קניות, ${ready ? count : 0} פריטים`}
           >
-            <BagIcon />
-            {ready && count > 0 && (
-              <span className="absolute end-1 top-1 grid h-5 min-w-5 place-items-center rounded-full bg-cta px-1 text-[11px] font-semibold text-on-cta">
-                {count}
-              </span>
-            )}
+            סל <span className="font-mono text-sm">({ready ? count : 0})</span>
           </button>
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="grid h-11 w-11 cursor-pointer place-items-center rounded-full transition-colors hover:bg-sand md:hidden"
+            className="grid h-11 w-11 cursor-pointer place-items-center md:hidden"
             aria-label={menuOpen ? "סגירת תפריט" : "פתיחת תפריט"}
             aria-expanded={menuOpen}
           >
@@ -74,15 +90,9 @@ export default function Header() {
 
       {menuOpen && (
         <nav aria-label="נייד" className="border-t border-line bg-paper md:hidden">
-          <ul className="mx-auto max-w-6xl px-4 py-2">
-            {nav.map((n) => (
-              <li key={n.href}>
-                <Link href={n.href} className="block py-3 text-lg">
-                  {n.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Suspense fallback={null}>
+            <NavLinks mobile />
+          </Suspense>
         </nav>
       )}
     </header>

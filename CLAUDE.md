@@ -1,17 +1,17 @@
 # watch-store — "רגע" demo Casio shop
 
-Portfolio project for Roy. Hebrew, RTL, dark sporty e-commerce demo of a (fictional) retailer selling real Casio models (F-91W, A168WA, GA-2100, GMW-B5000...). NOT a real store: no real payments, no card fields, checkout is a mock that creates a fake order number.
+Portfolio project for Roy. Hebrew, RTL, light retail-style e-commerce demo of a (fictional) retailer selling real Casio models (F-91W, A168WA, GA-2100, GMW-B5000...). NOT a real store: no real payments, no card fields, checkout is a mock that creates a fake order number.
 
 Trademark rules (decided 2026-10-13): store name is "רגע", never Casio branding/logo in site chrome; real model names only where confidently identified from the photo; footer states no affiliation with Casio and fictional prices. Avoid unverifiable factual claims in copy.
 
 ## Stack
 - Next.js 15 App Router, TypeScript, Tailwind v4 (tokens in `src/app/globals.css` `@theme`).
-- Fonts: Rubik (display, 500-900) + Assistant (body), both via `next/font/google` with the `hebrew` subset.
+- Fonts via `next/font/google` (Hebrew subset where available).
 - Node is at `~/.local/node/bin` and is NOT on PATH: prefix commands with `export PATH=$HOME/.local/node/bin:$PATH`.
 - Deploy target: Vercel. Repo: GitHub account RoyKriesler.
 
 ## Data
-- Catalog: `src/data/products.ts` (static). Prices in ILS.
+- Catalog: `src/data/products.ts` (static), 16 models. Prices in ILS. Shop filters: `c` collection, `p` price band (low/mid/high), `s` sort.
 - Images: hotlinked from `images.unsplash.com` (Unsplash License, free), real Casio photos. Photographer credit per photo, listed on `/credits`. Never use photos showing a non-Casio brand.
 - Hero: `src/components/LcdClock.tsx`, live seven-segment SVG clock showing the visitor's real time.
 - Variants: `Product.variants` (color + photo); cart lines keyed by `slug::variant`.
@@ -19,7 +19,8 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never Casio brandi
 
 ## Conventions
 - `<html lang="he" dir="rtl">`. Use logical Tailwind utilities (`ps-`, `pe-`, `ms-`, `me-`, `start-`, `end-`), never `pl-/pr-/left-/right-` for layout.
-- Palette (dark): paper `#0a0a0b`, card `#141417`, accent/CTA `#ff5a1f` with black text on CTA. Tokens in globals.css; `ink` is the light text color.
+- Look (2026-10-13, Roy asked "light and less AI"): flat retail style. Paper `#f6f5f2`, ink `#151515`, thin `line` rules, square corners, black CTA with white text, red `#c8102e` only for "new"/"sale" labels. No glows, gradients, pulsing badges, icon circles, hover zoom or giant black-weight headlines.
+- Fonts: Rubik 400-700 (headings at semibold), Assistant body, IBM Plex Mono for model numbers.
 - No emoji as icons; inline SVG only.
 - Respect `prefers-reduced-motion`.
 

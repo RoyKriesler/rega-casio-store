@@ -30,24 +30,24 @@ export default function CartDrawer() {
   return (
     <div className={`fixed inset-0 z-50 ${drawerOpen ? "" : "pointer-events-none"}`} aria-hidden={!drawerOpen}>
       <div
-        className={`absolute inset-0 bg-black/70 transition-opacity duration-300 ${drawerOpen ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${drawerOpen ? "opacity-100" : "opacity-0"}`}
         onClick={() => setDrawerOpen(false)}
       />
       <aside
         role="dialog"
         aria-modal="true"
         aria-label="סל הקניות"
-        className={`absolute inset-y-0 end-0 flex w-full max-w-md flex-col bg-paper shadow-2xl transition-transform duration-300 ease-out ${
+        className={`absolute inset-y-0 end-0 flex w-full max-w-md flex-col bg-paper border-s border-line transition-transform duration-300 ease-out ${
           drawerOpen ? "visible translate-x-0" : "invisible -translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between border-b border-line px-6 py-5">
-          <h2 className="font-display text-2xl font-bold">הסל שלך</h2>
+          <h2 className="text-xl font-semibold">הסל שלך</h2>
           <button
             ref={closeRef}
             type="button"
             onClick={() => setDrawerOpen(false)}
-            className="grid h-11 w-11 cursor-pointer place-items-center rounded-full hover:bg-sand"
+            className="grid h-11 w-11 cursor-pointer place-items-center rounded-sm hover:bg-sand"
             aria-label="סגירת הסל"
           >
             <CloseIcon />
@@ -60,7 +60,7 @@ export default function CartDrawer() {
             <Link
               href="/shop"
               onClick={() => setDrawerOpen(false)}
-              className="rounded-full bg-cta px-6 py-3 text-on-cta transition-colors hover:bg-cta-hover"
+              className="rounded-sm bg-cta px-6 py-3 text-on-cta transition-colors hover:bg-cta-hover"
             >
               לכל השעונים
             </Link>
@@ -71,8 +71,8 @@ export default function CartDrawer() {
               <p className="text-sm text-ink-soft">
                 {remaining > 0 ? `עוד ${formatPrice(remaining)} למשלוח חינם` : "המשלוח עלינו"}
               </p>
-              <div className="mt-2 h-1 overflow-hidden rounded-full bg-line">
-                <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${progress * 100}%` }} />
+              <div className="mt-2 h-1 overflow-hidden rounded-sm bg-line">
+                <div className="h-full bg-ink transition-all" style={{ width: `${progress * 100}%` }} />
               </div>
             </div>
 
@@ -87,12 +87,12 @@ export default function CartDrawer() {
                       alt={ph.alt}
                       width={88}
                       height={88}
-                      className="h-22 w-22 shrink-0 rounded-lg bg-sand object-cover"
+                      className="h-22 w-22 shrink-0 rounded-sm bg-sand object-cover"
                     />
                     <div className="flex flex-1 flex-col justify-between">
                       <div className="flex justify-between gap-2">
                         <div>
-                          <p className="font-display text-lg leading-tight font-bold">{p.name}</p>
+                          <p className="text-[17px] leading-tight font-semibold">{p.name}</p>
                           <p className="text-sm text-muted">{l.variant ? `צבע: ${l.variant}` : p.model}</p>
                         </div>
                         <p className="font-medium">{formatPrice(p.price * l.qty)}</p>
@@ -121,7 +121,7 @@ export default function CartDrawer() {
               <Link
                 href="/checkout"
                 onClick={() => setDrawerOpen(false)}
-                className="block rounded-full bg-cta py-4 text-center text-on-cta transition-colors hover:bg-cta-hover"
+                className="block rounded-sm bg-cta py-4 text-center text-on-cta transition-colors hover:bg-cta-hover"
               >
                 למעבר לתשלום
               </Link>
