@@ -30,9 +30,9 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never Casio brandi
 ## Deploy
 - Live: https://rega-casio-store.vercel.app (Vercel team `roys-projects-91d17c62`, project `rega-casio-store`).
 - Repo: https://github.com/RoyKriesler/rega-casio-store (public).
-- Deploy with `vercel deploy --prod --yes` (CLI at `~/.local/npm-global/bin`, logged in as roykriesler). Vercel MCP returns 403 on project create; use the CLI.
+- Pushes to `main` auto-deploy. Manual fallback: `vercel deploy --prod --yes` (CLI at `~/.local/npm-global/bin`, logged in as roykriesler). Vercel MCP returns 403 on project create; use the CLI.
 
 ## Open tasks
 - [x] First deploy to Vercel (2026-10-13)
 - [x] GitHub repo push (2026-10-13)
-- [ ] Auto-deploy on push: `vercel git connect` failed; the Vercel GitHub app needs access to this repo (Roy grants it in GitHub settings)
+- [x] Auto-deploy on push (2026-10-13): repo connected from Vercel project Settings > Git; every push to `main` deploys to production
