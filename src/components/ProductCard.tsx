@@ -19,8 +19,8 @@ export default function ProductCard({ product, priority }: { product: Product; p
       </div>
       <div className="mt-3 space-y-1">
         <div className="flex items-center justify-between gap-2">
-          <p dir="ltr" className="font-mono text-xs text-muted">
-            {product.model}
+          <p dir="ltr" className="truncate font-mono text-xs text-muted">
+            {product.brand === "רגע" ? product.model : `${product.brand.toUpperCase()} · ${product.model}`}
           </p>
           {label && <p className="text-xs font-semibold text-accent">{label}</p>}
         </div>

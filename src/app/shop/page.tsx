@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { collections, products, type Collection } from "@/data/products";
+import { brands, collections, products, type Collection } from "@/data/products";
 
-export const metadata: Metadata = { title: "כל השעונים" };
 
 const sorts = {
   featured: "מומלצים",
@@ -19,20 +18,28 @@ const bands = {
 } as const;
 type Band = keyof typeof bands;
 
-type Params = { c?: string; s?: string; p?: string };
+type Params = { c?: string; s?: string; p?: string; b?: string };
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<Params> }): Promise<Metadata> {
+  const { c, b } = await searchParams;
+  if (b && brands.includes(b)) return { title: b };
+  if (c && c in collections) return { title: collections[c as Collection].name };
+  return { title: "כל השעונים" };
+}
 
 export default async function ShopPage({ searchParams }: { searchParams: Promise<Params> }) {
-  const { c, s, p } = await searchParams;
+  const { c, s, p, b } = await searchParams;
   const active = c && c in collections ? (c as Collection) : undefined;
   const sort: Sort = s && s in sorts ? (s as Sort) : "featured";
   const band = p && p in bands ? (p as Band) : undefined;
+  const brand = b && brands.includes(b) ? b : undefined;
 
-  let list = products.filter((x) => (!active || x.collection === active) && (!band || bands[band].test(x.price)));
+  let list = products.filter((x) => (!active || x.collection === active) && (!band || bands[band].test(x.price)) && (!brand || x.brand === brand));
   if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
   if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
 
   const href = (next: Params) => {
-    const merged = { c: active, s: sort === "featured" ? undefined : sort, p: band, ...next };
+    const merged = { c: active, s: sort === "featured" ? undefined : sort, p: band, b: brand, ...next };
     const q = new URLSearchParams();
     for (const [k, v] of Object.entries(merged)) if (v && v !== "featured") q.set(k, v);
     const str = q.toString();
@@ -50,7 +57,13 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
         <span className="text-ink">{active ? collections[active].name : "כל השעונים"}</span>
       </nav>
       <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight">
-        {active ? collections[active].name : "כל השעונים"}
+        {brand ? (
+          <span dir="ltr">{brand}</span>
+        ) : active ? (
+          collections[active].name
+        ) : (
+          "כל השעונים"
+        )}
       </h1>
       {active && <p className="mt-2 max-w-lg text-[17px] text-ink-soft">{collections[active].blurb}</p>}
 
@@ -71,7 +84,18 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
             ))}
           </ul>
         </nav>
-        <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 text-sm lg:flex-row lg:flex-wrap lg:items-center lg:justify-between">
+          <nav aria-label="מותג" className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-muted">מותג:</span>
+            <Link href={href({ b: undefined })} className={!brand ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
+              הכל
+            </Link>
+            {brands.map((k) => (
+              <Link key={k} href={href({ b: k })} dir="ltr" className={brand === k ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
+                {k}
+              </Link>
+            ))}
+          </nav>
           <nav aria-label="מחיר" className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span className="text-muted">מחיר:</span>
             <Link href={href({ p: undefined })} className={!band ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>

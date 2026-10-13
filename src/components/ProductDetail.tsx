@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { collections, formatPrice, photoUrl, type Product } from "@/data/products";
+import { collections, formatPrice, photoUrl, priceDate, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
 import QtyStepper from "./QtyStepper";
 
@@ -12,7 +12,7 @@ export default function ProductDetail({ product }: { product: Product }) {
   const [photoIdx, setPhotoIdx] = useState(0);
   const [qty, setQty] = useState(1);
 
-  const photos = variant ? [variant.photo] : product.photos;
+  const photos = !variant || variant.photo.id === product.photos[0].id ? product.photos : [variant.photo];
   const current = photos[Math.min(photoIdx, photos.length - 1)];
 
   return (
@@ -55,7 +55,7 @@ export default function ProductDetail({ product }: { product: Product }) {
       <div className="md:sticky md:top-24 md:self-start">
         <p className="text-sm text-muted">{collections[product.collection].name}</p>
         <p dir="ltr" className="mt-3 text-end font-mono text-sm text-muted">
-          {product.model}
+          {product.brand === "רגע" ? product.model : `${product.brand.toUpperCase()} · ${product.model}`}
         </p>
         <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">{product.name}</h1>
         <p className="mt-2 text-lg text-ink-soft">{product.tagline}</p>
@@ -64,6 +64,9 @@ export default function ProductDetail({ product }: { product: Product }) {
           <p className="text-2xl font-semibold">{formatPrice(product.price)}</p>
           {product.compareAt && <p className="text-lg text-muted line-through">{formatPrice(product.compareAt)}</p>}
         </div>
+        <p className="mt-1 text-xs text-muted">
+          {product.priceSource === "market" ? `מחיר שוק בישראל, ${priceDate}` : "מחיר משוער"}
+        </p>
 
         <p className="mt-6 leading-relaxed text-ink-soft">{product.description}</p>
 
@@ -107,7 +110,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
         <ul className="mt-8 list-inside list-disc space-y-2 border-y border-line py-5 text-[15px] text-ink-soft">
           <li>משלוח חינם בהזמנה מעל 500 ש״ח</li>
-          <li>אחריות יבואן לשנתיים</li>
+          {product.collection === "straps" ? <li>מגיעה עם כלי להחלפה</li> : <li>אחריות יבואן לשנתיים</li>}
           <li>14 יום להחזרה</li>
         </ul>
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LcdClock from "@/components/LcdClock";
 import ProductCard from "@/components/ProductCard";
-import { collectionCovers, collections, photoUrl, products, type Collection } from "@/data/products";
+import { brands, collectionCovers, collections, photoUrl, products, type Collection } from "@/data/products";
 
 const priceBands = [
   { key: "low", label: "עד 250 ש״ח" },
@@ -18,7 +18,8 @@ const info = [
 
 export default function Home() {
   const fresh = products.filter((p) => p.badge === "חדש" || p.compareAt);
-  const popular = ["f91w", "ga2100", "a168", "mtp-1175e"].map((s) => products.find((p) => p.slug === s)!);
+  const popular = ["prx-40", "hamilton-khaki-field", "orient-bambino", "f91w"].map((s) => products.find((p) => p.slug === s)!);
+  const watchCount = products.filter((p) => p.collection !== "straps").length;
 
   return (
     <>
@@ -26,24 +27,26 @@ export default function Home() {
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1fr_1.1fr] md:py-16">
           <div className="min-w-0">
-            <p className="text-sm text-muted">{products.length} דגמים במלאי</p>
+            <p className="text-sm text-muted">
+              {watchCount} שעונים מ־{brands.length} מותגים
+            </p>
             <h1 className="mt-3 font-display text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
-              שעוני קסיו.
+              שעונים שבחרנו
               <br />
-              מהקלאסי של 89 שקל ועד הג׳י־שוק ממתכת.
+              אחד אחד.
             </h1>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-ink-soft">
-              דיגיטלי, אנלוגי וג׳י־שוק, עם אחריות יבואן ומשלוח לכל הארץ.
+              טיסו עם צמיד משולב, המילטון על נאטו, במבינו לערב וקסיו לכל יום. רק דגמים שהיינו עונדים בעצמנו.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Link href="/shop" className="bg-cta px-6 py-3.5 text-[15px] font-semibold text-on-cta hover:bg-cta-hover">
                 לכל השעונים
               </Link>
-              <Link href="/shop?c=gshock" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
-                ג׳י־שוק
+              <Link href="/shop?c=sport" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
+                ספורט יומיומי
               </Link>
-              <Link href="/shop?c=vintage" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
-                וינטג׳ דיגיטלי
+              <Link href="/shop?c=straps" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
+                רצועות
               </Link>
             </div>
           </div>
@@ -58,7 +61,7 @@ export default function Home() {
       {/* Categories */}
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <h2 className="mb-6 font-display text-2xl font-semibold">קטגוריות</h2>
-        <div className="grid gap-x-6 gap-y-8 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-3">
           {(Object.keys(collections) as Collection[]).map((c) => {
             const n = products.filter((p) => p.collection === c).length;
             return (
@@ -74,9 +77,9 @@ export default function Home() {
                 </div>
                 <div className="mt-3 flex items-baseline justify-between gap-3">
                   <h3 className="text-lg font-semibold group-hover:underline group-hover:underline-offset-4">{collections[c].name}</h3>
-                  <span className="text-sm text-muted">{n} דגמים</span>
+                  <span className="shrink-0 text-sm text-muted">{n} דגמים</span>
                 </div>
-                <p className="mt-1 text-[15px] text-ink-soft">{collections[c].blurb}</p>
+                <p className="mt-1 hidden text-[15px] text-ink-soft sm:block">{collections[c].blurb}</p>
               </Link>
             );
           })}
@@ -119,6 +122,22 @@ export default function Home() {
               <ProductCard key={p.slug} product={p} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Brands */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="mb-5 font-display text-2xl font-semibold">מותגים</h2>
+          <ul className="grid grid-cols-2 border-s border-t border-line sm:grid-cols-4">
+            {brands.map((b) => (
+              <li key={b} className="border-e border-b border-line">
+                <Link href={`/shop?b=${encodeURIComponent(b)}`} dir="ltr" className="block px-4 py-5 text-center font-mono text-sm tracking-wide hover:bg-sand">
+                  {b.toUpperCase()}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

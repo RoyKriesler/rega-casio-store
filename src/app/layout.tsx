@@ -28,8 +28,8 @@ const assistant = Assistant({
 });
 
 export const metadata: Metadata = {
-  title: { default: "רגע | שעוני קסיו", template: "%s | רגע" },
-  description: "חנות הדגמה לשעוני קסיו, דיגיטליים, וינטג׳ וג׳י־שוק. אתר לתיק עבודות.",
+  title: { default: "רגע | חנות שעונים", template: "%s | רגע" },
+  description: "חנות שעונים נבחרת: טיסו, המילטון, סייקו, סיטיזן, קסיו ועוד, עם רצועות להחלפה. אתר הדגמה לתיק עבודות.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

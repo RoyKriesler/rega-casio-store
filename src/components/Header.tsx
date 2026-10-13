@@ -8,9 +8,12 @@ import { CloseIcon, MenuIcon } from "./icons";
 
 const nav = [
   { href: "/shop", c: null, label: "כל השעונים" },
-  { href: "/shop?c=vintage", c: "vintage", label: "וינטג׳ דיגיטלי" },
+  { href: "/shop?c=sport", c: "sport", label: "ספורט" },
+  { href: "/shop?c=field", c: "field", label: "שדה" },
+  { href: "/shop?c=dress", c: "dress", label: "אלגנטי" },
+  { href: "/shop?c=vintage", c: "vintage", label: "דיגיטלי" },
   { href: "/shop?c=gshock", c: "gshock", label: "ג׳י־שוק" },
-  { href: "/shop?c=analog", c: "analog", label: "אנלוגי" },
+  { href: "/shop?c=straps", c: "straps", label: "רצועות" },
 ];
 
 export function Logo() {
@@ -25,7 +28,7 @@ function NavLinks({ mobile }: { mobile?: boolean }) {
   const pathname = usePathname();
   const c = useSearchParams().get("c");
   return (
-    <ul className={mobile ? "mx-auto max-w-6xl px-4 py-2" : "flex gap-7 text-[15px]"}>
+    <ul className={mobile ? "mx-auto max-w-6xl px-4 py-2" : "flex gap-6 text-[15px]"}>
       {nav.map((n) => {
         const active = pathname === "/shop" && c === n.c;
         return (
@@ -60,7 +63,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-10">
           <Logo />
-          <nav aria-label="ראשי" className="hidden md:block">
+          <nav aria-label="ראשי" className="hidden lg:block">
             <Suspense fallback={null}>
               <NavLinks />
             </Suspense>
@@ -79,7 +82,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="grid h-11 w-11 cursor-pointer place-items-center md:hidden"
+            className="grid h-11 w-11 cursor-pointer place-items-center lg:hidden"
             aria-label={menuOpen ? "סגירת תפריט" : "פתיחת תפריט"}
             aria-expanded={menuOpen}
           >
@@ -89,7 +92,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <nav aria-label="נייד" className="border-t border-line bg-paper md:hidden">
+        <nav aria-label="נייד" className="border-t border-line bg-paper lg:hidden">
           <Suspense fallback={null}>
             <NavLinks mobile />
           </Suspense>
