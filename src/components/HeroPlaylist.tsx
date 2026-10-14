@@ -1,71 +1,123 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export type Clip = { src: string; small?: string; poster: string };
+// A clip is either a real video, or a still image (`still`) that gets a slow GPU zoom.
+// Stills are animated with CSS transforms, which are sub-pixel smooth; baking the zoom into
+// a video made it step pixel by pixel and visibly shake.
+export type Clip = { src: string; small?: string; poster: string; still?: boolean };
 
-// Two stacked <video> layers that crossfade from clip to clip, so no single short clip
-// is ever seen looping. Every page view starts from a random clip in a random order.
+const STILL_MS = 6500;
+const FADE_MS = 1400;
+
 export default function HeroPlaylist({ clips }: { clips: Clip[] }) {
-  const a = useRef<HTMLVideoElement>(null);
-  const b = useRef<HTMLVideoElement>(null);
+  const [order, setOrder] = useState<Clip[]>(clips);
+  const [slots, setSlots] = useState<[number, number]>([0, 1]);
   const [front, setFront] = useState<0 | 1>(0);
-  const [poster, setPoster] = useState(clips[0].poster);
+  const [cycle, setCycle] = useState(0);
+  const [small, setSmall] = useState(false);
+  const [reduce, setReduce] = useState(false);
+  const [ready, setReady] = useState(false);
+  const v0 = useRef<HTMLVideoElement>(null);
+  const v1 = useRef<HTMLVideoElement>(null);
+  const advancing = useRef(false);
+  // Per-layer animation name; flipping between two identical keyframes restarts the zoom
+  // when a layer comes to the front, without remounting it (which would skip the fade).
+  const anim = useRef<[string, string]>(["kenburnsA", "kenburnsA"]);
+  const seen = useRef<[number, number]>([-1, -1]);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const small = window.matchMedia("(max-width: 767px)").matches;
-    const order = [...clips].sort(() => Math.random() - 0.5);
-    setPoster(order[0].poster);
-    if (reduce) return;
-
-    const layers = [a.current!, b.current!];
-    let i = 0;
-    let cur = 0 as 0 | 1;
-    let fading = false;
-    const srcOf = (c: Clip) => (small && c.small ? c.small : c.src);
-
-    const load = (v: HTMLVideoElement, c: Clip) => {
-      v.src = srcOf(c);
-      v.poster = c.poster;
-      v.playbackRate = 0.85;
-      v.load();
-    };
-
-    load(layers[0], order[0]);
-    load(layers[1], order[1 % order.length]);
-    layers[0].play().catch(() => {});
-
-    const onTime = () => {
-      const v = layers[cur];
-      if (fading || !v.duration) return;
-      if (v.duration - v.currentTime < 1.4) {
-        fading = true;
-        const next = (cur ^ 1) as 0 | 1;
-        layers[next].currentTime = 0;
-        layers[next].playbackRate = 0.85;
-        layers[next].play().catch(() => {});
-        setFront(next);
-        window.setTimeout(() => {
-          i = (i + 1) % order.length;
-          layers[cur].pause();
-          load(layers[cur], order[(i + 1) % order.length]);
-          cur = next;
-          fading = false;
-        }, 1400);
-      }
-    };
-    layers.forEach((v) => v.addEventListener("timeupdate", onTime));
-    return () => layers.forEach((v) => v.removeEventListener("timeupdate", onTime));
+    setSmall(window.matchMedia("(max-width: 767px)").matches);
+    setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    setOrder([...clips].sort(() => Math.random() - 0.5));
+    setReady(true);
   }, [clips]);
 
-  const cls = "absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-in-out";
+  const advance = useCallback(() => {
+    if (advancing.current) return;
+    advancing.current = true;
+    setFront((f) => (f ^ 1) as 0 | 1);
+    setCycle((c) => c + 1);
+  }, []);
+
+  // When a layer comes to the front: start it, schedule the next switch, and preload the back layer.
+  useEffect(() => {
+    if (!ready || reduce) return;
+    const clip = order[slots[front]];
+    const vid = (front === 0 ? v0 : v1).current;
+    let timer = 0;
+    if (clip.still) {
+      timer = window.setTimeout(advance, STILL_MS);
+    } else if (vid) {
+      vid.currentTime = 0;
+      vid.playbackRate = 0.85;
+      vid.play().catch(() => {});
+    }
+    const preload = window.setTimeout(() => {
+      advancing.current = false;
+      setSlots((s) => {
+        const n: [number, number] = [s[0], s[1]];
+        n[front ^ 1] = (s[front] + 1) % order.length;
+        return n;
+      });
+      const back = (front === 0 ? v1 : v0).current;
+      back?.pause();
+    }, FADE_MS + 50);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(preload);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [front, ready, reduce]);
+
+  const onTime = (layer: 0 | 1) => (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const v = e.currentTarget;
+    if (layer === front && v.duration && v.duration - v.currentTime < FADE_MS / 1000) advance();
+  };
+
+  const layer = (i: 0 | 1) => {
+    const clip = order[slots[i]];
+    const shown = i === front;
+    if (shown && seen.current[i] !== cycle) {
+      seen.current[i] = cycle;
+      anim.current[i] = cycle % 2 ? "kenburnsB" : "kenburnsA";
+    }
+    const base = `absolute inset-0 h-full w-full object-cover transition-opacity ease-in-out ${shown ? "opacity-100" : "opacity-0"}`;
+    if (reduce || clip.still) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={`${i}-${slots[i]}`}
+          src={clip.src}
+          alt=""
+          className={base}
+          style={{
+            transitionDuration: `${FADE_MS}ms`,
+            animation: reduce ? undefined : `${anim.current[i]} ${STILL_MS + FADE_MS * 2}ms linear both`,
+            willChange: "transform, opacity",
+          }}
+        />
+      );
+    }
+    return (
+      <video
+        ref={i === 0 ? v0 : v1}
+        src={small && clip.small ? clip.small : clip.src}
+        poster={clip.poster}
+        muted
+        playsInline
+        preload="auto"
+        onTimeUpdate={onTime(i)}
+        className={base}
+        style={{ transitionDuration: `${FADE_MS}ms` }}
+      />
+    );
+  };
+
   return (
-    <div className="absolute inset-0 bg-black" aria-hidden>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover" />
-      <video ref={a} muted playsInline preload="auto" className={`${cls} ${front === 0 ? "opacity-100" : "opacity-0"}`} />
-      <video ref={b} muted playsInline preload="auto" className={`${cls} ${front === 1 ? "opacity-100" : "opacity-0"}`} />
+    <div className="absolute inset-0 overflow-hidden bg-black" aria-hidden>
+      {layer(0)}
+      {layer(1)}
     </div>
   );
 }

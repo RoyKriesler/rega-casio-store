@@ -332,11 +332,11 @@ export function SplitFlap() {
 }
 
 /* 9. ASCII art: a photo rendered as characters, live */
-export function Ascii() {
+export function Ascii({ src = "/art/film-gears.jpg" }: { src?: string }) {
   const [txt, setTxt] = useState("");
   useEffect(() => {
     const img = new Image();
-    img.src = "/art/film-gears.jpg";
+    img.src = src;
     img.onload = () => {
       const cols = 110,
         rows = 42;
@@ -358,7 +358,7 @@ export function Ascii() {
       }
       setTxt(out);
     };
-  }, []);
+  }, [src]);
   return (
     <pre dir="ltr" className="grid h-full place-items-center overflow-hidden bg-black font-mono text-[6px] leading-[6px] text-[#c9ab74] sm:text-[7px] sm:leading-[7px]" aria-label="תמונת גלגלי שיניים בתווים">
       {txt}
@@ -367,11 +367,22 @@ export function Ascii() {
 }
 
 /* 10. Blueprint: technical drawing that draws itself */
-export function Blueprint() {
+export function Blueprint({ diameter, lug, loop = true }: { diameter?: string; lug?: string; loop?: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [go, setGo] = useState(loop);
+  useEffect(() => {
+    if (loop) return;
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => e.isIntersecting && (setGo(true), io.disconnect()), { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [loop]);
+  const anim = go ? (loop ? "draw 4s ease forwards infinite alternate" : "draw 2.6s ease forwards") : "none";
   return (
-    <div className="grid h-full place-items-center bg-[#0b2a4a] bg-[linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] bg-[size:24px_24px]">
-      <svg viewBox="0 0 300 300" className="h-[85%]" fill="none" stroke="#cfe6ff" strokeWidth="1.2">
-        <g style={{ strokeDasharray: 1200, strokeDashoffset: 1200, animation: "draw 4s ease forwards infinite alternate" }}>
+    <div ref={ref} className="grid h-full place-items-center bg-[#0b2a4a] bg-[linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] bg-[size:24px_24px]">
+      <svg viewBox="0 0 300 300" className="h-[85%]" fill="none" stroke="#cfe6ff" strokeWidth="1.2" direction="ltr" style={{ direction: "ltr" }} role="img" aria-label={["שרטוט טכני", diameter && `קוטר ${diameter} מילימטר`, lug && `רוחב רצועה ${lug} מילימטר`].filter(Boolean).join(", ")}>
+        <g style={{ strokeDasharray: 1200, strokeDashoffset: 1200, animation: anim }}>
           <circle cx="150" cy="150" r="90" />
           <circle cx="150" cy="150" r="76" />
           <rect x="120" y="20" width="60" height="40" />
@@ -379,11 +390,17 @@ export function Blueprint() {
           <rect x="240" y="140" width="16" height="20" />
           <line x1="150" y1="150" x2="150" y2="90" />
           <line x1="150" y1="150" x2="195" y2="150" />
-          <line x1="40" y1="150" x2="60" y2="150" />
           <line x1="40" y1="60" x2="40" y2="240" strokeDasharray="4 4" />
+          {lug && <line x1="120" y1="290" x2="180" y2="290" strokeDasharray="4 4" />}
         </g>
-        <text x="20" y="150" fill="#cfe6ff" stroke="none" fontSize="9" transform="rotate(-90 20 150)" textAnchor="middle">⌀ 40 mm</text>
-        <text x="150" y="295" fill="#cfe6ff" stroke="none" fontSize="9" textAnchor="middle">LUG 20 mm</text>
+        <g fill="#cfe6ff" stroke="none" fontSize="10" style={{ opacity: go ? 1 : 0, transition: "opacity 1s 1.8s" }}>
+          {diameter && (
+            <text x="28" y="150" transform="rotate(-90 28 150)" textAnchor="middle">⌀ {diameter} mm</text>
+          )}
+          {lug && (
+            <text x="150" y="285" textAnchor="middle">{lug} mm</text>
+          )}
+        </g>
       </svg>
       <style>{`@keyframes draw{to{stroke-dashoffset:0}}`}</style>
     </div>

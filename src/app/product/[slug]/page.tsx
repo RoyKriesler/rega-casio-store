@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import ProductDetail from "@/components/ProductDetail";
+import WatchAnatomy from "@/components/WatchAnatomy";
 import { brandByName } from "@/data/brands";
 import { collections, getProduct, products } from "@/data/products";
 
@@ -38,6 +39,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </nav>
 
       <ProductDetail product={product} />
+
+      {product.collection !== "straps" && (
+        <WatchAnatomy diameter={product.specs.find((x) => x.label === "קוטר")?.value.replace(/[^\d.]/g, "") || undefined} />
+      )}
 
       {brandByName(product.brand) && (
         <section className="mt-16 grid gap-6 border-y border-line py-8 md:grid-cols-[1fr_2fr]">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Assistant, Heebo, IBM_Plex_Mono } from "next/font/google";
+import { Assistant, Frank_Ruhl_Libre, Heebo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import Header from "@/components/Header";
@@ -7,6 +7,14 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import Cursor from "@/components/Cursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+
+const frank = Frank_Ruhl_Libre({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-frank",
+  display: "swap",
+});
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -36,7 +44,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${assistant.variable} ${plexMono.variable}`}>
+    <html lang="he" dir="rtl" className={`${frank.variable} ${heebo.variable} ${assistant.variable} ${plexMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Apply the saved theme before first paint to avoid a flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("rega-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="min-h-dvh">
         <CartProvider>
           <a
@@ -51,6 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <CartDrawer />
           <SmoothScroll />
           <Cursor />
+          <ThemeSwitcher />
         </CartProvider>
       </body>
     </html>

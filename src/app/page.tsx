@@ -4,6 +4,7 @@ import HeroPlaylist, { type Clip } from "@/components/HeroPlaylist";
 import Marquee from "@/components/Marquee";
 import { FadeIn, MaskReveal, SplitHeading } from "@/components/Reveal";
 import ScrubWatch from "@/components/ScrubWatch";
+import AsciiReveal from "@/components/AsciiReveal";
 import CollectionsAccordion, { type Panel } from "@/components/CollectionsAccordion";
 import FilmCards, { type Film } from "@/components/FilmCards";
 import PinnedStory from "@/components/PinnedStory";
@@ -23,20 +24,20 @@ const panelArt: Record<Collection, string> = {
 
 const heroClips: Clip[] = [
   { src: "/video/movement-1080.mp4", small: "/video/movement-540.mp4", poster: "/video/movement-poster.jpg" },
-  { src: "/video/film-rain.mp4", poster: "/art/film-rain.jpg" },
+  { src: "/art/film-rain.jpg", poster: "/art/film-rain.jpg", still: true },
   { src: "/video/dial-1080.mp4", small: "/video/dial-540.mp4", poster: "/video/dial-poster.jpg" },
-  { src: "/video/film-bezel.mp4", poster: "/art/film-bezel.jpg" },
-  { src: "/video/film-gears.mp4", poster: "/art/film-gears.jpg" },
-  { src: "/video/film-bracelet.mp4", poster: "/art/film-bracelet.jpg" },
-  { src: "/video/film-dial.mp4", poster: "/art/film-dial.jpg" },
+  { src: "/art/film-bezel.jpg", poster: "/art/film-bezel.jpg", still: true },
+  { src: "/art/film-gears.jpg", poster: "/art/film-gears.jpg", still: true },
+  { src: "/art/film-bracelet.jpg", poster: "/art/film-bracelet.jpg", still: true },
+  { src: "/art/film-dial.jpg", poster: "/art/film-dial.jpg", still: true },
 ];
 
 const films: Film[] = [
   { key: "movement", title: "המנגנון", caption: "מאות חלקים זעירים שעובדים יחד, ועדיין אפשר לראות כל אחד מהם זז.", poster: "/video/movement-poster.jpg", src: "/video/movement-1080.mp4" },
-  { key: "gears", title: "גלגלי שיניים", caption: "פליז, פלדה ואבני מסב אדומות, מקרוב.", poster: "/art/film-gears.jpg", src: "/video/film-gears.mp4" },
+  { key: "gears", title: "גלגלי שיניים", caption: "פליז, פלדה ואבני מסב אדומות, מקרוב.", poster: "/art/film-gears.jpg", src: "/art/film-gears.jpg", still: true },
   { key: "dial", title: "הלוח", caption: "ספרות רומיות, מופע ירח ומחוגים כחולים.", poster: "/video/dial-poster.jpg", src: "/video/dial-1080.mp4" },
-  { key: "crown", title: "הכתר", caption: "החלק הקטן שאיתו מכוונים את הזמן.", poster: "/art/film-crown.jpg", src: "/video/film-crown.mp4" },
-  { key: "strap", title: "הרצועה", caption: "עור שנתפר ביד, תפר אחרי תפר.", poster: "/art/film-strap.jpg", src: "/video/film-strap.mp4" },
+  { key: "crown", title: "הכתר", caption: "החלק הקטן שאיתו מכוונים את הזמן.", poster: "/art/film-crown.jpg", src: "/art/film-crown.jpg", still: true },
+  { key: "strap", title: "הרצועה", caption: "עור שנתפר ביד, תפר אחרי תפר.", poster: "/art/film-strap.jpg", src: "/art/film-strap.jpg", still: true },
 ];
 
 export default function Home() {
@@ -95,9 +96,9 @@ export default function Home() {
       </section>
 
       {/* Collections accordion */}
-      <section className="bg-black px-1 pt-24 pb-1">
+      <section className="bg-paper px-1 pt-24 pb-1">
         <div className="mx-auto mb-12 max-w-3xl px-4 text-center">
-          <SplitHeading text="הקולקציות" className="font-display text-5xl font-bold tracking-tight text-white sm:text-7xl" />
+          <SplitHeading text="הקולקציות" className="font-display text-5xl font-bold tracking-tight sm:text-7xl" />
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
             משעון ספורט עם צמיד משולב, דרך שעון שדה על נאטו ועד שעון ערב עם זכוכית קמורה. שש משפחות, כל אחת לחיים אחרים.
           </p>
@@ -117,6 +118,19 @@ export default function Home() {
         <FadeIn>
           <FilmCards films={films} />
         </FadeIn>
+      </section>
+
+      {/* ASCII reveal */}
+      <section className="border-y border-line">
+        <div className="relative">
+          <AsciiReveal src="/art/film-gears.jpg" label="תמונת גלגלי שיניים של מנגנון, מצוירת בתווים" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent px-4 pt-24 pb-10 sm:px-8">
+            <div className="mx-auto max-w-7xl">
+              <p className="text-[13px] font-semibold tracking-wide text-gold">מתחת לזכוכית</p>
+              <p className="mt-2 font-display text-3xl font-bold sm:text-5xl">הזיזו את העכבר כדי לראות את המנגנון.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Pinned story */}

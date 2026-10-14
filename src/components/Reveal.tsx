@@ -91,7 +91,7 @@ export function MaskReveal({ children, className = "" }: { children: ReactNode; 
   return (
     <div
       ref={ref}
-      className={`relative overflow-hidden transition-[clip-path] duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${className}`}
+      className={`overflow-hidden transition-[clip-path] duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${className || "relative"}`}
       style={{ clipPath: inView ? "inset(0% 0% 0% 0%)" : "inset(12% 8% 12% 8%)" }}
     >
       <div ref={inner} className="absolute inset-0 will-change-transform">

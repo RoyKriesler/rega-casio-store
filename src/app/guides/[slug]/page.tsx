@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { guideBySlug, guides } from "@/data/guides";
+import { Blueprint } from "@/components/lab/Effects";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -34,6 +35,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </nav>
       <h1 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight">{g.title}</h1>
       <p className="mt-4 text-xl leading-relaxed text-ink-soft">{g.summary}</p>
+
+      {g.slug === "size" && (
+        <div className="mt-10 h-[360px] overflow-hidden rounded-2xl">
+          <Blueprint diameter="40" lug="20" loop={false} />
+        </div>
+      )}
 
       <div className="mt-10 space-y-8 border-t border-line pt-8">
         {g.sections.map((s) => (

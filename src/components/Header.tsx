@@ -96,9 +96,9 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 text-white transition-[transform,background-color] duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-[transform,background-color,color] duration-500 ${
           hidden && !open ? "-translate-y-full" : "translate-y-0"
-        } ${transparent ? "bg-transparent" : "bg-black"}`}
+        } ${transparent ? "bg-transparent text-white" : "border-b border-line bg-paper text-ink"}`}
       >
         <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-8">
           <div className="flex items-center gap-6">
@@ -110,15 +110,15 @@ export default function Header() {
               className="group flex h-11 cursor-pointer items-center gap-3"
             >
               <span className="relative block h-3 w-7" aria-hidden>
-                <span className={`absolute inset-x-0 top-0 h-px bg-white transition-transform duration-300 ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-                <span className={`absolute inset-x-0 bottom-0 h-px bg-white transition-transform duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+                <span className={`absolute inset-x-0 top-0 h-px bg-current transition-transform duration-300 ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+                <span className={`absolute inset-x-0 bottom-0 h-px bg-current transition-transform duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
               </span>
               <span className="hidden text-[14px] tracking-wide sm:inline">{open ? "סגירה" : "תפריט"}</span>
             </button>
             <nav aria-label="קיצורים" className="hidden lg:block">
-              <ul className="flex gap-6 text-[14px] text-white/80">
-                <li><Link href="/shop" className="hover:text-white">שעונים</Link></li>
-                <li><Link href="/brands" className="hover:text-white">מותגים</Link></li>
+              <ul className="flex gap-6 text-[14px] opacity-80">
+                <li><Link href="/shop" className="hover:opacity-70">שעונים</Link></li>
+                <li><Link href="/brands" className="hover:opacity-70">מותגים</Link></li>
               </ul>
             </nav>
           </div>
@@ -135,7 +135,7 @@ export default function Header() {
             >
               {Icon.bag}
               {ready && count > 0 && (
-                <span className="absolute end-1 top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-white px-1 text-[10px] font-bold text-black">
+                <span className="absolute end-1 top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
                   {count}
                 </span>
               )}
@@ -144,7 +144,7 @@ export default function Header() {
         </div>
 
         {/* Search bar */}
-        <div className={`grid overflow-hidden bg-black transition-[grid-template-rows] duration-500 ${searching ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div className={`grid overflow-hidden bg-paper text-ink transition-[grid-template-rows] duration-500 ${searching ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
           <form
             role="search"
             className="min-h-0"
@@ -155,7 +155,7 @@ export default function Header() {
               setSearching(false);
             }}
           >
-            <div className="mx-auto flex max-w-[1600px] items-center gap-4 border-t border-white/10 px-4 py-6 sm:px-8">
+            <div className="mx-auto flex max-w-[1600px] items-center gap-4 border-t border-line px-4 py-6 sm:px-8">
               <label htmlFor="site-search" className="sr-only">
                 חיפוש שעון
               </label>
@@ -166,9 +166,9 @@ export default function Header() {
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="מה מחפשים? מותג, דגם או סגנון"
-                className="w-full bg-transparent font-display text-2xl text-white outline-none placeholder:text-white/40 sm:text-3xl"
+                className="w-full bg-transparent font-display text-2xl text-ink outline-none placeholder:text-muted sm:text-3xl"
               />
-              <button type="submit" tabIndex={searching ? 0 : -1} className="shrink-0 border border-white/50 px-5 py-2 text-[14px] hover:bg-white hover:text-black">
+              <button type="submit" tabIndex={searching ? 0 : -1} className="shrink-0 border border-line-strong px-5 py-2 text-[14px] hover:bg-ink hover:text-paper">
                 חיפוש
               </button>
             </div>
@@ -179,7 +179,7 @@ export default function Header() {
       {/* Full-screen menu */}
       <div
         id="site-menu"
-        className={`fixed inset-0 z-40 bg-black text-white transition-[opacity,visibility] duration-500 ${open ? "visible opacity-100" : "invisible opacity-0"}`}
+        className={`fixed inset-0 z-40 bg-paper text-ink transition-[opacity,visibility] duration-500 ${open ? "visible opacity-100" : "invisible opacity-0"}`}
         aria-hidden={!open}
       >
         <div className="mx-auto grid h-full max-w-[1600px] gap-10 px-4 pt-[104px] pb-10 sm:px-8 lg:grid-cols-[1.1fr_1fr]">
@@ -197,21 +197,21 @@ export default function Header() {
                     }`}
                     style={{ transitionDelay: open ? `${120 + i * 55}ms` : "0ms" }}
                   >
-                    <span className="font-mono text-xs font-normal text-white/40">0{i + 1}</span>
-                    <span className="text-white/60 transition-colors group-hover:text-white">{m.label}</span>
+                    <span className="font-mono text-xs font-normal text-muted">0{i + 1}</span>
+                    <span className="text-ink/55 transition-colors group-hover:text-ink">{m.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-6 text-[15px] text-white/70">
+            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-6 text-[15px] text-ink-soft">
               {secondary.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} tabIndex={open ? 0 : -1} className="hover:text-white">
+                  <Link href={s.href} tabIndex={open ? 0 : -1} className="hover:text-ink">
                     {s.label}
                   </Link>
                 </li>
               ))}
-              <li className="text-white/40">משלוח חינם מעל 500 ש״ח · 14 יום להחזרה</li>
+              <li className="text-muted">משלוח חינם מעל 500 ש״ח · 14 יום להחזרה</li>
             </ul>
           </nav>
           <div className="relative hidden overflow-hidden lg:block">

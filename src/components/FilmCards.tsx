@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-export type Film = { key: string; title: string; caption: string; poster: string; src: string };
+export type Film = { key: string; title: string; caption: string; poster: string; src: string; still?: boolean };
 
 // Soft, rounded "film" cards with a caption in the corner and a small watch button.
 // Hovering a card previews the clip; clicking opens it full screen.
@@ -35,7 +35,14 @@ export default function FilmCards({ films }: { films: Film[] }) {
       >
         {open && (
           <div className="relative">
-            <video src={open.src} poster={open.poster} autoPlay loop muted playsInline controls className="aspect-video w-full rounded-2xl bg-black object-cover" />
+            {open.still ? (
+              <div className="aspect-video w-full overflow-hidden rounded-2xl bg-black">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={open.src} alt="" className="h-full w-full object-cover" style={{ animation: "kenburnsA 9000ms linear both" }} />
+              </div>
+            ) : (
+              <video src={open.src} poster={open.poster} autoPlay loop muted playsInline controls className="aspect-video w-full rounded-2xl bg-black object-cover" />
+            )}
             <div className="mt-4 flex items-center justify-between gap-4 text-white">
               <p className="text-lg font-semibold">{open.title}</p>
               <button type="button" onClick={() => setOpen(null)} className="cursor-pointer border border-white/60 px-4 py-2 text-[13px] hover:bg-white hover:text-black">
@@ -73,8 +80,20 @@ function FilmCard({ film, wide, onOpen }: { film: Film; wide: boolean; onOpen: (
       }`}
       aria-label={`${film.title}, לצפייה בסרט`}
     >
-      <Image src={film.poster} alt="" fill sizes="(min-width: 768px) 66vw, 100vw" className="object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-0" />
-      <video ref={vid} src={film.src} muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
+      {film.still ? (
+        <Image
+          src={film.poster}
+          alt=""
+          fill
+          sizes="(min-width: 768px) 66vw, 100vw"
+          className="object-cover transition-transform duration-[6000ms] ease-out will-change-transform group-hover:scale-[1.12]"
+        />
+      ) : (
+        <>
+          <Image src={film.poster} alt="" fill sizes="(min-width: 768px) 66vw, 100vw" className="object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-0" />
+          <video ref={vid} src={film.src} muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />
+        </>
+      )}
       <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-[#e6e4df] via-[#e6e4df]/70 to-transparent" />
       <div className="relative flex w-full items-start justify-between gap-6 p-6 md:p-8">
         <p className="max-w-sm text-[17px] leading-snug md:text-xl">
