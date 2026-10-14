@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import Cursor from "@/components/Cursor";
 import SmoothScroll from "@/components/SmoothScroll";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const frank = Frank_Ruhl_Libre({
   subsets: ["hebrew", "latin"],
@@ -46,12 +45,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="he" dir="rtl" className={`${frank.variable} ${heebo.variable} ${assistant.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <head>
-        {/* Apply the saved theme before first paint to avoid a flash. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("rega-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}`,
-          }}
-        />
+        {/* Champagne is the only theme now; drop any theme a visitor picked earlier. */}
+        <script dangerouslySetInnerHTML={{ __html: `try{localStorage.removeItem("rega-theme")}catch(e){}` }} />
       </head>
       <body className="min-h-dvh">
         <CartProvider>
@@ -67,7 +62,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <CartDrawer />
           <SmoothScroll />
           <Cursor />
-          <ThemeSwitcher />
         </CartProvider>
       </body>
     </html>
