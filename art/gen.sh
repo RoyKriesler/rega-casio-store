@@ -17,4 +17,8 @@ gen statement 1600 896 18 "Macro cinematic photograph of a watchmaker's hands ho
 gen film-gears 1600 896 19 "Extreme macro photograph of brass watch gears and small red jewel bearings inside a mechanical movement, dramatic side light, black background"
 gen film-crown 1600 896 20 "Macro photograph of a polished steel watch crown and case edge covered in water droplets, dark moody light, black background"
 gen film-strap 1600 896 21 "Macro photograph of a craftsman stitching a tan leather watch strap by hand with white thread, warm light, dark background"
+gen film-bezel 1600 896 22 "Macro photograph of a black ceramic dive watch bezel with luminous markers and steel teeth, shallow depth of field, cool blue rim light, dark background"
+gen film-rain 1600 896 23 "Macro photograph of rain drops falling on the sapphire crystal of a wristwatch with a dark blue dial and steel hands, dark moody background, cinematic"
+gen film-bracelet 1600 896 24 "Macro photograph of a polished and brushed stainless steel watch bracelet with a thin line of warm light sweeping across the links, dark background"
+gen film-dial 1600 896 25 "Extreme macro photograph of a sunburst green watch dial with applied polished indices and a thin seconds hand, warm studio light, shallow depth of field"
 echo ALL_DONE

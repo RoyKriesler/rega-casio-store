@@ -7,7 +7,7 @@ for f in art/raw/*.png; do
   n=$(basename $f .png)
   [ -f public/art/$n.jpg ] || ffmpeg -v error -y -i $f -vf "scale='min(1600,iw)':-2" -q:v 3 public/art/$n.jpg
 done
-for n in film-gears film-crown film-strap; do
+for n in film-gears film-crown film-strap film-bezel film-rain film-bracelet film-dial; do
   [ -f art/raw/$n.png ] || continue
   [ -f public/video/$n.mp4 ] && continue
   ffmpeg -v error -y -loop 1 -i art/raw/$n.png \

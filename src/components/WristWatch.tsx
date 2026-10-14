@@ -19,24 +19,26 @@ function hand(angleDeg: number, length: number, tail: number) {
   };
 }
 
-export default function WristWatch() {
-  const [now, setNow] = useState<Date | null>(null);
+export default function WristWatch({ at }: { at?: Date }) {
+  const [live, setLive] = useState<Date | null>(null);
+  const now = at ?? live;
 
   useEffect(() => {
+    if (at) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setNow(new Date());
+    setLive(new Date());
     if (reduce) {
-      const t = setInterval(() => setNow(new Date()), 1000);
+      const t = setInterval(() => setLive(new Date()), 1000);
       return () => clearInterval(t);
     }
     let raf = 0;
     const loop = () => {
-      setNow(new Date());
+      setLive(new Date());
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [at]);
 
   const h = now ? now.getHours() % 12 : 10;
   const m = now ? now.getMinutes() : 10;

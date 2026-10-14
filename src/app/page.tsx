@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import BgVideo from "@/components/BgVideo";
+import HeroPlaylist, { type Clip } from "@/components/HeroPlaylist";
+import Marquee from "@/components/Marquee";
+import { FadeIn, MaskReveal, SplitHeading } from "@/components/Reveal";
+import ScrubWatch from "@/components/ScrubWatch";
 import CollectionsAccordion, { type Panel } from "@/components/CollectionsAccordion";
 import FilmCards, { type Film } from "@/components/FilmCards";
 import PinnedStory from "@/components/PinnedStory";
 import ProductCard from "@/components/ProductCard";
-import WristWatch from "@/components/WristWatch";
 import { brandInfo, productsOfBrand } from "@/data/brands";
 import { guides } from "@/data/guides";
 import { collections, getProduct, products, type Collection } from "@/data/products";
@@ -18,6 +20,16 @@ const panelArt: Record<Collection, string> = {
   gshock: "/art/col-gshock.jpg",
   straps: "/art/col-straps.jpg",
 };
+
+const heroClips: Clip[] = [
+  { src: "/video/movement-1080.mp4", small: "/video/movement-540.mp4", poster: "/video/movement-poster.jpg" },
+  { src: "/video/film-rain.mp4", poster: "/art/film-rain.jpg" },
+  { src: "/video/dial-1080.mp4", small: "/video/dial-540.mp4", poster: "/video/dial-poster.jpg" },
+  { src: "/video/film-bezel.mp4", poster: "/art/film-bezel.jpg" },
+  { src: "/video/film-gears.mp4", poster: "/art/film-gears.jpg" },
+  { src: "/video/film-bracelet.mp4", poster: "/art/film-bracelet.jpg" },
+  { src: "/video/film-dial.mp4", poster: "/art/film-dial.jpg" },
+];
 
 const films: Film[] = [
   { key: "movement", title: "המנגנון", caption: "מאות חלקים זעירים שעובדים יחד, ועדיין אפשר לראות כל אחד מהם זז.", poster: "/video/movement-poster.jpg", src: "/video/movement-1080.mp4" },
@@ -45,15 +57,18 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative -mt-[65px] flex h-[100svh] min-h-[600px] items-end overflow-hidden bg-black text-white lg:-mt-[112px]">
-        <BgVideo name="movement" />
+      <section className="relative -mt-[72px] flex h-[100svh] min-h-[600px] items-end overflow-hidden bg-black text-white">
+        <HeroPlaylist clips={heroClips} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/30 to-transparent" />
         <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pb-14 sm:px-8 md:flex-row md:items-end md:justify-between md:pb-20">
           <div className="max-w-2xl">
-            <h1 className="font-display text-5xl leading-[1.02] font-bold tracking-tight text-balance [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-7xl">
-              שעונים שבחרנו אחד אחד
-            </h1>
+            <SplitHeading
+              as="h1"
+              instant
+              text="שעונים שבחרנו אחד אחד"
+              className="font-display text-5xl leading-[1.02] font-bold tracking-tight [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-8xl"
+            />
             <p className="mt-5 text-lg text-white/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
               {watches.length} שעונים מ־{brands.length} מותגים, מקסיו של 79 שקל ועד גרנד סייקו.
             </p>
@@ -65,11 +80,13 @@ export default function Home() {
       </section>
 
       {/* Lifestyle full-bleed */}
-      <section className="relative flex h-[90svh] min-h-[520px] items-end overflow-hidden text-white">
-        <Image src="/art/hero-sea.jpg" alt="אדם בחליפת צלילה עומד על סלע מול ים סוער" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+      <section className="relative flex h-[95svh] min-h-[520px] items-end text-white">
+        <MaskReveal className="absolute inset-0">
+          <Image src="/art/hero-sea.jpg" alt="אדם בחליפת צלילה עומד על סלע מול ים סוער" fill sizes="100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+        </MaskReveal>
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-8 md:pb-20">
-          <h2 className="font-display text-4xl font-bold tracking-tight sm:text-6xl">נבנו לעומק, ענודים ביום־יום</h2>
+          <SplitHeading text="נבנו לעומק, ענודים ביום־יום" className="font-display text-4xl font-bold tracking-tight sm:text-7xl" />
           <p className="mt-4 max-w-xl text-lg text-white/85">צוללנים, שעוני שדה ושעונים שעומדים בכל מה שתעשו איתם.</p>
           <Link href="/shop?c=sport" className="mt-8 inline-block bg-white px-7 py-3.5 text-[14px] font-semibold text-black hover:bg-white/85">
             לשעוני הספורט
@@ -80,7 +97,7 @@ export default function Home() {
       {/* Collections accordion */}
       <section className="bg-black px-1 pt-24 pb-1">
         <div className="mx-auto mb-12 max-w-3xl px-4 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">הקולקציות</h2>
+          <SplitHeading text="הקולקציות" className="font-display text-5xl font-bold tracking-tight text-white sm:text-7xl" />
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
             משעון ספורט עם צמיד משולב, דרך שעון שדה על נאטו ועד שעון ערב עם זכוכית קמורה. שש משפחות, כל אחת לחיים אחרים.
           </p>
@@ -93,11 +110,13 @@ export default function Home() {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <p className="text-[13px] font-semibold tracking-wide text-gold">סרטים</p>
-            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight">החלקים הקטנים הם הכוכבים</h2>
+            <SplitHeading text="החלקים הקטנים הם הכוכבים" className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl" />
           </div>
           <p className="max-w-sm text-[15px] text-ink-soft">עברו עם העכבר על סרט כדי לראות אותו זז, או לחצו כדי לצפות במסך מלא.</p>
         </div>
-        <FilmCards films={films} />
+        <FadeIn>
+          <FilmCards films={films} />
+        </FadeIn>
       </section>
 
       {/* Pinned story */}
@@ -110,7 +129,7 @@ export default function Home() {
       {/* Picks rail */}
       <section className="py-24">
         <div className="mx-auto flex max-w-7xl items-end justify-between gap-6 px-4 sm:px-8">
-          <h2 className="font-display text-4xl font-bold tracking-tight">הבחירות שלנו</h2>
+          <SplitHeading text="הבחירות שלנו" className="font-display text-4xl font-bold tracking-tight sm:text-6xl" />
           <Link href="/shop" className="border-b border-ink/50 pb-1 text-[14px] font-semibold hover:border-ink">
             לכל השעונים
           </Link>
@@ -124,28 +143,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Live watch */}
-      <section className="border-y border-line bg-sand">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-24 sm:px-8 md:grid-cols-2">
-          <div className="min-w-0">
-            <p className="text-[13px] font-semibold tracking-wide text-gold">עכשיו</p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">זו השעה אצלך, ממש עכשיו.</h2>
-            <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink-soft">
-              לא בטוחים איזה שעון ימדוד אותה? המדריכים שלנו יעזרו לבחור מנגנון, גודל ורצועה.
-            </p>
-            <Link href="/guides" className="mt-8 inline-block bg-cta px-7 py-3.5 text-[14px] font-semibold text-on-cta hover:bg-cta-hover">
-              למדריכים
-            </Link>
-          </div>
-          <div className="min-w-0 rounded-2xl bg-[#e6e4df] py-10">
-            <WristWatch />
-          </div>
-        </div>
-      </section>
+      {/* Scroll-driven watch */}
+      <ScrubWatch />
 
       {/* Brands */}
+      <section className="border-y border-line">
+        <Marquee items={brands.map((b) => b.name.toUpperCase())} />
+      </section>
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-8">
-        <h2 className="font-display text-4xl font-bold tracking-tight">המותגים</h2>
+        <SplitHeading text="המותגים" className="font-display text-4xl font-bold tracking-tight sm:text-6xl" />
         <ul className="mt-10 grid grid-cols-2 border-s border-t border-line sm:grid-cols-3 lg:grid-cols-5">
           {brands.map((b) => (
             <li key={b.slug} className="border-e border-b border-line">
@@ -163,7 +169,7 @@ export default function Home() {
       {/* Guides */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-8">
-          <h2 className="font-display text-4xl font-bold tracking-tight">לפני שבוחרים</h2>
+          <SplitHeading text="לפני שבוחרים" className="font-display text-4xl font-bold tracking-tight sm:text-6xl" />
           <ul className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {guides.map((g, i) => (
               <li key={g.slug}>

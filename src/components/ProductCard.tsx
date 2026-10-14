@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatPrice, photoUrl, type Product } from "@/data/products";
+import Tilt from "./Tilt";
 
 export default function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
   const photo = product.photos[0];
@@ -8,6 +9,7 @@ export default function ProductCard({ product, priority }: { product: Product; p
   const label = product.compareAt ? "מבצע" : product.badge;
   return (
     <Link href={`/product/${product.slug}`} className="group block">
+      <Tilt>
       <div className="relative aspect-square overflow-hidden bg-sand">
         <Image
           src={photoUrl(photo.id, 800, 800)}
@@ -15,9 +17,10 @@ export default function ProductCard({ product, priority }: { product: Product; p
           fill
           priority={priority}
           sizes="(min-width: 1024px) 25vw, 50vw"
-          className="object-cover transition-opacity duration-300 group-hover:opacity-90"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
       </div>
+      </Tilt>
       <div className="mt-3 space-y-1">
         <div className="flex items-center justify-between gap-2">
           <p dir="ltr" className="truncate font-mono text-xs text-muted">

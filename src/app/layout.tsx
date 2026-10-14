@@ -5,6 +5,8 @@ import { CartProvider } from "@/lib/cart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
+import Cursor from "@/components/Cursor";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -43,13 +45,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           >
             דילוג לתוכן
           </a>
-          <div className="border-b border-line bg-black px-4 py-2 text-center text-[13px] text-ink-soft">
-            משלוח חינם מעל 500 ש״ח · אחריות יבואן לשנתיים · 14 יום להחזרה
-          </div>
           <Header />
-          <main id="main">{children}</main>
+          <main id="main" className="pt-[72px]">{children}</main>
           <Footer />
           <CartDrawer />
+          <SmoothScroll />
+          <Cursor />
         </CartProvider>
       </body>
     </html>

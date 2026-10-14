@@ -22,6 +22,10 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 ## Conventions
 - `<html lang="he" dir="rtl">`. Use logical Tailwind utilities (`ps-`, `pe-`, `ms-`, `me-`, `start-`, `end-`), never `pl-/pr-/left-/right-` for layout.
 - Look (2026-10-14 evening, Roy loved panerai.com + a NOMOS "films" card): dark Panerai-style site. Black `#0a0a0a`, bold Heebo headlines, white square CTAs, full-screen video hero, full-bleed lifestyle image, horizontal collections accordion (`CollectionsAccordion.tsx`), Nomos-style rounded light film cards with hover preview + modal player (`FilmCards.tsx`), pinned scroll story (`PinnedStory.tsx`). Text over video/images must keep >= 4.5:1 worst-frame contrast.
+- Header (2026-10-14 night, Roy disliked the old one): fixed black bar, hides on scroll down; menu button opens a full-screen menu with a hover image preview; search slides down. `<main>` has `pt-[72px]`, home hero uses `-mt-[72px]`.
+- Hero video: `HeroPlaylist.tsx` crossfades between 7 clips in random order per visit (Roy: visible looping is unpleasant).
+- Motion layer: Lenis smooth scroll, `Reveal.tsx` (SplitHeading word reveal, FadeIn, MaskReveal), `Marquee.tsx`, `Tilt.tsx` on product cards, `Cursor.tsx`, `ScrubWatch.tsx` (scroll turns the hands). All respect prefers-reduced-motion. Hero headline uses CSS-only animation so it never depends on hydration.
+- `/lab`: 12 live effect demos from an Instagram list Roy sent (particles, split-flap, wireframe 3D, blueprint, holographic, neon, kinetic type, glass, ASCII, halftone, liquid, gradient mesh). Roy picks by number which go into the site.
 - Generated art: `art/gen.sh` (mflux FLUX.2 klein 4B, local, free) -> `art/raw/*.png`; `art/export.sh` -> `public/art/*.jpg` and Ken Burns clips `public/video/film-*.mp4`. Atmosphere only: never generate a picture that stands in for a real product listing. Prompts end with "no text, no logo".
 - Fonts: Heebo (display, bold), Assistant body, IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
 - No emoji as icons; inline SVG only.
