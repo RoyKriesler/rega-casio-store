@@ -57,27 +57,29 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative -mt-[72px] flex h-[100svh] min-h-[600px] items-end overflow-hidden bg-black text-white">
-        <HeroPlaylist clips={heroClips} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/30 to-transparent" />
-        <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pb-14 sm:px-8 md:flex-row md:items-end md:justify-between md:pb-20">
-          <div className="max-w-2xl">
-            <SplitHeading
-              as="h1"
-              instant
-              text="שעונים שבחרנו אחד אחד"
-              className="font-display text-5xl leading-[1.02] font-bold tracking-tight [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-8xl"
-            />
-            <p className="mt-5 text-lg text-white/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-              {watches.length} שעונים מ־{brands.length} מותגים, מקסיו של 79 שקל ועד גרנד סייקו.
-            </p>
+      {/* Hero: ASCII movement, the real photo shows under the cursor */}
+      <section className="relative -mt-[72px] text-white">
+        <AsciiReveal src="/art/film-gears.jpg" label="מנגנון של שעון מצויר בתווים, והתמונה האמיתית נחשפת מתחת לסמן" className="h-[100svh] min-h-[600px]" radius={210}>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/75 to-transparent pt-40">
+            <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pb-14 sm:px-8 md:flex-row md:items-end md:justify-between md:pb-20">
+              <div className="max-w-2xl">
+                <p className="text-[13px] font-semibold tracking-wide text-[#c9ab74]">הזיזו את העכבר כדי לראות את המנגנון</p>
+                <SplitHeading
+                  as="h1"
+                  instant
+                  text="שעונים שבחרנו אחד אחד"
+                  className="mt-4 font-display text-5xl leading-[1.02] font-bold tracking-tight text-white sm:text-8xl"
+                />
+                <p className="mt-5 text-lg text-white/90">
+                  {watches.length} שעונים מ־{brands.length} מותגים, מקסיו של 79 שקל ועד גרנד סייקו.
+                </p>
+              </div>
+              <Link href="/shop" className="pointer-events-auto self-start bg-white px-8 py-4 text-[15px] font-semibold text-black transition-colors hover:bg-white/85 md:self-auto">
+                לגלות את הקולקציה
+              </Link>
+            </div>
           </div>
-          <Link href="/shop" className="self-start bg-white px-8 py-4 text-[15px] font-semibold text-black transition-colors hover:bg-white/85 md:self-auto">
-            לגלות את הקולקציה
-          </Link>
-        </div>
+        </AsciiReveal>
       </section>
 
       {/* Lifestyle full-bleed */}
@@ -120,16 +122,13 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      {/* ASCII reveal */}
-      <section className="border-y border-line">
-        <div className="relative">
-          <AsciiReveal src="/art/film-gears.jpg" label="תמונת גלגלי שיניים של מנגנון, מצוירת בתווים" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent px-4 pt-24 pb-10 sm:px-8">
-            <div className="mx-auto max-w-7xl">
-              <p className="text-[13px] font-semibold tracking-wide text-gold">מתחת לזכוכית</p>
-              <p className="mt-2 font-display text-3xl font-bold sm:text-5xl">הזיזו את העכבר כדי לראות את המנגנון.</p>
-            </div>
-          </div>
+      {/* Moving pictures: crossfading clips and slow-zoom stills */}
+      <section className="relative flex h-[85svh] min-h-[520px] items-end overflow-hidden bg-black text-white">
+        <HeroPlaylist clips={heroClips} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/30" />
+        <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-8 md:pb-20">
+          <p className="text-[13px] font-semibold tracking-wide text-[#c9ab74]">בתנועה</p>
+          <SplitHeading text="כל שנייה, מקרוב." className="mt-3 font-display text-4xl font-bold tracking-tight text-white sm:text-7xl" />
         </div>
       </section>
 
