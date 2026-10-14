@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import { brandByName } from "@/data/brands";
 import { brands, collections, products, type Collection } from "@/data/products";
 
 
@@ -18,31 +19,33 @@ const bands = {
 } as const;
 type Band = keyof typeof bands;
 
-type Params = { c?: string; s?: string; p?: string; b?: string };
+type Params = { c?: string; s?: string; p?: string; b?: string; q?: string };
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<Params> }): Promise<Metadata> {
-  const { c, b } = await searchParams;
+  const { c, b, q } = await searchParams;
+  if (q) return { title: `חיפוש: ${q}` };
   if (b && brands.includes(b)) return { title: b };
   if (c && c in collections) return { title: collections[c as Collection].name };
   return { title: "כל השעונים" };
 }
 
 export default async function ShopPage({ searchParams }: { searchParams: Promise<Params> }) {
-  const { c, s, p, b } = await searchParams;
+  const { c, s, p, b, q } = await searchParams;
+  const query = q?.trim().toLowerCase() || undefined;
   const active = c && c in collections ? (c as Collection) : undefined;
   const sort: Sort = s && s in sorts ? (s as Sort) : "featured";
   const band = p && p in bands ? (p as Band) : undefined;
   const brand = b && brands.includes(b) ? b : undefined;
 
-  let list = products.filter((x) => (!active || x.collection === active) && (!band || bands[band].test(x.price)) && (!brand || x.brand === brand));
+  let list = products.filter((x) => (!active || x.collection === active) && (!band || bands[band].test(x.price)) && (!brand || x.brand === brand) && (!query || [x.brand, brandByName(x.brand)?.he ?? "", x.name, x.model, x.tagline, collections[x.collection].name].join(" ").toLowerCase().includes(query)));
   if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
   if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
 
   const href = (next: Params) => {
-    const merged = { c: active, s: sort === "featured" ? undefined : sort, p: band, b: brand, ...next };
-    const q = new URLSearchParams();
-    for (const [k, v] of Object.entries(merged)) if (v && v !== "featured") q.set(k, v);
-    const str = q.toString();
+    const merged = { c: active, s: sort === "featured" ? undefined : sort, p: band, b: brand, q: q?.trim() || undefined, ...next };
+    const qs = new URLSearchParams();
+    for (const [k, v] of Object.entries(merged)) if (v && v !== "featured") qs.set(k, v);
+    const str = qs.toString();
     return str ? `/shop?${str}` : "/shop";
   };
 
@@ -57,7 +60,9 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
         <span className="text-ink">{active ? collections[active].name : "כל השעונים"}</span>
       </nav>
       <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight">
-        {brand ? (
+        {query ? (
+          <>תוצאות עבור „{q}”</>
+        ) : brand ? (
           <span dir="ltr">{brand}</span>
         ) : active ? (
           collections[active].name

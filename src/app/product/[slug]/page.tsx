@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import ProductDetail from "@/components/ProductDetail";
+import { brandByName } from "@/data/brands";
 import { collections, getProduct, products } from "@/data/products";
 
 export function generateStaticParams() {
@@ -37,6 +38,24 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </nav>
 
       <ProductDetail product={product} />
+
+      {brandByName(product.brand) && (
+        <section className="mt-16 grid gap-6 border-y border-line py-8 md:grid-cols-[1fr_2fr]">
+          <div>
+            <p className="text-sm text-muted">על המותג</p>
+            <p dir="ltr" className="mt-1 text-end font-mono text-xl tracking-wide">{product.brand.toUpperCase()}</p>
+            <p className="mt-1 text-sm text-muted">
+              {brandByName(product.brand)!.country}, מאז {brandByName(product.brand)!.founded}
+            </p>
+          </div>
+          <div>
+            <p className="text-[17px] leading-relaxed text-ink-soft">{brandByName(product.brand)!.story}</p>
+            <Link href={`/brands/${brandByName(product.brand)!.slug}`} className="mt-3 inline-block text-[15px] font-semibold text-accent hover:underline">
+              לכל הדגמים של המותג
+            </Link>
+          </div>
+        </section>
+      )}
 
       <section className="mt-24">
         <h2 className="mb-8 font-display text-2xl font-semibold">אולי תאהבו גם</h2>

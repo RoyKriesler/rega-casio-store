@@ -24,6 +24,8 @@ export default function Footer() {
         <div>
           <h3 className="mb-3 text-sm font-semibold">מידע</h3>
           <ul className="space-y-2 text-[15px] text-ink-soft">
+            <li><Link href="/brands" className="hover:text-ink hover:underline">מותגים</Link></li>
+            <li><Link href="/guides" className="hover:text-ink hover:underline">מדריכים</Link></li>
             <li><Link href="/cart" className="hover:text-ink hover:underline">סל קניות</Link></li>
             <li><Link href="/credits" className="hover:text-ink hover:underline">קרדיט לצלמים</Link></li>
           </ul>

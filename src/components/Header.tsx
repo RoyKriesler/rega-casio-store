@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { useCart } from "@/lib/cart";
 import { CloseIcon, MenuIcon } from "./icons";
@@ -14,13 +14,54 @@ const nav = [
   { href: "/shop?c=vintage", c: "vintage", label: "דיגיטלי" },
   { href: "/shop?c=gshock", c: "gshock", label: "ג׳י־שוק" },
   { href: "/shop?c=straps", c: "straps", label: "רצועות" },
+  { href: "/brands", c: "__brands", label: "מותגים" },
+  { href: "/guides", c: "__guides", label: "מדריכים" },
 ];
 
 export function Logo() {
   return (
-    <Link href="/" className="font-display text-[22px] font-semibold tracking-tight" aria-label="רגע, לדף הבית">
+    <Link href="/" className="font-display text-[26px] font-semibold tracking-tight" aria-label="רגע, לדף הבית">
       רגע
     </Link>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
+  );
+}
+
+function SearchBox({ onDone }: { onDone?: () => void }) {
+  const router = useRouter();
+  const params = useSearchParams();
+  const [q, setQ] = useState(params.get("q") ?? "");
+  return (
+    <form
+      role="search"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const v = q.trim();
+        router.push(v ? `/shop?q=${encodeURIComponent(v)}` : "/shop");
+        onDone?.();
+      }}
+      className="flex h-10 w-full items-center gap-2 border-b border-line-strong focus-within:border-ink"
+    >
+      <SearchIcon />
+      <label htmlFor="site-search" className="sr-only">
+        חיפוש שעון
+      </label>
+      <input
+        id="site-search"
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="חיפוש לפי מותג, דגם או סגנון"
+        className="w-full bg-transparent text-[15px] outline-none placeholder:text-muted"
+      />
+    </form>
   );
 }
 
@@ -28,9 +69,10 @@ function NavLinks({ mobile }: { mobile?: boolean }) {
   const pathname = usePathname();
   const c = useSearchParams().get("c");
   return (
-    <ul className={mobile ? "mx-auto max-w-6xl px-4 py-2" : "flex gap-6 text-[15px]"}>
+    <ul className={mobile ? "px-4 py-2" : "flex justify-center gap-7 text-[14px]"}>
       {nav.map((n) => {
-        const active = pathname === "/shop" && c === n.c;
+        const active =
+          n.c === "__brands" ? pathname.startsWith("/brands") : n.c === "__guides" ? pathname.startsWith("/guides") : pathname === "/shop" && c === n.c;
         return (
           <li key={n.href}>
             <Link
@@ -39,7 +81,7 @@ function NavLinks({ mobile }: { mobile?: boolean }) {
               className={
                 mobile
                   ? "block border-b border-line py-3 text-lg"
-                  : `border-b py-1 transition-colors ${active ? "border-ink text-ink" : "border-transparent text-ink-soft hover:text-ink"}`
+                  : `inline-block border-b py-3 transition-colors ${active ? "border-ink text-ink" : "border-transparent text-ink-soft hover:text-ink"}`
               }
             >
               {n.label}
@@ -60,25 +102,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <div className="flex items-center gap-10">
-          <Logo />
-          <nav aria-label="ראשי" className="hidden lg:block">
-            <Suspense fallback={null}>
-              <NavLinks />
-            </Suspense>
-          </nav>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setDrawerOpen(true)}
-            className="h-11 cursor-pointer px-2 text-[15px] underline-offset-4 hover:underline"
-            aria-label={`סל קניות, ${ready ? count : 0} פריטים`}
-          >
-            סל <span className="font-mono text-sm">({ready ? count : 0})</span>
-          </button>
+      <div className="mx-auto grid h-16 max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6">
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
@@ -88,11 +113,38 @@ export default function Header() {
           >
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
+          <div className="hidden w-full max-w-[260px] lg:block">
+            <Suspense fallback={null}>
+              <SearchBox />
+            </Suspense>
+          </div>
+        </div>
+        <Logo />
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={() => setDrawerOpen(true)}
+            className="h-11 cursor-pointer px-2 text-[15px] underline-offset-4 hover:underline"
+            aria-label={`סל קניות, ${ready ? count : 0} פריטים`}
+          >
+            סל <span className="font-mono text-sm">({ready ? count : 0})</span>
+          </button>
         </div>
       </div>
 
+      <nav aria-label="ראשי" className="hidden border-t border-line lg:block">
+        <Suspense fallback={null}>
+          <NavLinks />
+        </Suspense>
+      </nav>
+
       {menuOpen && (
         <nav aria-label="נייד" className="border-t border-line bg-paper lg:hidden">
+          <div className="px-4 pt-3">
+            <Suspense fallback={null}>
+              <SearchBox onDone={() => setMenuOpen(false)} />
+            </Suspense>
+          </div>
           <Suspense fallback={null}>
             <NavLinks mobile />
           </Suspense>

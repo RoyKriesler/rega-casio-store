@@ -1,14 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import LcdClock from "@/components/LcdClock";
 import ProductCard from "@/components/ProductCard";
-import { brands, collectionCovers, collections, photoUrl, products, type Collection } from "@/data/products";
-
-const priceBands = [
-  { key: "low", label: "עד 250 ש״ח" },
-  { key: "mid", label: "250 עד 600 ש״ח" },
-  { key: "high", label: "מעל 600 ש״ח" },
-];
+import WristWatch from "@/components/WristWatch";
+import { brandInfo, productsOfBrand } from "@/data/brands";
+import { guides } from "@/data/guides";
+import { collectionCovers, collections, photoUrl, products, type Collection } from "@/data/products";
 
 const info = [
   { title: "משלוח", text: "חינם בהזמנה מעל 500 ש״ח. עד שלושה ימי עסקים לכל הארץ." },
@@ -16,109 +12,99 @@ const info = [
   { title: "החזרות", text: "14 יום להחזרה, בתנאי שהשעון לא נענד והמדבקות במקומן." },
 ];
 
+function Arrow() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+      <path d="M19 12H5M11 6l-6 6 6 6" />
+    </svg>
+  );
+}
+
 export default function Home() {
-  const fresh = products.filter((p) => p.badge === "חדש" || p.compareAt);
-  const popular = ["prx-40", "hamilton-khaki-field", "orient-bambino", "f91w"].map((s) => products.find((p) => p.slug === s)!);
-  const watchCount = products.filter((p) => p.collection !== "straps").length;
+  const watches = products.filter((p) => p.collection !== "straps");
+  const brands = brandInfo.filter((b) => productsOfBrand(b.name).length > 0);
+  const picks = ["prx-powermatic-80", "hamilton-khaki-field", "seiko-spb143", "orient-bambino"].map((s) => products.find((p) => p.slug === s)!);
+  const fresh = products.filter((p) => p.badge === "חדש" || p.compareAt).slice(0, 8);
 
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1fr_1.1fr] md:py-16">
+      <section className="bg-sand">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-20">
           <div className="min-w-0">
-            <p className="text-sm text-muted">
-              {watchCount} שעונים מ־{brands.length} מותגים
+            <p className="font-mono text-xs tracking-[0.2em] text-muted">
+              {watches.length} שעונים · {brands.length} מותגים
             </p>
-            <h1 className="mt-3 font-display text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
+            <h1 className="mt-4 font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
               שעונים שבחרנו
               <br />
               אחד אחד.
             </h1>
-            <p className="mt-5 max-w-md text-[17px] leading-relaxed text-ink-soft">
-              טיסו עם צמיד משולב, המילטון על נאטו, במבינו לערב וקסיו לכל יום. רק דגמים שהיינו עונדים בעצמנו.
+            <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink-soft">
+              טיסו עם צמיד משולב, המילטון על נאטו, גרנד סייקו לרגעים הגדולים וקסיו לכל יום. רק דגמים שהיינו עונדים בעצמנו.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-6">
-              <Link href="/shop" className="bg-cta px-6 py-3.5 text-[15px] font-semibold text-on-cta hover:bg-cta-hover">
+              <Link href="/shop" className="bg-cta px-7 py-3.5 text-[15px] font-semibold text-on-cta hover:bg-cta-hover">
                 לכל השעונים
               </Link>
-              <Link href="/shop?c=sport" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
-                ספורט יומיומי
-              </Link>
-              <Link href="/shop?c=straps" className="text-[15px] underline underline-offset-4 hover:text-ink-soft">
-                רצועות
+              <Link href="/guides" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
+                איך בוחרים שעון <Arrow />
               </Link>
             </div>
           </div>
-
-          <figure className="min-w-0 bg-sand px-6 py-10 sm:px-10">
-            <LcdClock />
-            <figcaption className="mt-5 text-center text-[13px] text-muted">השעה אצלך עכשיו, על מסך של שעון דיגיטלי</figcaption>
+          <figure className="min-w-0">
+            <WristWatch />
+            <figcaption className="mt-3 text-center text-[13px] text-muted">השעה אצלך עכשיו</figcaption>
           </figure>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <h2 className="mb-6 font-display text-2xl font-semibold">קטגוריות</h2>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-3">
+      {/* Collections */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <h2 className="font-display text-3xl font-semibold tracking-tight">הקולקציות</h2>
+        <p className="mt-2 text-[15px] text-ink-soft">שש משפחות של שעונים, לפי איך שאתם חיים.</p>
+        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3">
           {(Object.keys(collections) as Collection[]).map((c) => {
             const n = products.filter((p) => p.collection === c).length;
             return (
               <Link key={c} href={`/shop?c=${c}`} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden bg-sand">
+                <div className="relative aspect-[4/5] overflow-hidden bg-sand">
                   <Image
-                    src={photoUrl(collectionCovers[c].id, 800, 600)}
+                    src={photoUrl(collectionCovers[c].id, 800, 1000)}
                     alt=""
                     fill
-                    sizes="(min-width: 640px) 33vw, 100vw"
+                    sizes="(min-width: 1024px) 33vw, 50vw"
                     className="object-cover transition-opacity duration-300 group-hover:opacity-90"
                   />
+                  <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/55 to-transparent p-5 pb-12">
+                    <h3 className="text-xl font-semibold text-white">{collections[c].name}</h3>
+                    <p className="mt-1 text-[13px] text-white/85">{n} דגמים</p>
+                  </div>
                 </div>
-                <div className="mt-3 flex items-baseline justify-between gap-3">
-                  <h3 className="text-lg font-semibold group-hover:underline group-hover:underline-offset-4">{collections[c].name}</h3>
-                  <span className="shrink-0 text-sm text-muted">{n} דגמים</span>
-                </div>
-                <p className="mt-1 hidden text-[15px] text-ink-soft sm:block">{collections[c].blurb}</p>
+                <p className="mt-3 hidden text-[15px] text-ink-soft sm:block">{collections[c].blurb}</p>
+                <span className="mt-2 inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide text-accent">
+                  לגלות את הקולקציה <Arrow />
+                </span>
               </Link>
             );
           })}
         </div>
       </section>
 
-      {/* Popular */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-          <div className="mb-6 flex items-baseline justify-between gap-6">
-            <h2 className="font-display text-2xl font-semibold">הנמכרים</h2>
-            <Link href="/shop" className="text-[15px] underline underline-offset-4">
-              לכל השעונים
+      {/* Picks */}
+      <section className="border-t border-line bg-card">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="mb-8 flex items-baseline justify-between gap-6">
+            <div>
+              <h2 className="font-display text-3xl font-semibold tracking-tight">הבחירות שלנו</h2>
+              <p className="mt-2 text-[15px] text-ink-soft">ארבעה שעונים שהיינו קונים היום.</p>
+            </div>
+            <Link href="/shop" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
+              לכל השעונים <Arrow />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-            {popular.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* New + price bands */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-          <div className="mb-6 flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="font-display text-2xl font-semibold">חדש ובמבצע</h2>
-            <nav aria-label="קנייה לפי מחיר" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[15px]">
-              <span className="text-muted">לפי מחיר:</span>
-              {priceBands.map((b) => (
-                <Link key={b.key} href={`/shop?p=${b.key}`} className="underline underline-offset-4 hover:text-ink-soft">
-                  {b.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-            {fresh.map((p) => (
+            {picks.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
           </div>
@@ -127,13 +113,56 @@ export default function Home() {
 
       {/* Brands */}
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-          <h2 className="mb-5 font-display text-2xl font-semibold">מותגים</h2>
-          <ul className="grid grid-cols-2 border-s border-t border-line sm:grid-cols-4">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <div className="mb-6 flex items-baseline justify-between gap-6">
+            <h2 className="font-display text-3xl font-semibold tracking-tight">מותגים</h2>
+            <Link href="/brands" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
+              על המותגים <Arrow />
+            </Link>
+          </div>
+          <ul className="grid grid-cols-2 border-s border-t border-line sm:grid-cols-4 lg:grid-cols-6">
             {brands.map((b) => (
-              <li key={b} className="border-e border-b border-line">
-                <Link href={`/shop?b=${encodeURIComponent(b)}`} dir="ltr" className="block px-4 py-5 text-center font-mono text-sm tracking-wide hover:bg-sand">
-                  {b.toUpperCase()}
+              <li key={b.slug} className="border-e border-b border-line">
+                <Link href={`/brands/${b.slug}`} className="block px-3 py-6 text-center hover:bg-sand">
+                  <span dir="ltr" className="block font-mono text-sm tracking-wide">{b.name.toUpperCase()}</span>
+                  <span className="mt-1 block text-xs text-muted">מאז {b.founded}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* New */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 className="mb-8 font-display text-3xl font-semibold tracking-tight">חדש ובמבצע</h2>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+            {fresh.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section className="border-t border-line bg-sand">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="mb-8 flex items-baseline justify-between gap-6">
+            <h2 className="font-display text-3xl font-semibold tracking-tight">מדריכים</h2>
+            <Link href="/guides" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
+              לכל המדריכים <Arrow />
+            </Link>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {guides.map((g) => (
+              <li key={g.slug}>
+                <Link href={`/guides/${g.slug}`} className="group flex h-full flex-col border border-line bg-card p-5 hover:border-ink">
+                  <h3 className="text-lg font-semibold leading-snug">{g.title}</h3>
+                  <p className="mt-2 flex-1 text-[15px] leading-relaxed text-ink-soft">{g.summary}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-accent">
+                    לקריאה <Arrow />
+                  </span>
                 </Link>
               </li>
             ))}
