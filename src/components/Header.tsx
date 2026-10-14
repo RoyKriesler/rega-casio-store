@@ -20,7 +20,7 @@ const nav = [
 
 export function Logo() {
   return (
-    <Link href="/" className="font-display text-[30px] font-medium tracking-tight" aria-label="רגע, לדף הבית">
+    <Link href="/" className="font-display text-[28px] font-bold tracking-[0.25em]" aria-label="רגע, לדף הבית">
       רגע
     </Link>
   );

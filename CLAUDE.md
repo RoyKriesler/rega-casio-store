@@ -21,8 +21,9 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 
 ## Conventions
 - `<html lang="he" dir="rtl">`. Use logical Tailwind utilities (`ps-`, `pe-`, `ms-`, `me-`, `start-`, `end-`), never `pl-/pr-/left-/right-` for layout.
-- Look (2026-10-14, Roy asked "much more professional, background images and videos"): luxury-brand style. Full-screen video hero (`src/components/BgVideo.tsx`, files in `public/video/*-1080.mp4`, `*-540.mp4`, `*-poster.jpg`, Pexels license, no logos) under a transparent header on `/` only; full-bleed image story banners; serif display headings; gold `#866a3a` eyebrows; black/white square CTAs; red `#c8102e` only for "new"/"sale". Text over video must keep >= 4.5:1 worst-frame contrast (measured 2026-10-14: hero label 5.2, headline 7.3).
-- Fonts: Frank Ruhl Libre (display, serif), Assistant body, IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
+- Look (2026-10-14 evening, Roy loved panerai.com + a NOMOS "films" card): dark Panerai-style site. Black `#0a0a0a`, bold Heebo headlines, white square CTAs, full-screen video hero, full-bleed lifestyle image, horizontal collections accordion (`CollectionsAccordion.tsx`), Nomos-style rounded light film cards with hover preview + modal player (`FilmCards.tsx`), pinned scroll story (`PinnedStory.tsx`). Text over video/images must keep >= 4.5:1 worst-frame contrast.
+- Generated art: `art/gen.sh` (mflux FLUX.2 klein 4B, local, free) -> `art/raw/*.png`; `art/export.sh` -> `public/art/*.jpg` and Ken Burns clips `public/video/film-*.mp4`. Atmosphere only: never generate a picture that stands in for a real product listing. Prompts end with "no text, no logo".
+- Fonts: Heebo (display, bold), Assistant body, IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
 - No emoji as icons; inline SVG only.
 - Respect `prefers-reduced-motion`.
 
