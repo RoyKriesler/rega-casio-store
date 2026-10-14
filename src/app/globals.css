@@ -10,6 +10,8 @@
   --color-line-strong: #c8c5bc;
   --color-sand: #ecebe6;
   --color-accent: #c8102e;
+  --color-gold: #866a3a;
+  --color-night: #0f0f0e;
   --color-accent-soft: #fbe8eb;
   --color-cta: #151515;
   --color-cta-hover: #333331;
@@ -17,7 +19,7 @@
   --color-lcd: #b9c49a;
   --color-lcd-ink: #1d2213;
 
-  --font-display: var(--font-rubik), system-ui, sans-serif;
+  --font-display: var(--font-frank), "Times New Roman", serif;
   --font-sans: var(--font-assistant), system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 

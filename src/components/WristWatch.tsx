@@ -126,7 +126,7 @@ export default function WristWatch() {
       })}
 
       {/* Brand and date */}
-      <text x={CX} y={CY - 52} textAnchor="middle" fontSize="20" fontWeight="600" fill="#1c1c1a" style={{ fontFamily: "var(--font-rubik)" }}>
+      <text x={CX} y={CY - 52} textAnchor="middle" fontSize="20" fontWeight="600" fill="#1c1c1a" style={{ fontFamily: "var(--font-frank)" }}>
         רגע
       </text>
       <text x={CX} y={CY - 34} textAnchor="middle" fontSize="8" letterSpacing="2" fill="#6b6a64" style={{ fontFamily: "var(--font-plex-mono)" }}>

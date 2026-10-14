@@ -1,185 +1,219 @@
 import Image from "next/image";
 import Link from "next/link";
+import BgVideo from "@/components/BgVideo";
 import ProductCard from "@/components/ProductCard";
 import WristWatch from "@/components/WristWatch";
 import { brandInfo, productsOfBrand } from "@/data/brands";
 import { guides } from "@/data/guides";
-import { collectionCovers, collections, photoUrl, products, type Collection } from "@/data/products";
-
-const info = [
-  { title: "משלוח", text: "חינם בהזמנה מעל 500 ש״ח. עד שלושה ימי עסקים לכל הארץ." },
-  { title: "אחריות", text: "שנתיים אחריות יבואן על כל שעון, עם קופסה ותעודה." },
-  { title: "החזרות", text: "14 יום להחזרה, בתנאי שהשעון לא נענד והמדבקות במקומן." },
-];
+import { getProduct, photoUrl, products } from "@/data/products";
 
 function Arrow() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
       <path d="M19 12H5M11 6l-6 6 6 6" />
     </svg>
   );
 }
 
+function Discover({ href, children, light }: { href: string; children: React.ReactNode; light?: boolean }) {
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center gap-3 border-b pb-1 text-[13px] font-semibold tracking-[0.12em] transition-colors ${
+        light ? "border-white/60 text-white hover:border-white" : "border-ink/40 text-ink hover:border-ink"
+      }`}
+    >
+      {children} <Arrow />
+    </Link>
+  );
+}
+
+const stories = [
+  {
+    slug: "prx-powermatic-80",
+    eyebrow: "ספורט יומיומי",
+    title: "הצמיד שזורם מהמארז.",
+    text: "עיצוב משנות השבעים שחזר בגדול, עם לוח מחורץ ושמונים שעות רזרבה. השעון שהכי הרבה אנשים מבקשים לראות.",
+    href: "/shop?c=sport",
+    cta: "לשעוני הספורט",
+  },
+  {
+    slug: "hamilton-khaki-field",
+    eyebrow: "שדה וטייסים",
+    title: "נבנה לשטח. נשאר לעיר.",
+    text: "שעון השדה שנולד בצבא האמריקאי, בגרסה מכנית שמכוונים ביד, על רצועת נאטו.",
+    href: "/shop?c=field",
+    cta: "לשעוני השדה",
+  },
+];
+
 export default function Home() {
   const watches = products.filter((p) => p.collection !== "straps");
   const brands = brandInfo.filter((b) => productsOfBrand(b.name).length > 0);
-  const picks = ["prx-powermatic-80", "hamilton-khaki-field", "seiko-spb143", "orient-bambino"].map((s) => products.find((p) => p.slug === s)!);
-  const fresh = products.filter((p) => p.badge === "חדש" || p.compareAt).slice(0, 8);
+  const picks = ["seiko-spb143", "orient-bambino", "citizen-tsuyosa", "oris-divers-65", "grand-seiko-skyflake", "prx-40", "seiko-5-gmt", "mido-baroncelli"].map(
+    (s) => getProduct(s)!,
+  );
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-sand">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-20">
-          <div className="min-w-0">
-            <p className="font-mono text-xs tracking-[0.2em] text-muted">
-              {watches.length} שעונים · {brands.length} מותגים
-            </p>
-            <h1 className="mt-4 font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
-              שעונים שבחרנו
-              <br />
-              אחד אחד.
-            </h1>
-            <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink-soft">
-              טיסו עם צמיד משולב, המילטון על נאטו, גרנד סייקו לרגעים הגדולים וקסיו לכל יום. רק דגמים שהיינו עונדים בעצמנו.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-6">
-              <Link href="/shop" className="bg-cta px-7 py-3.5 text-[15px] font-semibold text-on-cta hover:bg-cta-hover">
-                לכל השעונים
-              </Link>
-              <Link href="/guides" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
-                איך בוחרים שעון <Arrow />
-              </Link>
-            </div>
-          </div>
-          <figure className="min-w-0">
-            <WristWatch />
-            <figcaption className="mt-3 text-center text-[13px] text-muted">השעה אצלך עכשיו</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* Collections */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="font-display text-3xl font-semibold tracking-tight">הקולקציות</h2>
-        <p className="mt-2 text-[15px] text-ink-soft">שש משפחות של שעונים, לפי איך שאתם חיים.</p>
-        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3">
-          {(Object.keys(collections) as Collection[]).map((c) => {
-            const n = products.filter((p) => p.collection === c).length;
-            return (
-              <Link key={c} href={`/shop?c=${c}`} className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden bg-sand">
-                  <Image
-                    src={photoUrl(collectionCovers[c].id, 800, 1000)}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 50vw"
-                    className="object-cover transition-opacity duration-300 group-hover:opacity-90"
-                  />
-                  <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/55 to-transparent p-5 pb-12">
-                    <h3 className="text-xl font-semibold text-white">{collections[c].name}</h3>
-                    <p className="mt-1 text-[13px] text-white/85">{n} דגמים</p>
-                  </div>
-                </div>
-                <p className="mt-3 hidden text-[15px] text-ink-soft sm:block">{collections[c].blurb}</p>
-                <span className="mt-2 inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide text-accent">
-                  לגלות את הקולקציה <Arrow />
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Picks */}
-      <section className="border-t border-line bg-card">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <div className="mb-8 flex items-baseline justify-between gap-6">
-            <div>
-              <h2 className="font-display text-3xl font-semibold tracking-tight">הבחירות שלנו</h2>
-              <p className="mt-2 text-[15px] text-ink-soft">ארבעה שעונים שהיינו קונים היום.</p>
-            </div>
-            <Link href="/shop" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
-              לכל השעונים <Arrow />
+      {/* Hero: full-bleed video under the transparent header */}
+      <section className="relative -mt-[65px] flex h-[100svh] min-h-[560px] items-end overflow-hidden bg-night text-white lg:-mt-[112px]">
+        <BgVideo name="movement" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-l from-black/75 via-black/40 to-transparent" />
+        <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 md:pb-24">
+          <p className="text-[13px] font-semibold tracking-wide text-white">
+            {watches.length} שעונים · {brands.length} מותגים
+          </p>
+          <h1 className="mt-5 max-w-3xl font-display text-5xl leading-[1.05] font-normal [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-7xl">שעונים שבחרנו אחד אחד.</h1>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-white [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
+            שוויצרים, יפנים ואמריקאים. מהקלאסי של 79 שקל ועד גרנד סייקו. רק דגמים שהיינו עונדים בעצמנו.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link href="/shop" className="bg-white px-8 py-4 text-[15px] font-semibold text-ink transition-colors hover:bg-white/85">
+              לכל השעונים
+            </Link>
+            <Link href="/brands" className="border border-white/70 px-8 py-4 text-[15px] font-semibold text-white transition-colors hover:bg-white/10">
+              המותגים
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-            {picks.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
+        </div>
+      </section>
+
+      {/* Statement */}
+      <section className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 md:py-32">
+        <p className="text-[13px] font-semibold tracking-wide text-gold">רגע</p>
+        <p className="mt-6 font-display text-3xl leading-snug sm:text-4xl">
+          שעון טוב לא צריך להיות יקר. הוא צריך להיות נכון לך, ולהחזיק מספיק זמן כדי שיתחיל לספר את הסיפור שלך.
+        </p>
+      </section>
+
+      {/* Story banners */}
+      {stories.map((st, i) => {
+        const p = getProduct(st.slug)!;
+        return (
+          <section key={st.slug} className="grid bg-sand md:grid-cols-2">
+            <div className={`relative aspect-square md:aspect-auto md:min-h-[640px] ${i % 2 ? "md:order-2" : ""}`}>
+              <Image src={photoUrl(p.photos[0].id, 1400, 1400)} alt={p.photos[0].alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            </div>
+            <div className="flex items-center px-6 py-16 sm:px-12 md:px-16">
+              <div className="max-w-md">
+                <p className="text-[13px] font-semibold tracking-wide text-gold">{st.eyebrow}</p>
+                <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">{st.title}</h2>
+                <p className="mt-6 text-[17px] leading-relaxed text-ink-soft">{st.text}</p>
+                <div className="mt-8 flex flex-wrap gap-8">
+                  <Discover href={`/product/${p.slug}`}>לדגם</Discover>
+                  <Discover href={st.href}>{st.cta}</Discover>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Picks rail */}
+      <section className="py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-[13px] font-semibold tracking-wide text-gold">הבחירות שלנו</p>
+              <h2 className="mt-4 font-display text-4xl">שמונה שעונים שהיינו קונים היום</h2>
+            </div>
+            <div className="hidden sm:block">
+              <Discover href="/shop">לכל השעונים</Discover>
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 [scrollbar-width:thin] sm:px-6 lg:px-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))]">
+          {picks.map((p) => (
+            <div key={p.slug} className="w-[64vw] shrink-0 snap-start sm:w-[300px]">
+              <ProductCard product={p} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Full-bleed dial video */}
+      <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-night text-white">
+        <BgVideo name="dial" />
+        <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/55 to-black/30" />
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-24 sm:px-6">
+          <div className="max-w-lg">
+            <p className="text-[13px] font-semibold tracking-wide text-white/75">אלגנטי</p>
+            <h2 className="mt-5 font-display text-5xl leading-tight sm:text-6xl">לרגעים שזוכרים.</h2>
+            <p className="mt-6 text-lg leading-relaxed text-white/85">
+              במבינו עם זכוכית קמורה, ברונצ׳לי בזהב אדום וגרנד סייקו עם לוח של שלג טרי. שעונים לחתונה, לפגישה החשובה ולכל ערב שצריך.
+            </p>
+            <div className="mt-10">
+              <Discover href="/shop?c=dress" light>
+                לשעונים האלגנטיים
+              </Discover>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live watch */}
+      <section className="bg-sand">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-24 sm:px-6 md:grid-cols-2">
+          <div className="min-w-0">
+            <p className="text-[13px] font-semibold tracking-wide text-gold">עכשיו</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">זו השעה אצלך, ממש עכשיו.</h2>
+            <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink-soft">
+              כל שנייה שעוברת היא רגע. לא מצאתם עדיין את השעון שימדוד אותם? המדריכים שלנו יעזרו לבחור מנגנון, גודל ורצועה.
+            </p>
+            <div className="mt-8">
+              <Discover href="/guides">למדריכים</Discover>
+            </div>
+          </div>
+          <div className="min-w-0">
+            <WristWatch />
           </div>
         </div>
       </section>
 
       {/* Brands */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-          <div className="mb-6 flex items-baseline justify-between gap-6">
-            <h2 className="font-display text-3xl font-semibold tracking-tight">מותגים</h2>
-            <Link href="/brands" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
-              על המותגים <Arrow />
-            </Link>
-          </div>
-          <ul className="grid grid-cols-2 border-s border-t border-line sm:grid-cols-4 lg:grid-cols-6">
-            {brands.map((b) => (
-              <li key={b.slug} className="border-e border-b border-line">
-                <Link href={`/brands/${b.slug}`} className="block px-3 py-6 text-center hover:bg-sand">
-                  <span dir="ltr" className="block font-mono text-sm tracking-wide">{b.name.toUpperCase()}</span>
-                  <span className="mt-1 block text-xs text-muted">מאז {b.founded}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <div className="flex items-end justify-between gap-6">
+          <h2 className="font-display text-4xl">המותגים</h2>
+          <Discover href="/brands">על המותגים</Discover>
         </div>
-      </section>
-
-      {/* New */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="mb-8 font-display text-3xl font-semibold tracking-tight">חדש ובמבצע</h2>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-            {fresh.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-        </div>
+        <ul className="mt-10 grid grid-cols-2 border-s border-t border-line sm:grid-cols-3 lg:grid-cols-5">
+          {brands.map((b) => (
+            <li key={b.slug} className="border-e border-b border-line">
+              <Link href={`/brands/${b.slug}`} className="group block px-4 py-8 text-center transition-colors hover:bg-sand">
+                <span dir="ltr" className="block font-display text-xl tracking-[0.12em]">{b.name.toUpperCase()}</span>
+                <span className="mt-2 block text-xs text-muted">
+                  {b.country.split(",")[0]} · {b.founded}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Guides */}
-      <section className="border-t border-line bg-sand">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <div className="mb-8 flex items-baseline justify-between gap-6">
-            <h2 className="font-display text-3xl font-semibold tracking-tight">מדריכים</h2>
-            <Link href="/guides" className="inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:underline">
-              לכל המדריכים <Arrow />
-            </Link>
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-[13px] font-semibold tracking-wide text-gold">מדריכים</p>
+              <h2 className="mt-4 font-display text-4xl">לפני שבוחרים</h2>
+            </div>
+            <Discover href="/guides">לכל המדריכים</Discover>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {guides.map((g) => (
+          <ul className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+            {guides.map((g, i) => (
               <li key={g.slug}>
-                <Link href={`/guides/${g.slug}`} className="group flex h-full flex-col border border-line bg-card p-5 hover:border-ink">
-                  <h3 className="text-lg font-semibold leading-snug">{g.title}</h3>
-                  <p className="mt-2 flex-1 text-[15px] leading-relaxed text-ink-soft">{g.summary}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-accent">
-                    לקריאה <Arrow />
-                  </span>
+                <Link href={`/guides/${g.slug}`} className="group block border-t border-ink pt-5">
+                  <span className="font-mono text-xs text-muted">0{i + 1}</span>
+                  <h3 className="mt-3 font-display text-2xl leading-snug group-hover:underline group-hover:underline-offset-4">{g.title}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{g.summary}</p>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-      </section>
-
-      {/* Info */}
-      <section className="border-t border-line">
-        <dl className="mx-auto grid max-w-6xl gap-8 px-4 pt-12 sm:grid-cols-3 sm:px-6">
-          {info.map((i) => (
-            <div key={i.title}>
-              <dt className="font-semibold">{i.title}</dt>
-              <dd className="mt-1 text-[15px] leading-relaxed text-ink-soft">{i.text}</dd>
-            </div>
-          ))}
-        </dl>
       </section>
     </>
   );

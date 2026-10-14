@@ -20,7 +20,7 @@ const nav = [
 
 export function Logo() {
   return (
-    <Link href="/" className="font-display text-[26px] font-semibold tracking-tight" aria-label="רגע, לדף הבית">
+    <Link href="/" className="font-display text-[30px] font-medium tracking-tight" aria-label="רגע, לדף הבית">
       רגע
     </Link>
   );
@@ -35,7 +35,7 @@ function SearchIcon() {
   );
 }
 
-function SearchBox({ onDone }: { onDone?: () => void }) {
+function SearchBox({ onDone, light }: { onDone?: () => void; light?: boolean }) {
   const router = useRouter();
   const params = useSearchParams();
   const [q, setQ] = useState(params.get("q") ?? "");
@@ -48,7 +48,7 @@ function SearchBox({ onDone }: { onDone?: () => void }) {
         router.push(v ? `/shop?q=${encodeURIComponent(v)}` : "/shop");
         onDone?.();
       }}
-      className="flex h-10 w-full items-center gap-2 border-b border-line-strong focus-within:border-ink"
+      className={`flex h-10 w-full items-center gap-2 border-b ${light ? "border-white/50 focus-within:border-white" : "border-line-strong focus-within:border-ink"}`}
     >
       <SearchIcon />
       <label htmlFor="site-search" className="sr-only">
@@ -59,13 +59,13 @@ function SearchBox({ onDone }: { onDone?: () => void }) {
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="חיפוש לפי מותג, דגם או סגנון"
-        className="w-full bg-transparent text-[15px] outline-none placeholder:text-muted"
+        className={`w-full bg-transparent text-[15px] outline-none ${light ? "placeholder:text-white/70" : "placeholder:text-muted"}`}
       />
     </form>
   );
 }
 
-function NavLinks({ mobile }: { mobile?: boolean }) {
+function NavLinks({ mobile, light }: { mobile?: boolean; light?: boolean }) {
   const pathname = usePathname();
   const c = useSearchParams().get("c");
   return (
@@ -81,7 +81,15 @@ function NavLinks({ mobile }: { mobile?: boolean }) {
               className={
                 mobile
                   ? "block border-b border-line py-3 text-lg"
-                  : `inline-block border-b py-3 transition-colors ${active ? "border-ink text-ink" : "border-transparent text-ink-soft hover:text-ink"}`
+                  : `inline-block border-b py-3 transition-colors ${
+                      light
+                        ? active
+                          ? "border-white text-white"
+                          : "border-transparent text-white/80 hover:text-white"
+                        : active
+                          ? "border-ink text-ink"
+                          : "border-transparent text-ink-soft hover:text-ink"
+                    }`
               }
             >
               {n.label}
@@ -96,12 +104,25 @@ function NavLinks({ mobile }: { mobile?: boolean }) {
 export default function Header() {
   const { count, ready, setDrawerOpen } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => setMenuOpen(false), [pathname]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const light = pathname === "/" && !scrolled && !menuOpen;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper">
+    <header
+      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
+        light ? "border-white/15 bg-transparent text-white" : "border-line bg-paper text-ink"
+      }`}
+    >
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6">
         <div className="flex items-center gap-3">
           <button
@@ -115,7 +136,7 @@ export default function Header() {
           </button>
           <div className="hidden w-full max-w-[260px] lg:block">
             <Suspense fallback={null}>
-              <SearchBox />
+              <SearchBox light={light} />
             </Suspense>
           </div>
         </div>
@@ -132,9 +153,9 @@ export default function Header() {
         </div>
       </div>
 
-      <nav aria-label="ראשי" className="hidden border-t border-line lg:block">
+      <nav aria-label="ראשי" className={`hidden border-t lg:block ${light ? "border-white/15" : "border-line"}`}>
         <Suspense fallback={null}>
-          <NavLinks />
+          <NavLinks light={light} />
         </Suspense>
       </nav>
 

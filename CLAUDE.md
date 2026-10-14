@@ -21,8 +21,8 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 
 ## Conventions
 - `<html lang="he" dir="rtl">`. Use logical Tailwind utilities (`ps-`, `pe-`, `ms-`, `me-`, `start-`, `end-`), never `pl-/pr-/left-/right-` for layout.
-- Look (2026-10-13, Roy asked "light and less AI"): flat retail style. Paper `#f6f5f2`, ink `#151515`, thin `line` rules, square corners, black CTA with white text, red `#c8102e` only for "new"/"sale" labels. No glows, gradients, pulsing badges, icon circles, hover zoom or giant black-weight headlines.
-- Fonts: Rubik 400-700 (headings at semibold), Assistant body, IBM Plex Mono for model numbers.
+- Look (2026-10-14, Roy asked "much more professional, background images and videos"): luxury-brand style. Full-screen video hero (`src/components/BgVideo.tsx`, files in `public/video/*-1080.mp4`, `*-540.mp4`, `*-poster.jpg`, Pexels license, no logos) under a transparent header on `/` only; full-bleed image story banners; serif display headings; gold `#866a3a` eyebrows; black/white square CTAs; red `#c8102e` only for "new"/"sale". Text over video must keep >= 4.5:1 worst-frame contrast (measured 2026-10-14: hero label 5.2, headline 7.3).
+- Fonts: Frank Ruhl Libre (display, serif), Assistant body, IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
 - No emoji as icons; inline SVG only.
 - Respect `prefers-reduced-motion`.
 
