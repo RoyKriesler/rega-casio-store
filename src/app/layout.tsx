@@ -5,7 +5,6 @@ import { CartProvider } from "@/lib/cart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
-import Cursor from "@/components/Cursor";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const frank = Frank_Ruhl_Libre({
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Footer />
           <CartDrawer />
           <SmoothScroll />
-          <Cursor />
         </CartProvider>
       </body>
     </html>

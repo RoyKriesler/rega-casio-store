@@ -26,7 +26,7 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - Hero stills: generated images zoom with CSS keyframes `kenburnsA/B` (smooth). Never bake zoom into video with ffmpeg zoompan: it steps per pixel and shakes (Roy noticed).
 - Header (2026-10-14 night, Roy disliked the old one): fixed black bar, hides on scroll down; menu button opens a full-screen menu with a hover image preview; search slides down. `<main>` has `pt-[72px]`, home hero uses `-mt-[72px]`.
 - Hero (2026-10-14, Roy: "the best so far"): full-screen `AsciiReveal` of the gears image; the real photo shows through a spotlight under the cursor, drifting on its own when idle or on touch. `HeroPlaylist` (crossfading clips + CSS-zoom stills, random order per visit) now lives in the "בתנועה" section further down.
-- Motion layer: Lenis smooth scroll, `Reveal.tsx` (SplitHeading word reveal, FadeIn, MaskReveal), `Marquee.tsx`, `Tilt.tsx` on product cards, `Cursor.tsx`, `ScrubWatch.tsx` (scroll turns the hands). All respect prefers-reduced-motion. Hero headline uses CSS-only animation so it never depends on hydration.
+- Motion layer: Lenis smooth scroll, `Reveal.tsx` (SplitHeading word reveal, FadeIn, MaskReveal), `Marquee.tsx`, `Tilt.tsx` on product cards, `ScrubWatch.tsx` (scroll turns the hands). All respect prefers-reduced-motion. Hero headline uses CSS-only animation so it never depends on hydration.
 - `/lab`: 12 live effect demos from an Instagram list Roy sent (particles, split-flap, wireframe 3D, blueprint, holographic, neon, kinetic type, glass, ASCII, halftone, liquid, gradient mesh). Roy picks by number which go into the site.
 - Generated art: `art/gen.sh` (mflux FLUX.2 klein 4B, local, free) -> `art/raw/*.png`; `art/export.sh` -> `public/art/*.jpg` and Ken Burns clips `public/video/film-*.mp4`. Atmosphere only: never generate a picture that stands in for a real product listing. Prompts end with "no text, no logo".
 - Fonts: Heebo (display, bold), Assistant body, IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
@@ -46,3 +46,5 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - [x] First deploy to Vercel (2026-10-13)
 - [x] GitHub repo push (2026-10-13)
 - [x] Auto-deploy on push (2026-10-13): repo connected from Vercel project Settings > Git; every push to `main` deploys to production
+
+- No custom cursor: Roy disliked the ring around the pointer (2026-10-15); keep the native cursor.

@@ -125,7 +125,7 @@ export default function AsciiReveal({
       ref={wrap}
       onPointerMove={move}
       onPointerDown={move}
-      className={`relative cursor-none touch-pan-y overflow-hidden bg-black ${className}`}
+      className={`relative touch-pan-y overflow-hidden bg-black ${className}`}
       role="img"
       aria-label={label}
     >
