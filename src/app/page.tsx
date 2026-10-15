@@ -2,12 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroPlaylist, { type Clip } from "@/components/HeroPlaylist";
 import Marquee from "@/components/Marquee";
-import { FadeIn, MaskReveal, SplitHeading } from "@/components/Reveal";
+import { MaskReveal, SplitHeading } from "@/components/Reveal";
 import RetroScrubWatch from "@/components/RetroScrubWatch";
 import Exploded3D from "@/components/anatomy/Exploded3D";
 import AsciiReveal from "@/components/AsciiReveal";
 import CollectionsAccordion, { type Panel } from "@/components/CollectionsAccordion";
-import FilmCards, { type Film } from "@/components/FilmCards";
 import PinnedStory from "@/components/PinnedStory";
 import ProductCard from "@/components/ProductCard";
 import { brandInfo, productsOfBrand } from "@/data/brands";
@@ -31,14 +30,6 @@ const heroClips: Clip[] = [
   { src: "/art/film-gears.jpg", poster: "/art/film-gears.jpg", still: true },
   { src: "/art/film-bracelet.jpg", poster: "/art/film-bracelet.jpg", still: true },
   { src: "/art/film-dial.jpg", poster: "/art/film-dial.jpg", still: true },
-];
-
-const films: Film[] = [
-  { key: "movement", title: "המנגנון", caption: "מאות חלקים זעירים שעובדים יחד, ועדיין אפשר לראות כל אחד מהם זז.", poster: "/video/movement-poster.jpg", src: "/video/movement-1080.mp4" },
-  { key: "gears", title: "גלגלי שיניים", caption: "פליז, פלדה ואבני מסב אדומות, מקרוב.", poster: "/art/film-gears.jpg", src: "/art/film-gears.jpg", still: true },
-  { key: "dial", title: "הלוח", caption: "ספרות רומיות, מופע ירח ומחוגים כחולים.", poster: "/video/dial-poster.jpg", src: "/video/dial-1080.mp4" },
-  { key: "crown", title: "הכתר", caption: "החלק הקטן שאיתו מכוונים את הזמן.", poster: "/art/film-crown.jpg", src: "/art/film-crown.jpg", still: true },
-  { key: "strap", title: "הרצועה", caption: "עור שנתפר ביד, תפר אחרי תפר.", poster: "/art/film-strap.jpg", src: "/art/film-strap.jpg", still: true },
 ];
 
 export default function Home() {
@@ -116,20 +107,6 @@ export default function Home() {
           </p>
         </div>
         <CollectionsAccordion panels={panels} />
-      </section>
-
-      {/* Films */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-8">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-xl">
-            <p className="text-[13px] font-semibold tracking-wide text-gold">סרטים</p>
-            <SplitHeading text="החלקים הקטנים הם הכוכבים" className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl" />
-          </div>
-          <p className="max-w-sm text-[15px] text-ink-soft">עברו עם העכבר על סרט כדי לראות אותו זז, או לחצו כדי לצפות במסך מלא.</p>
-        </div>
-        <FadeIn>
-          <FilmCards films={films} />
-        </FadeIn>
       </section>
 
       {/* Moving pictures: crossfading clips and slow-zoom stills */}

@@ -4,7 +4,8 @@ import { formatPrice, photoUrl, isCommons, type Product } from "@/data/products"
 
 export default function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
   const photo = product.photos[0];
-  // Hover (H3, Roy 2026-10-15): soft crossfade to a second angle; a very slow zoom when there is none.
+  // Hover (H3, Roy 2026-10-15): soft crossfade to a second angle. Without a second photo, crossfade
+  // to a close-up of the dial from the same photo, so every card changes view on hover.
   const second = product.photos[1] ?? product.variants?.find((v) => v.photo.id !== photo.id)?.photo;
   const size = product.specs.find((s) => s.label === "קוטר" || s.label === "רוחב")?.value;
   const label = product.compareAt ? "מבצע" : product.badge ?? (product.condition === "vintage" ? "וינטג׳" : undefined);
@@ -17,17 +18,15 @@ export default function ProductCard({ product, priority }: { product: Product; p
           fill
           priority={priority}
           sizes="(min-width: 1024px) 25vw, 50vw"
-          className={`object-cover ${second ? "transition-opacity duration-700 group-hover:opacity-0" : "transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]"}`}
+          className="object-cover transition-opacity duration-700 group-hover:opacity-0"
         />
-        {second && (
-          <Image
-            src={photoUrl(second.id, 800, 800)} unoptimized={isCommons(second.id)}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 25vw, 50vw"
-            className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-          />
-        )}
+        <Image
+          src={photoUrl((second ?? photo).id, 800, 800)} unoptimized={isCommons((second ?? photo).id)}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 25vw, 50vw"
+          className={`object-cover opacity-0 transition-[opacity,transform] duration-700 group-hover:opacity-100 ${second ? "" : "scale-[1.75] group-hover:scale-[1.6]"}`}
+        />
       </div>
       <div className="mt-3 space-y-1">
         <div className="flex items-center justify-between gap-2">
