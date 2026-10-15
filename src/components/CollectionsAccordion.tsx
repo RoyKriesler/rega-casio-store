@@ -22,18 +22,18 @@ export default function CollectionsAccordion({ panels }: { panels: Panel[] }) {
             onMouseEnter={() => setActive(i)}
             onFocus={() => setActive(i)}
             onClick={() => setActive(i)}
-            className={`group relative min-h-0 min-w-0 cursor-pointer overflow-hidden transition-[flex-grow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              open ? "flex-[5]" : "flex-[1]"
+            className={`group relative min-h-0 min-w-0 cursor-pointer overflow-hidden transition-[flex-grow] duration-[900ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              open ? "flex-[2]" : "flex-[1]"
             }`}
           >
-            <Image src={p.image} alt="" fill sizes="(min-width: 768px) 60vw, 100vw" className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03]" />
-            <div className={`absolute inset-0 transition-colors duration-500 ${open ? "bg-black/25" : "bg-black/55"}`} />
+            <Image src={p.image} alt="" fill sizes="(min-width: 768px) 60vw, 100vw" className="object-cover" />
+            <div className={`absolute inset-0 transition-colors duration-500 ${open ? "bg-black/20" : "bg-black/40"}`} />
             <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/85 to-transparent" />
 
             <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
               <h3
                 className={`font-display font-bold text-white transition-all duration-500 ${
-                  open ? "text-3xl md:text-4xl" : "text-lg md:text-xl md:[writing-mode:vertical-rl] md:rotate-180"
+                  open ? "text-2xl md:text-3xl" : "text-lg md:text-xl"
                 }`}
               >
                 {p.title}

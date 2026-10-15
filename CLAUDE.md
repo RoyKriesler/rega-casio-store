@@ -48,3 +48,6 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - [x] Auto-deploy on push (2026-10-13): repo connected from Vercel project Settings > Git; every push to `main` deploys to production
 
 - No custom cursor: Roy disliked the ring around the pointer (2026-10-15); keep the native cursor.
+
+- `/options` (2026-10-15): side-by-side choices awaiting Roy: product-card hover H0-H5 (`HoverCard.tsx`), structure section S1 real 3D (`anatomy/Watch3D.tsx`, three.js + r3f + drei, local Lightformers only, no remote HDR), S2 scroll-exploded view, S3 ink blueprint, S0 current; scroll watch W1 retro digital photo with seven-segment overlay (`RetroScrubWatch.tsx`, LCD box measured from `public/art/retro-watch.jpg`) vs W0 current.
+- Collections accordion toned down (open panel flex 2 vs 1, no image zoom) after Roy said it was too dramatic.
