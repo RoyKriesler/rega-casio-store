@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { brandInfo, productsOfBrand } from "@/data/brands";
-import { photoUrl } from "@/data/products";
+import { photoUrl, isCommons } from "@/data/products";
 
 export const metadata: Metadata = { title: "מותגים" };
 
@@ -19,7 +19,7 @@ export default function BrandsPage() {
             <li key={b.slug}>
               <Link href={`/brands/${b.slug}`} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden bg-sand">
-                  <Image src={photoUrl(items[0].photos[0].id, 800, 600)} alt="" fill sizes="(min-width: 1024px) 33vw, 50vw" className="object-cover transition-opacity group-hover:opacity-90" />
+                  <Image src={photoUrl(items[0].photos[0].id, 800, 600)} unoptimized={isCommons(items[0].photos[0].id)} alt="" fill sizes="(min-width: 1024px) 33vw, 50vw" className="object-cover transition-opacity group-hover:opacity-90" />
                 </div>
                 <div className="mt-3 flex items-baseline justify-between gap-3">
                   <h2 dir="ltr" className="font-mono text-sm tracking-wide">{b.name.toUpperCase()}</h2>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import OrderSummary from "@/components/OrderSummary";
 import QtyStepper from "@/components/QtyStepper";
-import { formatPrice, getProduct, photoUrl } from "@/data/products";
+import { formatPrice, getProduct, photoUrl, isCommons } from "@/data/products";
 import { lineKey, linePhoto, useCart } from "@/lib/cart";
 
 export default function CartPage() {
@@ -31,7 +31,7 @@ export default function CartPage() {
                 <li key={lineKey(l)} className="flex gap-5 py-6">
                   <Link href={`/product/${p.slug}`} className="shrink-0">
                     <Image
-                      src={photoUrl(ph.id, 260, 320)}
+                      src={photoUrl(ph.id, 260, 320)} unoptimized={isCommons(ph.id)}
                       alt={ph.alt}
                       width={112}
                       height={138}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatPrice, photoUrl, type Product } from "@/data/products";
+import { formatPrice, photoUrl, isCommons, type Product } from "@/data/products";
 import Tilt from "./Tilt";
 
 export type HoverStyle = "current" | "still" | "zoom" | "swap" | "lift" | "reveal";
@@ -12,7 +12,7 @@ export default function HoverCard({ product, style }: { product: Product; style:
   const img = (
     <div className="relative aspect-square overflow-hidden bg-sand">
       <Image
-        src={photoUrl(a.id, 800, 800)}
+        src={photoUrl(a.id, 800, 800)} unoptimized={isCommons(a.id)}
         alt={a.alt}
         fill
         sizes="25vw"
@@ -28,7 +28,7 @@ export default function HoverCard({ product, style }: { product: Product; style:
                   : ""
         }`}
       />
-      {style === "swap" && <Image src={photoUrl(b.id, 800, 800)} alt="" fill sizes="25vw" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />}
+      {style === "swap" && <Image src={photoUrl(b.id, 800, 800)} unoptimized={isCommons(b.id)} alt="" fill sizes="25vw" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />}
       {style === "reveal" && (
         <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 py-3 text-center text-[13px] font-semibold transition-transform duration-500 ease-out group-hover:translate-y-0">
           לצפייה בדגם

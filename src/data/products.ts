@@ -1,3 +1,4 @@
+import { expansion } from "./products-expansion";
 export type Collection = "sport" | "field" | "dress" | "vintage" | "gshock" | "straps";
 
 export type Photo = {
@@ -24,6 +25,8 @@ export type Product = {
   variants?: Variant[];
   description: string;
   specs: { label: string; value: string }[];
+  // "vintage": discontinued model, sold pre-owned.
+  condition?: "new" | "vintage";
 };
 
 export const collections: Record<Collection, { name: string; blurb: string }> = {
@@ -53,7 +56,23 @@ export const collections: Record<Collection, { name: string; blurb: string }> = 
   },
 };
 
+// Wikimedia Commons photos: "<original url>#w=<original width>". Served as a cached Commons
+// thumbnail at a standard step (the CDN rate-limits originals), loaded by the browser directly.
+const STEPS = [330, 500, 960, 1280];
+export function isCommons(id: string) {
+  return id.startsWith("https://upload.wikimedia.org/");
+}
+function commonsThumb(id: string, w: number) {
+  const [url, frag] = id.split("#");
+  const orig = Number(frag?.replace("w=", "")) || 0;
+  const step = STEPS.find((s) => s >= w) ?? STEPS[STEPS.length - 1];
+  if (orig && orig <= step) return url;
+  const m = url.match(/^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/(.+)\/([^/]+)$/);
+  return m ? `${m[1]}/thumb/${m[2]}/${m[3]}/${step}px-${m[3]}` : url;
+}
+
 export function photoUrl(id: string, w: number, h?: number) {
+  if (isCommons(id)) return commonsThumb(id, w);
   const size = h ? `&h=${h}&fit=crop` : "";
   return `https://images.unsplash.com/${id}?auto=format&q=80&w=${w}${size}`;
 }
@@ -490,23 +509,6 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "certina-ds-caimano",
-    brand: "Certina",
-    name: "די־אס קאימנו",
-    model: "DS CAIMANO",
-    tagline: "שוויצרי שקט על צמיד מתכת",
-    collection: "sport",
-    price: 1990,
-    photos: [{ id: "photo-1573152416688-41316d295ed9", alt: "שעון סרטינה עם לוח כהה וצמיד מתכת על רקע שחור", credit: "Radoslaw Prekurat" }],
-    description:
-      "שעון שוויצרי בלי רעש, עם מערכת ההגנה הכפולה שסרטינה ידועה בה. נראה טוב עם חליפה ולא מתלונן בים.",
-    specs: [
-      { label: "מארז", value: "פלדת אל־חלד" },
-      { label: "צמיד", value: "פלדת אל־חלד" },
-      { label: "הגנה", value: "מערכת הגנה כפולה" },
-    ],
-  },
-  {
     slug: "hamilton-khaki-field",
     brand: "Hamilton",
     name: "חאקי פילד",
@@ -596,24 +598,6 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "mido-baroncelli",
-    brand: "Mido",
-    name: "ברונצ׳לי",
-    model: "BARONCELLI BIG DATE",
-    tagline: "זהב אדום ותאריך גדול",
-    collection: "dress",
-    price: 3900,
-    badge: "חדש",
-    photos: [{ id: "photo-1768062251769-64a728ae8773", alt: "שעון מידו ברונצ׳לי בגוון זהב אדום עם תאריך גדול", credit: "Omar Al-Ghosson" }, { id: "photo-1768062251819-651433f1108b", alt: "מידו ברונצ׳לי מקרוב", credit: "Omar Al-Ghosson" }],
-    description:
-      "מארז בגוון זהב אדום, לוח שמנת וחלון תאריך גדול. שעון שוויצרי אוטומטי לאירועים שבהם רוצים להיראות הכי טוב.",
-    specs: [
-      { label: "מנגנון", value: "אוטומטי שוויצרי" },
-      { label: "תאריך", value: "חלון גדול" },
-      { label: "רצועה", value: "עור" },
-    ],
-  },
-  {
     slug: "seiko-sarb033",
     brand: "Seiko",
     name: "סייקו SARB033",
@@ -648,24 +632,6 @@ export const products: Product[] = [
       { label: "מנגנון", value: "אוטומטי 6R35, רזרבה של 70 שעות" },
       { label: "זכוכית", value: "ספיר" },
       { label: "עמידות במים", value: "200 מטר" },
-    ],
-  },
-  {
-    slug: "grand-seiko-skyflake",
-    brand: "Grand Seiko",
-    name: "סנואופלייק",
-    model: "SBGA211",
-    tagline: "לוח שנראה כמו שלג טרי",
-    collection: "dress",
-    price: 26900,
-    photos: [{ id: "photo-1731144689823-7eff0ae05aab", alt: "שעון גרנד סייקו עם לוח לבן מרקם שלג ורצועת עור", credit: "Andy Kennedy" }],
-    description:
-      "לוח לבן במרקם של שלג שנפל עכשיו, מארז טיטניום קל ומחוג שניות שזורם בלי לתקתק בזכות מנגנון ספרינג דרייב. שעון שקונים פעם אחת.",
-    specs: [
-      { label: "קוטר", value: "41 מ״מ" },
-      { label: "מארז", value: "טיטניום" },
-      { label: "מנגנון", value: "ספרינג דרייב, רזרבה של 72 שעות" },
-      { label: "עמידות במים", value: "100 מטר" },
     ],
   },
   {
@@ -718,23 +684,6 @@ export const products: Product[] = [
       { label: "מנגנון", value: "אוטומטי שוויצרי" },
       { label: "זכוכית", value: "ספיר קמורה" },
       { label: "עמידות במים", value: "100 מטר" },
-    ],
-  },
-  {
-    slug: "rado-coupole",
-    brand: "Rado",
-    name: "קופול קלאסיק",
-    model: "COUPOLE CLASSIC",
-    tagline: "זהב ופלדה, לוח נקי",
-    collection: "dress",
-    price: 7645,
-    priceSource: "market",
-    photos: [{ id: "photo-1605407160285-3d972384390c", alt: "שעון ראדו קופול בגווני זהב ופלדה על רקע לבן", credit: "Tyler Clemmensen" }],
-    description:
-      "שעון שוויצרי דק בגווני זהב ופלדה, עם לוח שחור נקי וצמיד שזורם מהמארז. אלגנטי בלי להתאמץ.",
-    specs: [
-      { label: "מנגנון", value: "שוויצרי" },
-      { label: "צמיד", value: "פלדה בשני גוונים" },
     ],
   },
   {
@@ -868,6 +817,8 @@ export const products: Product[] = [
     ],
   },
 ];
+
+products.push(...expansion);
 
 export const storyPhoto: Photo = {
   id: "photo-1660827851942-74e42ff00966",

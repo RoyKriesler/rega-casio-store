@@ -12,7 +12,7 @@ export default function CreditsPage() {
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
       <h1 className="font-display text-4xl font-semibold tracking-tight">קרדיט לצלמים</h1>
       <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-        כל התמונות באתר מגיעות מאתר תמונות חופשי, ברישיון שמתיר שימוש ללא תשלום. תודה לצלמים:
+        התמונות באתר מגיעות ממאגרי תמונות חופשיים, ברישיונות שמתירים שימוש ללא תשלום עם ציון שם הצלם. תודה לצלמים:
       </p>
       <ul className="mt-8 divide-y divide-line border-y border-line">
         {[...byCredit].map(([name, n]) => (
@@ -26,7 +26,7 @@ export default function CreditsPage() {
         סרטוני המנגנון והלוח מאתר הסרטונים החופשי פקסלס. תמונות האווירה בדף הבית נוצרו במיוחד לאתר, ואינן מציגות דגמים אמיתיים.
       </p>
       <p className="mt-6 text-sm text-muted" dir="ltr">
-        Photos from unsplash.com under the Unsplash License.
+        Photos from unsplash.com under the Unsplash License, and from Wikimedia Commons under the Creative Commons license named next to each author (CC BY / CC BY-SA, see commons.wikimedia.org).
       </p>
     </div>
   );

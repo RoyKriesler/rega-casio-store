@@ -1,0 +1,2759 @@
+[
+ {
+  "brand": "Seiko",
+  "model": "Seiko 5 SNKA23",
+  "ref": "SNKA23",
+  "family": "Seiko 5",
+  "description": "Classic Seiko 5 three-hand day-date, steel case, black dial.",
+  "movement": "automatic",
+  "diameter_mm": 37,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Seiko_5_SNKA23_watch.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_5_SNKA23_watch.JPG",
+    "author": "Ash Crow",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   },
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Seiko_5_SNKA23_watch_-_2.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_5_SNKA23_watch_-_2.JPG",
+    "author": "Ash Crow",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "movement and 37mm from a web-search snippet (7S26-02N0), single secondary source"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko 5 Sports SNZH53K1",
+  "ref": "SNZH53K1",
+  "family": "Seiko 5 Sports",
+  "description": "Seiko 5 Sports field/sport style on bracelet, automatic family.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Seiko_5_Sports_SNZH53K1.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_5_Sports_SNZH53K1.jpg",
+    "author": "Daniel Zimmermann",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ]
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko 5 SNK809",
+  "ref": "SNK809",
+  "family": "Seiko 5",
+  "description": "Seiko 5 SNK-series military-style field watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Seiko_SNK809.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_SNK809.jpg",
+    "author": "Soulreaper",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko SKX007",
+  "ref": "SKX007",
+  "family": "Seiko 5 Sports / Diver",
+  "description": "Iconic 200m-style diver with rotating bezel, shown on a Jubilee bracelet. Discontinued.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Seiko_SKX007k.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_SKX007k.jpg",
+    "author": "Tyisnttheanswer",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "no longer in production"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko SKX013",
+  "ref": "SKX013",
+  "family": "Seiko 5 Sports / Diver",
+  "description": "Mid-size diver's watch, SKX family. Discontinued.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Seiko-skx013.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko-skx013.jpg",
+    "author": "inside_loop",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "no longer in production"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Marinemaster 300 SBDX001",
+  "ref": "SBDX001",
+  "family": "Prospex Marinemaster",
+  "description": "High-end 300m helium-safe professional diver, one-piece case with L-shaped gasket.",
+  "movement": "automatic (8L35, 28,800 bph, 50h reserve)",
+  "diameter_mm": null,
+  "water_resistance_m": 300,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Seiko_SBDX001_Marinemaster.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_SBDX001_Marinemaster.jpg",
+    "author": "Francis Flinch",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   },
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/SBDX001.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:SBDX001.jpg",
+    "author": "Faustine buclez",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "movement and WR from Commons file description"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Professional Diver's 300m SBBN007",
+  "ref": "SBBN007",
+  "family": "Prospex Diver",
+  "description": "Helium-safe 300m professional diver, shown on a NATO strap.",
+  "movement": "quartz (7C46 high-torque)",
+  "diameter_mm": null,
+  "water_resistance_m": 300,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Seiko_SBBN007_Diver%27s_300m_on_a_4-ring_NATO_style_strap.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_SBBN007_Diver's_300m_on_a_4-ring_NATO_style_strap.jpg",
+    "author": "Francis Flinch",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Commons:Public_domain"
+   }
+  ],
+  "notes": "movement and WR from Commons file description; older model"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Prospex SNJ025",
+  "ref": "SNJ025",
+  "family": "Prospex",
+  "description": "Prospex analog-digital sport watch, frontal dial view.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Frontalansicht_Zifferblatt_laufender_Sekundenzeiger_Seiko_Prospex_SNJ025-P1_2020.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Frontalansicht_Zifferblatt_laufender_Sekundenzeiger_Seiko_Prospex_SNJ025-P1_2020.jpg",
+    "author": "VSchagow",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "photo is a long-exposure dial close-up; ref SNJ025-P1 from filename"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Prospex Alpinist Titanium",
+  "ref": "8F56-00D0",
+  "family": "Prospex Alpinist",
+  "description": "Titanium field/mountaineering watch, Alpinist family.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Seiko_Prospex_Alpinist01bs.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_Prospex_Alpinist01bs.jpg",
+    "author": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5"
+   }
+  ],
+  "notes": "8F56-00D0 is the caliber/case code in the file description"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Solar SNE056",
+  "ref": "SNE056",
+  "family": "Seiko Solar",
+  "description": "Solar men's sports watch.",
+  "movement": "solar",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Seiko_SNE056.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_SNE056.jpg",
+    "author": "Kjetil Ree",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko 6139 'Pogue' Chronograph",
+  "ref": "6139",
+  "family": "Vintage Seiko chronograph",
+  "description": "Early automatic chronograph, yellow dial, nicknamed Pogue Seiko. Vintage.",
+  "movement": "automatic (cal. 6139)",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Seiko_automatic_chronograph_6139_%22Pogue-Seiko%22.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_automatic_chronograph_6139_%22Pogue-Seiko%22.jpg",
+    "author": "File:Seiko Automatic-Chronograph Cal. 6139 mit gelbem Zifferblatt, die sogenannte „Pogue S",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "vintage; not in production"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Speed-Timer 'Bullhead' 6138-0040",
+  "ref": "6138-0040",
+  "family": "Vintage Seiko chronograph",
+  "description": "1976 automatic chronograph with crown and pushers at 12 o'clock. Vintage.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Seiko_Speed-Timer_Chronograph_Automatic_6138-0040_%28%22Bullhead%22%29%2C_1976.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_Speed-Timer_Chronograph_Automatic_6138-0040_(%22Bullhead%22),_1976.jpg",
+    "author": "Dnalor 01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "vintage; not in production"
+ },
+ {
+  "brand": "Seiko",
+  "model": "Seiko Astron 35A (1969)",
+  "ref": "35A",
+  "family": "Astron",
+  "description": "First commercial quartz wristwatch, 1969; Deutsches Uhrenmuseum piece.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Seiko_Astron.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_Astron.jpg",
+    "author": "Deutsches-uhrenmuseum",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "museum item; not in production"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko Hi-Beat Automatic",
+  "ref": "Hi-Beat (vintage)",
+  "family": "Grand Seiko Hi-Beat",
+  "description": "High-beat automatic Grand Seiko.",
+  "movement": "automatic (Hi-Beat)",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Grand_Seiko_Automatic_Hi-Beat.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grand_Seiko_Automatic_Hi-Beat.jpg",
+    "author": "Dnalor 01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en"
+   }
+  ],
+  "notes": "vintage Hi-Beat; exact ref not stated"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko SBGA011",
+  "ref": "SBGA011",
+  "family": "Grand Seiko Spring Drive",
+  "description": "Grand Seiko SBGA011 (file description spells it SGBA011).",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Grand_Seiko_SBGA011.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grand_Seiko_SBGA011.jpg",
+    "author": "Faustine seiko",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "movement not stated in source"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko SBGR051",
+  "ref": "SBGR051",
+  "family": "Grand Seiko Automatic",
+  "description": "Grand Seiko SBGR051, side view.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Grand_Seiko_SBGR051_sideview.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grand_Seiko_SBGR051_sideview.JPG",
+    "author": "STSPP",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "a second Commons file SBGR051.jpg is described as SBGH001: conflicting, not used"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko SBGW231",
+  "ref": "SBGW231",
+  "family": "Grand Seiko",
+  "description": "Grand Seiko SBGW231, side view.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Grand_Seiko_SBGW231_sideview.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grand_Seiko_SBGW231_sideview.JPG",
+    "author": "STSPP",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko SBGW005",
+  "ref": "SBGW005",
+  "family": "Grand Seiko 9S54",
+  "description": "Grand Seiko SBGW005 with 9S54-0030 caliber.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Grand_SeikoSBGW005_9S54-0030_01s3x.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grand_SeikoSBGW005_9S54-0030_01s3x.jpg",
+    "author": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5"
+   }
+  ],
+  "notes": "movement type not stated in source"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko SBGR037",
+  "ref": "SBGR037",
+  "family": "Grand Seiko",
+  "description": "Grand Seiko SBGR037.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Grandseiko-sbgr037.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grandseiko-sbgr037.jpg",
+    "author": "Hiroaki Kikuchi",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "501px wide only"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Grand Seiko Sport Collection GT-R50 Custom",
+  "ref": "custom-made",
+  "family": "Grand Seiko Sport Collection",
+  "description": "Custom-made Grand Seiko Sport Collection model featuring Nissan GT-R50 by Italdesign.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Grand_Seiko_Sport_Collection_Custom-Made_Model_featuring_Nissan_GT-R50_by_Italdesign.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Grand_Seiko_Sport_Collection_Custom-Made_Model_featuring_Nissan_GT-R50_by_Italdesign.jpg",
+    "author": "Tokumeigakarinoaoshima",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "limited custom piece, not sellable catalog item"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Seiko Grand Quartz 4843-5010 (1975)",
+  "ref": "4843-5010",
+  "family": "Grand Quartz (pre-GS brand)",
+  "description": "1975 Grand Quartz, branded Seiko at the time.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Seiko_Grand_Quartz_4843-5010%2C_1975.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_Grand_Quartz_4843-5010,_1975.jpg",
+    "author": "Dnalor 01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en"
+   }
+  ],
+  "notes": "BORDERLINE: vintage, labelled Seiko Grand Quartz; not counted in firm total"
+ },
+ {
+  "brand": "Grand Seiko",
+  "model": "Seiko Grand Quartz 9940-8010 Twinquartz (1979)",
+  "ref": "9940-8010",
+  "family": "Grand Quartz (pre-GS brand)",
+  "description": "1979 Twinquartz, branded Seiko at the time.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Seiko_Grand_Quartz_9940-8010_%28Twinquartz%29%2C_1979.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Seiko_Grand_Quartz_9940-8010_(Twinquartz),_1979.jpg",
+    "author": "Dnalor 01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "BORDERLINE: vintage, labelled Seiko Grand Quartz; not counted in firm total"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot PR 516 Automatic",
+  "ref": "PR516",
+  "family": "PR 516",
+  "description": "Vintage-style PR516 automatic calendar wristwatch; the 1972 PR 516 GL.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Tissot_PR516_Wrist_Watch.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_PR516_Wrist_Watch.jpg",
+    "author": "Lankyrider",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Tissot_Armbanduhr_Automatic_PR_516_GL_%281972%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Armbanduhr_Automatic_PR_516_GL_(1972).jpg",
+    "author": "Norbert Pietsch Enpi48",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "two photos may show different PR516 variants (Lankyrider: self-winding calendar; Enpi48: 1972 PR 516 GL)"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot PRS 516 Chronograph",
+  "ref": "PRS516",
+  "family": "PRS 516",
+  "description": "Racing-inspired chronograph with tachymeter bezel, black dial.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Tissot_prs516.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_prs516.jpg",
+    "author": "Lloydloo",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   },
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Tissot_PRS516_%28cropped%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_PRS516_(cropped).jpg",
+    "author": "Lloydloo",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "photos labelled test pics by uploader, but dial reads PRS516"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Couturier Quartz",
+  "ref": "Couturier",
+  "family": "Couturier",
+  "description": "Couturier quartz dress watch.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Tissot_Couturier_watch_on_hand.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Couturier_watch_on_hand.jpg",
+    "author": "Asimzb",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Navigator 3000",
+  "ref": "T96148842",
+  "family": "Navigator",
+  "description": "Blue-dial multifunction quartz, ref T96.1.488.42.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Wikipedia-Tissot-Navigator-3000-Blue-Dial-T96148842.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Wikipedia-Tissot-Navigator-3000-Blue-Dial-T96148842.jpg",
+    "author": "Minzoblate",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "older model"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Navigator Worldtimer (1996)",
+  "ref": "Navigator",
+  "family": "Navigator",
+  "description": "1996 Navigator worldtimer.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Tissot_Navigator_1996.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Navigator_1996.jpg",
+    "author": "Noop1958",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Seastar 1000 Automatic",
+  "ref": "T19.1.583.31",
+  "family": "Seastar",
+  "description": "Seastar 1000ft automatic, steel bracelet, silver dial.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Wikipedia-Tissot-Seastar-1000-Autom-Silver.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Wikipedia-Tissot-Seastar-1000-Autom-Silver.jpg",
+    "author": "Minzoblate",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "1000 ft stated (about 300 m), left null in metres; older model"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot V560 Bridgeport Chronograph",
+  "ref": "V560",
+  "family": "Bridgeport",
+  "description": "Early Bridgeport automatic chronograph (Valjoux 7750 base).",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Wikipedia-Tissot-V560-Bridgeport-7750-Automatic.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Wikipedia-Tissot-V560-Bridgeport-7750-Automatic.jpg",
+    "author": "Minzoblate",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   },
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/TISSOT_Bridgeport.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:TISSOT_Bridgeport.jpg",
+    "author": "TONY LU",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "older model"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Ballade",
+  "ref": "Ballade",
+  "family": "Ballade",
+  "description": "Tissot Ballade dress watch (2005 photo).",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Tissot_Ballade_01.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Ballade_01.jpg",
+    "author": "No machine-readable author provided. Ustas~commonswiki assumed (based on copyright claims)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ],
+  "notes": "description cites GFDL; Commons license tag is CC BY-SA 3.0"
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Heritage 150th Chronograph",
+  "ref": "Heritage 150th",
+  "family": "Heritage",
+  "description": "Heritage chronograph with COSC certification.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Tissot_Heritage_150th_cronografo_con_certificazione_COSC.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Heritage_150th_cronografo_con_certificazione_COSC.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Banana (modern reissue)",
+  "ref": "Banana",
+  "family": "Heritage",
+  "description": "Modern faithful reproduction of the 1920s Banana model.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Tissot_Banana%2C_fedele_riproduzione_moderna_dello_storico_modello_realizzato_negli_anni_Venti_del_1900.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Banana,_fedele_riproduzione_moderna_dello_storico_modello_realizzato_negli_anni_Venti_del_1900.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot Memphis (modern reissue)",
+  "ref": "Memphis",
+  "family": "Heritage",
+  "description": "Modern reproduction of the late-1980s Memphis.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Tissot_Memphis%2C_riproduzione_moderna_del_modello_di_fine_anni_%2780.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_Memphis,_riproduzione_moderna_del_modello_di_fine_anni_'80.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Tissot",
+  "model": "Tissot RockWatch R151",
+  "ref": "R151",
+  "family": "RockWatch",
+  "description": "Stone-case RockWatch, dark green, men's size.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tissot_RockWatch_R151_dark_green%2C_front.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Tissot_RockWatch_R151_dark_green,_front.jpg",
+    "author": "Watchrocker",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "discontinued line"
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Ventura",
+  "ref": "Ventura",
+  "family": "Ventura",
+  "description": "Triangular case, world's first battery-powered watch (1957 original).",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Ventura_1957.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Ventura_1957.jpg",
+    "author": "Hamiltonwatches",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Khaki X-Patrol Chronograph",
+  "ref": "H76566151",
+  "family": "Khaki Aviation",
+  "description": "Automatic chronograph, H21 caliber based on Valjoux 7750.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Detailed_view_of_Hamilton_Khaki_X-Patrol-Chronograph_H21_%28cropped%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Detailed_view_of_Hamilton_Khaki_X-Patrol-Chronograph_H21_(cropped).jpg",
+    "author": "Minzoblate",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Khaki Navy GMT",
+  "ref": "Khaki Navy GMT",
+  "family": "Khaki Navy",
+  "description": "Khaki Navy GMT.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Hamilton-Khaki-Navy-GMT.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton-Khaki-Navy-GMT.jpg",
+    "author": "Root66",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Jazzmaster Maestro",
+  "ref": "Maestro",
+  "family": "Jazzmaster",
+  "description": "Jazzmaster Maestro dress watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Hamilton_jazzmaster_maestro_%2828181260375%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton_jazzmaster_maestro_(28181260375).jpg",
+    "author": "Russ",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ]
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Khaki Field Murph 38mm",
+  "ref": "Murph 38mm",
+  "family": "Khaki Field",
+  "description": "Khaki Field Murph, 38mm.",
+  "movement": null,
+  "diameter_mm": 38,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Hamilton_Khaki_Field_Murph_38mm.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton_Khaki_Field_Murph_38mm.jpg",
+    "author": "EMore98",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "38mm from filename"
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Electric 500",
+  "ref": "Electric 500",
+  "family": "Electric",
+  "description": "Restored first-run Electric 500, early battery-powered watch. Vintage.",
+  "movement": "electric (battery, balance wheel)",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Hamilton_Electric_500.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton_Electric_500.jpg",
+    "author": "MPants at work",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage; movement wording simplified from 'electric'"
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Electric 505",
+  "ref": "Electric (cal. 505)",
+  "family": "Electric",
+  "description": "Electric watch with caliber 505, moving-coil, contact controlled. Vintage.",
+  "movement": "electric (moving coil, cal. 505)",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Hamilton_505.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton_505.JPG",
+    "author": "Ofbarea",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Commons:Public_domain"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Quartz Time Computer QTC",
+  "ref": "QTC",
+  "family": "Vintage electronic",
+  "description": "Vintage Quartz Time Computer wristwatch, shown with original box.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Vintage_Hamilton_Watch_Quartz_Time_Computer_QTC_Wristwatch_in_Original_Box_%288453769238%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Vintage_Hamilton_Watch_Quartz_Time_Computer_QTC_Wristwatch_in_Original_Box_(8453769238).jpg",
+    "author": "Joe Haupt from USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Pacer",
+  "ref": "Pacer",
+  "family": "Electric",
+  "description": "Early electric wristwatch from 1957, Deutsches Uhrenmuseum piece.",
+  "movement": "electric",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Hamilton_Ventura.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton_Ventura.jpg",
+    "author": "Museumsfoto",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/de/deed.en"
+   }
+  ],
+  "notes": "file is named Hamilton Ventura but description says Pacer; model = Pacer"
+ },
+ {
+  "brand": "Hamilton",
+  "model": "Hamilton Khaki Field Officer",
+  "ref": "H70615133",
+  "family": "Khaki Field",
+  "description": "Khaki Field Officer.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/HamiltonKhakiFieldOfficer-001.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:HamiltonKhakiFieldOfficer-001.jpg",
+    "author": "Rich Niewiroski Jr.",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0"
+   }
+  ],
+  "notes": "640px wide only"
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Aqualand JP1010",
+  "ref": "JP1010",
+  "family": "Promaster Aqualand",
+  "description": "Diver's watch with depth gauge.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Citizen_Promaster_Aqualand_diving_watch%2C_type_JP1010%2C_with_depth_gauge.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Promaster_Aqualand_diving_watch,_type_JP1010,_with_depth_gauge.jpg",
+    "author": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Aqualand AL0004-03W",
+  "ref": "AL0004-03W",
+  "family": "Promaster Aqualand",
+  "description": "Diving watch with depth gauge.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Citizen_Aqualand_Promaster_AL0004-03W_-_Diving_watch_with_depth_gauge.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Aqualand_Promaster_AL0004-03W_-_Diving_watch_with_depth_gauge.jpg",
+    "author": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Hyper Aqualand MA9004-21E",
+  "ref": "MA9004-21E",
+  "family": "Promaster Aqualand",
+  "description": "Digital quartz diving watch with depth gauge.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Citizen_Hyper_Aqualand_Diver%27s_Promaster_MA9004-21E%2C_digital_quartz_diving_watch_with_depth_gauge.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Hyper_Aqualand_Diver's_Promaster_MA9004-21E,_digital_quartz_diving_watch_with_depth_gauge.jpg",
+    "author": "Pittigrilli",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Eco-Drive AP0440-14F",
+  "ref": "AP0440-14F",
+  "family": "Promaster Diver",
+  "description": "200m diver on NATO strap, 2000-made example.",
+  "movement": "solar (Eco-Drive 7878)",
+  "diameter_mm": null,
+  "water_resistance_m": 200,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Citizen_Promaster_Eco-Drive_AP0440-14F_Diver%27s_200_m_%28edited%2C_cropped_to_casing%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Promaster_Eco-Drive_AP0440-14F_Diver's_200_m_(edited,_cropped_to_casing).jpg",
+    "author": "File:Citizen Promaster Eco-Drive AP0440-14F Diver's 200 m on a 4-ring NATO style strap.JPG",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Commons:Public_domain"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Automatic NY0040-09EE",
+  "ref": "NY0040-09EE",
+  "family": "Promaster Diver",
+  "description": "Promaster automatic 200m diver.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": 200,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Citizen_Promaster_Automatic_NY0040-09EE_Diver_200_m.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Promaster_Automatic_NY0040-09EE_Diver_200_m.jpg",
+    "author": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "WR from model name Diver 200 m"
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Titan Alarm Chronograph",
+  "ref": "3510-353056",
+  "family": "Promaster",
+  "description": "Titanium case and bracelet alarm chronograph, 2007.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Citizen_Promaster_3510-353056_analog_chronograph_watch_made_from_titanium%2C_2007_%28turned_upright_and_cropped_to_casing%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Promaster_3510-353056_analog_chronograph_watch_made_from_titanium,_2007_(turned_upright_and_cropped_to_casing).jpg",
+    "author": "VSchagow",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen JM540-51E Digital-Analog",
+  "ref": "JM540-51E",
+  "family": "Ana-Digi",
+  "description": "Digital-analog alarm quartz watch.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Citizen_digital-analog_alarm_quartz_watch_JM540-51E.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_digital-analog_alarm_quartz_watch_JM540-51E.jpg",
+    "author": "VSchagow",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Eco-Drive 'Orca' BN0015-07E",
+  "ref": "BN0015-07E",
+  "family": "Promaster Diver",
+  "description": "Titanium 200m solar diver on silicone strap.",
+  "movement": "solar (Eco-Drive E168)",
+  "diameter_mm": null,
+  "water_resistance_m": 200,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Citizen_%22Orca%22_200m_titanium.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_%22Orca%22_200m_titanium.jpg",
+    "author": "Guillaume PILLET",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Eco-Drive BJ8050-08E",
+  "ref": "BJ8050-08E",
+  "family": "Promaster Diver",
+  "description": "300m mixed-gas diver, Eco-Drive.",
+  "movement": "solar (Eco-Drive B873)",
+  "diameter_mm": null,
+  "water_resistance_m": 300,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Citizen_Promaster_Eco-Drive_BJ8050-08E_Diver%27s_300_m.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Promaster_Eco-Drive_BJ8050-08E_Diver's_300_m.jpg",
+    "author": "Naklig",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/gr/deed.en"
+   }
+  ]
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Promaster Eco-Drive BN0000-04H",
+  "ref": "BN0000-04H",
+  "family": "Promaster Diver",
+  "description": "300m scuba diver, Eco-Drive, shown on a NATO strap.",
+  "movement": "solar (Eco-Drive)",
+  "diameter_mm": null,
+  "water_resistance_m": 300,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Citizen_Promaster_Eco-Drive_BN0000-04H_Diver%27s_300_m_on_a_on_a_4-ring_NATO_strap.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Promaster_Eco-Drive_BN0000-04H_Diver's_300_m_on_a_on_a_4-ring_NATO_strap.jpg",
+    "author": "Francis Flinch",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "older model"
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Attesa Eco-Drive ATV53-3023",
+  "ref": "ATV53-3023",
+  "family": "Attesa",
+  "description": "Eco-Drive radio-controlled chronograph, titanium family.",
+  "movement": "solar (Eco-Drive), radio controlled",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Citizen_Attesa_Eco-Drive_ATV53-3023_01.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Citizen_Attesa_Eco-Drive_ATV53-3023_01.JPG",
+    "author": "Kansai explorer",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "older model"
+ },
+ {
+  "brand": "Citizen",
+  "model": "Citizen Navihawk A-T JY8034-58E",
+  "ref": "JY8034-58E",
+  "family": "Navihawk",
+  "description": "Pilot-style multifunction watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/CITIZEN_JY8034-58E_Navihawk_A-T.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:CITIZEN_JY8034-58E_Navihawk_A-T.jpg",
+    "author": "Jasmin.Doglod",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient Capital FUG1R003W9",
+  "ref": "FUG1R003W9",
+  "family": "Capital",
+  "description": "Orient Capital dress watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Orient_Capital_FUG1R003W9_wrist_watch_face.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Orient_Capital_FUG1R003W9_wrist_watch_face.jpg",
+    "author": "Mr. Satterly",
+    "license": "WTFPL",
+    "license_url": "http://www.wtfpl.net/about/"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient SFD0H001B",
+  "ref": "SFD0H001B",
+  "family": "Orient mechanical",
+  "description": "Steel case, carbon-fiber dial, power reserve indicator.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Orient_SFD0H001B.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Orient_SFD0H001B.jpg",
+    "author": "Hustvedt",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient World Time CEY04002B",
+  "ref": "CEY04002B",
+  "family": "World Time",
+  "description": "Mechanical world-time watch, sapphire crystal, power reserve.",
+  "movement": "mechanical",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Orient_CEY04002B.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Orient_CEY04002B.jpg",
+    "author": "Hustvedt",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient Star Classic EL05004W",
+  "ref": "EL05004W",
+  "family": "Orient Star",
+  "description": "Orient Star Classic dress watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Orient_Star_-_Classic.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Orient_Star_-_Classic.jpg",
+    "author": "David Guinea",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient Tank Titan Dresswatch",
+  "ref": "Tank Titan",
+  "family": "Tank",
+  "description": "Rectangular titanium dress watch, case 26 x 39 x 6 mm.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/2012012801_Orient_Tank_Titan_Dresswatch_seitlich_schraege_Ansicht_2012.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:2012012801_Orient_Tank_Titan_Dresswatch_seitlich_schraege_Ansicht_2012.jpg",
+    "author": "VSchagow",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "case size is 26x39 mm rectangle, no diameter"
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient 46E701-91 Day Date",
+  "ref": "46E701-91",
+  "family": "Day Date",
+  "description": "Day-date automatic, 21 jewels.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/2012101803_Orient_46E701-91_Day_Date_quer_2012.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:2012101803_Orient_46E701-91_Day_Date_quer_2012.jpg",
+    "author": "VSchagow",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage-style older model"
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient Classic AC0000AB",
+  "ref": "AC0000AB",
+  "family": "Classic",
+  "description": "Mechanical dress watch, F6724 caliber, 22 jewels, about 40h reserve.",
+  "movement": "automatic with hand winding",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/2023071501_Orient_Classic_AC0000AB_schraeg_links_2023.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:2023071501_Orient_Classic_AC0000AB_schraeg_links_2023.jpg",
+    "author": "VSchagow",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient New Mako CEM75001B",
+  "ref": "CEM75001B",
+  "family": "Mako",
+  "description": "200m automatic diver, 21 jewels.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": 200,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/ORIENT_New_Mako_Automatic_200M_Diver%27s_CEM75001B._%285921299415%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:ORIENT_New_Mako_Automatic_200M_Diver's_CEM75001B._(5921299415).jpg",
+    "author": "MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient CFHAA004W",
+  "ref": "CFHAA004W",
+  "family": "Orient",
+  "description": "Orient CFHAA004W wristwatch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/CFHAA004W.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:CFHAA004W.jpg",
+    "author": "Tigerplish",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Orient",
+  "model": "Orient Bambino ER24005W",
+  "ref": "ER24005W",
+  "family": "Bambino",
+  "description": "Bambino dress watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Orient_Watch_-_Bambino_%28ER24005W%29_%2829121883374%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Orient_Watch_-_Bambino_(ER24005W)_(29121883374).jpg",
+    "author": "MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ],
+  "notes": "FLAG: Bambino family overlaps the existing Bambino small seconds; not counted in firm total"
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris ProDiver Chronograph",
+  "ref": "ProDiver Chronograph",
+  "family": "ProDiver",
+  "description": "1000m automatic dive chronograph, titanium case and bracelet.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": 1000,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/ORIS_ProDiver_Chronograph.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:ORIS_ProDiver_Chronograph.jpg",
+    "author": "Johntorcasio",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Diver Date Small Second",
+  "ref": "Diver Date Small Second",
+  "family": "Diver",
+  "description": "Stainless steel 1000m diver with small seconds.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": 1000,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Oris_Diver_small_second_date_1000m.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_Diver_small_second_date_1000m.jpg",
+    "author": "Johntorcasio",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Regulateur Der Meistertaucher",
+  "ref": "Meistertaucher",
+  "family": "Regulateur",
+  "description": "1000m regulator-layout diving watch.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": 1000,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Oris_meistertaucher.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_meistertaucher.JPG",
+    "author": "PatrickVanM",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "WR per ISO 2281 as stated, not ISO 6425"
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Aquis Depth Gauge",
+  "ref": "Aquis Depth Gauge",
+  "family": "Aquis",
+  "description": "Aquis dive watch with depth gauge, official Oris press photo.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Oris_Aquis_Depth_Gauge.jpeg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_Aquis_Depth_Gauge.jpeg",
+    "author": "Rechteinhaber: Oris Fotograf: Olaf Köster",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+   }
+  ]
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Artelier Calibre 111",
+  "ref": "Calibre 111",
+  "family": "Artelier",
+  "description": "Artelier with 10-day power reserve, official Oris photo.",
+  "movement": "mechanical (10-day reserve)",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Oris_Artelier_Calibre_111_HighRes_7158.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_Artelier_Calibre_111_HighRes_7158.jpg",
+    "author": "Oris SA, Lizenz bestätigt: [Ticket#2019050910007101]",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Pointer Date 1938",
+  "ref": "Pointer Date 1938",
+  "family": "Heritage",
+  "description": "1938 pointer-date, official Oris photo. Vintage.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Oris_Pointer_Date_1938_HighRes_1650.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_Pointer_Date_1938_HighRes_1650.jpg",
+    "author": "Oris SA, Lizenz bestätigt: [Ticket#2019050910007101]",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Nico Rosberg Limited Edition",
+  "ref": "Nico Rosberg LE",
+  "family": "Motorsport limited",
+  "description": "Limited edition with autograph.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Oris_Nico_Rosberg_Limited_Edition.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_Nico_Rosberg_Limited_Edition.jpg",
+    "author": "kart@Pantip F1",
+    "license": "CC BY-SA 2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
+   }
+  ],
+  "notes": "limited edition; 410px wide only"
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Williams TT3 Chronograph",
+  "ref": "Williams TT3",
+  "family": "Williams F1",
+  "description": "Chronograph with carbon-pattern dial, tachymeter bezel.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Oris_Williams_TT3.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Oris_Williams_TT3.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Big Crown ProPilot",
+  "ref": "01 752 7698 4164-07 5 22 19FC",
+  "family": "Big Crown ProPilot",
+  "description": "Big Crown ProPilot pilot's watch (file titled HIGH MECH; description gives the ref).",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/ORIS_HIGH_MECH_%2816565102404%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:ORIS_HIGH_MECH_(16565102404).jpg",
+    "author": "Daniel Zimmermann from Bayern, Deutschland (Germany)",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ]
+ },
+ {
+  "brand": "Oris",
+  "model": "Oris Sinatra Chronograph (per Flickr title)",
+  "ref": "Sinatra",
+  "family": "Chronograph",
+  "description": "Cushion-case chronograph with Oris dial.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Sinatra_chronograph_oris_face_%2826577531283%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Sinatra_chronograph_oris_face_(26577531283).jpg",
+    "author": "Russ",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+   }
+  ],
+  "notes": "model name from Flickr title only; Oris logo visible on dial"
+ },
+ {
+  "brand": "Rado",
+  "model": "Rado Captain Cook MK1 (1962)",
+  "ref": "Captain Cook MK1",
+  "family": "Captain Cook",
+  "description": "1962 original Captain Cook. Vintage.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Rado_Captain_Cook_MK1.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Rado_Captain_Cook_MK1.jpg",
+    "author": "Evilsabd",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Rado",
+  "model": "Rado Captain Cook Re-edition",
+  "ref": "Captain Cook",
+  "family": "Captain Cook",
+  "description": "Re-edition of the Captain Cook.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/RADO_Captain_Cook_Redition_.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:RADO_Captain_Cook_Redition_.jpg",
+    "author": "Numaan225",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "642px wide only"
+ },
+ {
+  "brand": "Rado",
+  "model": "Rado DiaStar Ceramica (1994)",
+  "ref": "DiaStar Ceramica",
+  "family": "DiaStar",
+  "description": "1994 DiaStar Ceramica.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Rado_Diastar_Ceramica.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Rado_Diastar_Ceramica.jpg",
+    "author": "Dr-Victor-von-Doom",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "720px wide only"
+ },
+ {
+  "brand": "Rado",
+  "model": "Rado True BG314",
+  "ref": "BG314",
+  "family": "True",
+  "description": "Rado True ceramic, skeleton dial.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/RADO_True_BG314.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:RADO_True_BG314.jpg",
+    "author": "Bingar1234",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "BG314 is the uploader's filename; unverified"
+ },
+ {
+  "brand": "Rado",
+  "model": "Rado True Automatic Diamonds",
+  "ref": "True Automatic Diamonds",
+  "family": "True",
+  "description": "True Automatic with diamond indices.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Rado_True_Automatic_Diamonds.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Rado_True_Automatic_Diamonds.jpg",
+    "author": "Achayan",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Rado",
+  "model": "Rado Silver Star (c. 1980)",
+  "ref": "Silver Star",
+  "family": "Vintage",
+  "description": "Silver Star c.1980. Vintage.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/RadoSilverStar.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:RadoSilverStar.jpg",
+    "author": "No machine-readable author provided. Zckls04~commonswiki assumed (based on copyright claim",
+    "license": "CC BY-SA 2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
+   }
+  ],
+  "notes": "426px wide only; vintage"
+ },
+ {
+  "brand": "Mido",
+  "model": "Mido Commander II Chronometer",
+  "ref": "M021.431.16.071.00",
+  "family": "Commander",
+  "description": "Commander II chronometer.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Mido_Commander_II_Chronometer.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Mido_Commander_II_Chronometer.jpg",
+    "author": "Minzoblate",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Mido",
+  "model": "Mido Ocean Star V Cal. 80 Blue Dial",
+  "ref": "M026.430.36.041.00",
+  "family": "Ocean Star",
+  "description": "Ocean Star V with Cal. 80, blue dial.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Mido-Ocean-Star-V-Blue-Dial-1024.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Mido-Ocean-Star-V-Blue-Dial-1024.jpg",
+    "author": "Minzoblate",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Mido",
+  "model": "Mido Ocean Star GMT",
+  "ref": "Ocean Star GMT",
+  "family": "Ocean Star",
+  "description": "Ocean Star GMT, blue bezel, fabric strap; Mido logo visible.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Mido-Ocean-Star-GMT.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Mido-Ocean-Star-GMT.jpg",
+    "author": "Prỏeviewapp",
+    "license": "CC BY-SA 2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
+   }
+  ],
+  "notes": "description field on Commons is junk; model from filename and visible Mido/Ocean Star dial text"
+ },
+ {
+  "brand": "Certina",
+  "model": "Certina DS Podium",
+  "ref": "DS Podium",
+  "family": "DS Podium",
+  "description": "DS Podium with black dial, brown leather strap.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Certina_DS_Podium.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Certina_DS_Podium.jpg",
+    "author": "NobleK",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "701px wide only"
+ },
+ {
+  "brand": "Certina",
+  "model": "Certina 1888 DS Podium Chronograph",
+  "ref": "1888 DS Podium Chronograph",
+  "family": "DS Podium",
+  "description": "DS Podium chronograph.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Certina_1888_DS_Podium_Chronograph.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Certina_1888_DS_Podium_Chronograph.jpg",
+    "author": "Dnalor 01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Certina",
+  "model": "Certina Blue Ribbon 'Volvo'",
+  "ref": "Blue Ribbon",
+  "family": "Vintage",
+  "description": "Timepiece released by Volvo in 1977 for 50 years in business. Vintage.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Certina_Blue_Ribbon_%22Volvo%22.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Certina_Blue_Ribbon_%22Volvo%22.jpg",
+    "author": "Franke 1",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Certina",
+  "model": "Certina DS Super PH1000M",
+  "ref": "PH1000M",
+  "family": "DS Super",
+  "description": "2023 DS Super diver.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Certina_DS_Super_PH1000M.png",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Certina_DS_Super_PH1000M.png",
+    "author": "DanUrd",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Certina",
+  "model": "Certina Caimano Automatic",
+  "ref": "C017.407.22.037.00",
+  "family": "Caimano",
+  "description": "Two-tone steel/gold-plate automatic, day display.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": 100,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Certina_Caimano_Bicolor.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Certina_Caimano_Bicolor.jpg",
+    "author": "User:Mattes",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/de/deed.en"
+   }
+  ],
+  "notes": "FLAG: Caimano family adjacent to existing DS Caimano; older line"
+ },
+ {
+  "brand": "Certina",
+  "model": "Certina President Automatic (vintage)",
+  "ref": "President",
+  "family": "Vintage",
+  "description": "Vintage President automatic men's watch.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Vintage_Certina_President_Automatic_Men%27s_Wrist_Watch%2C_Swiss_Made_%2815858485258%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Vintage_Certina_President_Automatic_Men's_Wrist_Watch,_Swiss_Made_(15858485258).jpg",
+    "author": "Joe Haupt from USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Lunar Pilot",
+  "ref": "Lunar Pilot",
+  "family": "Archive",
+  "description": "Lunar Pilot chronograph.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Bulova_Lunar_Pilot.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_Lunar_Pilot.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Accutron Spaceview 214",
+  "ref": "cal. 214",
+  "family": "Accutron",
+  "description": "Tuning-fork Accutron Spaceview, early 1970s.",
+  "movement": "tuning fork",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Bulova_Accutron_Spaceview_con_calibro_214%2C_prima_met%C3%A0_anni_%2770.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_Accutron_Spaceview_con_calibro_214,_prima_met%C3%A0_anni_'70.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Accutron 218",
+  "ref": "cal. 218",
+  "family": "Accutron",
+  "description": "Accutron with caliber 218, early 1970s.",
+  "movement": "tuning fork (Accutron)",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Bulova_Accutron_con_calibro_218%2C_prima_met%C3%A0_anni_%2770.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_Accutron_con_calibro_218,_prima_met%C3%A0_anni_'70.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage; movement type inferred from Accutron naming, 218 is an Accutron caliber"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Accutron Space View (1963)",
+  "ref": "Space View",
+  "family": "Accutron",
+  "description": "1963 Space View, open dial.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Bulova_accutron_sv_1963.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_accutron_sv_1963.jpg",
+    "author": "名古屋太郎",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Ambassador Automatic",
+  "ref": "Ambassador",
+  "family": "Vintage",
+  "description": "Ambassador automatic dress watch.",
+  "movement": "automatic",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Bulova_Ambassador_Automatic.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_Ambassador_Automatic.jpg",
+    "author": "Dnalor 01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Easy Rider",
+  "ref": "Easy Rider",
+  "family": "Vintage",
+  "description": "Late-1980s Easy Rider.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Bulova_Easy_Rider%2C_fine_anni_%2780.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_Easy_Rider,_fine_anni_'80.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Longchamp",
+  "ref": "Longchamp",
+  "family": "Vintage",
+  "description": "Circa 1970s Longchamp, cushion case, roman numerals.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Bulova_Longchamp%2C_anni_%2770_circa.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Bulova_Longchamp,_anni_'70_circa.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Computron Series 240",
+  "ref": "Computron 240",
+  "family": "Computron",
+  "description": "Digital quartz LED watch, circa 1970.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Vintage_Bulova_Computron_Digital_Quartz_LED_Watch%2C_Series_240%2C_Circa_1970_%2814558517573%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Vintage_Bulova_Computron_Digital_Quartz_LED_Watch,_Series_240,_Circa_1970_(14558517573).jpg",
+    "author": "Joe Haupt from USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Accutron Model 214 (1968)",
+  "ref": "Model 214",
+  "family": "Accutron",
+  "description": "Electronic tuning fork watch, 1968 service-award example.",
+  "movement": "tuning fork",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Vintage_Bulova_Accutron_Electronic_Tuning_Fork_Watch%2C_Model_214%2C_The_Watch_That_Hums%2C_RCA_Service_Award_For_25_Years_Service%2C_Dated_1968_%2840480286484%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Vintage_Bulova_Accutron_Electronic_Tuning_Fork_Watch,_Model_214,_The_Watch_That_Hums,_RCA_Service_Award_For_25_Years_Service,_Dated_1968_(40480286484).jpg",
+    "author": "Joe Haupt from USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Bulova",
+  "model": "Bulova Senator",
+  "ref": "Senator",
+  "family": "Vintage",
+  "description": "Goldtone manual-wind Senator.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Vintage_Bulova_Man%27s_Manual_Wind_%22Senator%22_Watch_%288356099116%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Vintage_Bulova_Man's_Manual_Wind_%22Senator%22_Watch_(8356099116).jpg",
+    "author": "Joe Haupt from USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+   }
+  ],
+  "notes": "vintage; 'manual wind' from the file title"
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Weekender",
+  "ref": "Weekender",
+  "family": "Weekender",
+  "description": "Field-style Weekender on strap, shown with box and price tag.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Timex_Weekender.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_Weekender.jpg",
+    "author": "Andrew J.Kurbiko",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Expedition WS4",
+  "ref": "WS4",
+  "family": "Expedition",
+  "description": "Expedition WS4.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Timex_Expedition_WS4.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_Expedition_WS4.jpg",
+    "author": "Dr. K.",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Ironman Triathlon (1st gen, 1986)",
+  "ref": "Ironman Triathlon",
+  "family": "Ironman",
+  "description": "Original 1986 Ironman. Vintage.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Timex_Ironman_Triathlon_Watch_-_1st_Generation.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_Ironman_Triathlon_Watch_-_1st_Generation.jpg",
+    "author": "HuckleCat",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Ironman 20th Anniversary",
+  "ref": "Ironman 20th",
+  "family": "Ironman",
+  "description": "Ironman 20th anniversary edition.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Timex_20thaniv_watch2.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_20thaniv_watch2.jpg",
+    "author": "100mjohn",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Commons:Public_domain"
+   }
+  ],
+  "notes": "480px wide only"
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Ironman TW5K90900",
+  "ref": "TW5K90900",
+  "family": "Ironman",
+  "description": "Ironman sport watch (ref from Flickr description).",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Timex_Ironman.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_Ironman.jpg",
+    "author": "Qirille",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "ref tw5k90900 is the Commons description text"
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Intelligent Quartz Depth Gauge T2N958",
+  "ref": "T2N958",
+  "family": "Intelligent Quartz",
+  "description": "Dive-style watch with depth and temperature, yellow strap.",
+  "movement": "quartz",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Timex_Depth_Gauge_Analog_Resin_T2N958.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_Depth_Gauge_Analog_Resin_T2N958.JPG",
+    "author": "Alexander Kurtchitski",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Standard Chronograph",
+  "ref": "Standard Chronograph",
+  "family": "Chronograph",
+  "description": "Chronograph.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Timex_Standard_Chronograph.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Timex_Standard_Chronograph.jpg",
+    "author": "Clyde94",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Datalink 150",
+  "ref": "Datalink 150",
+  "family": "Datalink",
+  "description": "Datalink 150.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Datalink_Model_150.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Datalink_Model_150.JPG",
+    "author": "No machine-readable author provided. Tasoskessaris assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Datalink Ironman USB Sports Edition",
+  "ref": "Datalink Ironman USB",
+  "family": "Datalink",
+  "description": "Ironman Datalink USB.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Datalink_Ironman_USB_Sports_Edition.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Datalink_Ironman_USB_Sports_Edition.JPG",
+    "author": "No machine-readable author provided. Tasoskessaris assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex Datalink USB Dress Edition",
+  "ref": "Datalink USB Dress",
+  "family": "Datalink",
+  "description": "Datalink USB dress edition.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Datalink_USB_Dress_Edition.JPG",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Datalink_USB_Dress_Edition.JPG",
+    "author": "No machine-readable author provided. Tasoskessaris assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+   }
+  ]
+ },
+ {
+  "brand": "Timex",
+  "model": "Timex SSQ LED (1976)",
+  "ref": "SSQ LED",
+  "family": "Vintage LED",
+  "description": "1976 LED watch from Montgomery Ward. Vintage.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/1976_Timex_SSQ_LED_Watch_%28Montgomery_Ward%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:1976_Timex_SSQ_LED_Watch_(Montgomery_Ward).jpg",
+    "author": "UwaChiikawa",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+   }
+  ],
+  "notes": "vintage"
+ },
+ {
+  "brand": "Casio",
+  "model": "Casio Databank CD-401",
+  "ref": "CD-401",
+  "family": "Databank",
+  "description": "1984 Databank.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Casio_Databank_Watch_CD-401_%28edited%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Casio_Databank_Watch_CD-401_(edited).jpg",
+    "author": "Adalbert1111",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "bonus; Casio already above 10"
+ },
+ {
+  "brand": "Casio",
+  "model": "Casio DB-E30 Tough Solar Databank",
+  "ref": "DB-E30",
+  "family": "Databank",
+  "description": "Telememo (30 records), world time, stopwatch, timer, five alarms; resin and steel case.",
+  "movement": "solar",
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Casio_DB-E30_%22Tough_Solar%22_Databank_watch_%282%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Casio_DB-E30_%22Tough_Solar%22_Databank_watch_(2).jpg",
+    "author": "Siarhei Besarab",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "bonus"
+ },
+ {
+  "brand": "Casio",
+  "model": "Casio G-Shock GA-100",
+  "ref": "GA-100",
+  "family": "G-Shock",
+  "description": "Digital and analog G-Shock, 2010 model year.",
+  "movement": null,
+  "diameter_mm": null,
+  "water_resistance_m": null,
+  "price_ils": null,
+  "price_source": null,
+  "photos": [
+   {
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Casio_G-Shock_GA-100%2C_digital_and_analog_watch_%28from_2010%2C_photographed_in_2023%29.jpg",
+    "unsplash_id": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Casio_G-Shock_GA-100,_digital_and_analog_watch_(from_2010,_photographed_in_2023).jpg",
+    "author": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+   }
+  ],
+  "notes": "bonus"
+ }
+]

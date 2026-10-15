@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { collections, formatPrice, photoUrl, priceDate, type Product } from "@/data/products";
+import { collections, formatPrice, photoUrl, isCommons, priceDate, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
 import QtyStepper from "./QtyStepper";
 
@@ -21,7 +21,7 @@ export default function ProductDetail({ product }: { product: Product }) {
         <div className="relative aspect-square overflow-hidden bg-sand">
           <Image
             key={current.id}
-            src={photoUrl(current.id, 1400, 1400)}
+            src={photoUrl(current.id, 1400, 1400)} unoptimized={isCommons(current.id)}
             alt={current.alt}
             fill
             priority
@@ -42,7 +42,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                 aria-label={`תמונה ${idx + 1} מתוך ${photos.length}`}
                 aria-pressed={idx === photoIdx}
               >
-                <Image src={photoUrl(p.id, 200, 200)} alt="" fill sizes="80px" className="object-cover" />
+                <Image src={photoUrl(p.id, 200, 200)} unoptimized={isCommons(p.id)} alt="" fill sizes="80px" className="object-cover" />
               </button>
             ))}
           </div>
@@ -67,6 +67,9 @@ export default function ProductDetail({ product }: { product: Product }) {
         <p className="mt-1 text-xs text-muted">
           {product.priceSource === "market" ? `מחיר שוק בישראל, ${priceDate}` : "מחיר משוער"}
         </p>
+        {product.condition === "vintage" && (
+          <p className="mt-3 border-s-2 border-gold ps-3 text-[14px] text-ink-soft">דגם שיצא מייצור. נמכר יד שנייה, אחרי בדיקה, בלי אחריות יצרן.</p>
+        )}
 
         <p className="mt-6 leading-relaxed text-ink-soft">{product.description}</p>
 

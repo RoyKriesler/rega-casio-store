@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatPrice, photoUrl, type Product } from "@/data/products";
+import { formatPrice, photoUrl, isCommons, type Product } from "@/data/products";
 import Tilt from "./Tilt";
 
 export default function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
   const photo = product.photos[0];
   const size = product.specs.find((s) => s.label === "קוטר" || s.label === "רוחב")?.value;
-  const label = product.compareAt ? "מבצע" : product.badge;
+  const label = product.compareAt ? "מבצע" : product.badge ?? (product.condition === "vintage" ? "וינטג׳" : undefined);
   return (
     <Link href={`/product/${product.slug}`} className="group block">
       <Tilt>
       <div className="relative aspect-square overflow-hidden bg-sand">
         <Image
-          src={photoUrl(photo.id, 800, 800)}
+          src={photoUrl(photo.id, 800, 800)} unoptimized={isCommons(photo.id)}
           alt={photo.alt}
           fill
           priority={priority}
@@ -26,7 +26,7 @@ export default function ProductCard({ product, priority }: { product: Product; p
           <p dir="ltr" className="truncate font-mono text-xs text-muted">
             {product.brand === "רגע" ? product.model : `${product.brand.toUpperCase()} · ${product.model}`}
           </p>
-          {label && <p className="shrink-0 whitespace-nowrap text-xs font-semibold text-accent">{label}</p>}
+          {label && <p className={`shrink-0 whitespace-nowrap text-xs font-semibold ${label === "וינטג׳" ? "text-gold" : "text-accent"}`}>{label}</p>}
         </div>
         <h3 className="text-[17px] leading-snug font-semibold group-hover:underline group-hover:underline-offset-4">{product.name}</h3>
         <p className="flex gap-2 text-[15px]">

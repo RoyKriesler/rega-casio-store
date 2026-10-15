@@ -43,7 +43,7 @@ const films: Film[] = [
 export default function Home() {
   const watches = products.filter((p) => p.collection !== "straps");
   const brands = brandInfo.filter((b) => productsOfBrand(b.name).length > 0);
-  const picks = ["prx-powermatic-80", "seiko-spb143", "hamilton-khaki-field", "orient-bambino", "citizen-tsuyosa", "oris-divers-65", "grand-seiko-skyflake", "seiko-5-gmt"].map(
+  const picks = ["prx-powermatic-80", "seiko-spb143", "hamilton-khaki-field", "orient-bambino", "citizen-tsuyosa", "oris-divers-65", "seiko-5-gmt"].map(
     (s) => getProduct(s)!,
   );
   const panels: Panel[] = (Object.keys(collections) as Collection[]).map((c) => ({
@@ -71,7 +71,7 @@ export default function Home() {
                   className="mt-4 font-display text-5xl leading-[1.02] font-bold tracking-tight text-white sm:text-8xl"
                 />
                 <p className="mt-5 text-lg text-white/90">
-                  {watches.length} שעונים מ־{brands.length} מותגים, מקסיו של 79 שקל ועד גרנד סייקו.
+                  {watches.length} שעונים מ־{brands.length} מותגים, מקסיו של 79 שקל ועד אוריס.
                 </p>
               </div>
               <Link href="/shop" className="pointer-events-auto self-start bg-white px-8 py-4 text-[15px] font-semibold text-black transition-colors hover:bg-white/85 md:self-auto">

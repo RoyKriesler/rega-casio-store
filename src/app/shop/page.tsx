@@ -13,9 +13,9 @@ const sorts = {
 type Sort = keyof typeof sorts;
 
 const bands = {
-  low: { label: "עד 250 ש״ח", test: (n: number) => n <= 250 },
-  mid: { label: "250 עד 600 ש״ח", test: (n: number) => n > 250 && n <= 600 },
-  high: { label: "מעל 600 ש״ח", test: (n: number) => n > 600 },
+  low: { label: "עד 1,000 ש״ח", test: (n: number) => n <= 1000 },
+  mid: { label: "1,000 עד 5,000 ש״ח", test: (n: number) => n > 1000 && n <= 5000 },
+  high: { label: "מעל 5,000 ש״ח", test: (n: number) => n > 5000 },
 } as const;
 type Band = keyof typeof bands;
 

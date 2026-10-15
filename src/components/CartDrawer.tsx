@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { formatPrice, getProduct, photoUrl } from "@/data/products";
+import { formatPrice, getProduct, photoUrl, isCommons } from "@/data/products";
 import { FREE_SHIPPING_FROM, lineKey, linePhoto, useCart } from "@/lib/cart";
 import { CloseIcon } from "./icons";
 import QtyStepper from "./QtyStepper";
@@ -83,7 +83,7 @@ export default function CartDrawer() {
                 return (
                   <li key={lineKey(l)} className="flex gap-4 py-5">
                     <Image
-                      src={photoUrl(ph.id, 200, 200)}
+                      src={photoUrl(ph.id, 200, 200)} unoptimized={isCommons(ph.id)}
                       alt={ph.alt}
                       width={88}
                       height={88}
