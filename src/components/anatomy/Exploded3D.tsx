@@ -1,8 +1,8 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { ContactShadows, Environment, Lightformer } from "@react-three/drei";
-import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
+import { ContactShadows, Environment, Lightformer, useTexture } from "@react-three/drei";
+import { Suspense, useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import * as THREE from "three";
 
 export type Part = { label: string; detail: string };
@@ -75,7 +75,7 @@ function brushedTexture(size = 512) {
   return t;
 }
 
-// Côtes de Genève stripes with a hint of perlage for the movement bridges.
+// Côtes de Genève stripes for the movement bridges.
 function genevaTexture(size = 1024) {
   const c = document.createElement("canvas");
   c.width = c.height = size;
@@ -95,31 +95,6 @@ function genevaTexture(size = 1024) {
   }
   const t = new THREE.CanvasTexture(c);
   t.anisotropy = 8;
-  return t;
-}
-
-function perlageTexture(size = 512) {
-  const c = document.createElement("canvas");
-  c.width = c.height = size;
-  const g = c.getContext("2d")!;
-  g.fillStyle = "#8a8a8a";
-  g.fillRect(0, 0, size, size);
-  const r = size / 22;
-  for (let y = 0; y < size + r; y += r * 1.1) {
-    for (let x = (Math.round(y / r) % 2) * r * 0.55; x < size + r; x += r * 1.1) {
-      const grd = g.createRadialGradient(x, y, 0, x, y, r);
-      grd.addColorStop(0, "#d8d8d8");
-      grd.addColorStop(0.7, "#9a9a9a");
-      grd.addColorStop(1, "#7a7a7a");
-      g.fillStyle = grd;
-      g.beginPath();
-      g.arc(x, y, r, 0, Math.PI * 2);
-      g.fill();
-    }
-  }
-  const t = new THREE.CanvasTexture(c);
-  t.wrapS = t.wrapT = THREE.RepeatWrapping;
-  t.repeat.set(2, 2);
   return t;
 }
 
@@ -199,23 +174,39 @@ function Watch({ progress, dial }: { progress: MutableRefObject<number>; dial: s
   const balance = useRef<THREE.Group>(null);
   const rotor = useRef<THREE.Group>(null);
 
-  const tex = useMemo(() => ({ aniso: radialAnisotropyTexture(), sun: sunburstTexture(), brushed: brushedTexture(), geneva: genevaTexture(), perlage: perlageTexture() }), []);
+  // CC0 scans (ambientCG): Metal012 = polished steel with fine scratches, Metal051A = circular
+  // graining used for the movement plate and caseback. Data maps, so no sRGB conversion.
+  const scans = useTexture({
+    polR: "/3d/Metal012_rough.jpg",
+    polN: "/3d/Metal012_normal.jpg",
+    circR: "/3d/Metal051A_rough.jpg",
+    circN: "/3d/Metal051A_normal.jpg",
+  });
+  useMemo(() => {
+    // Finer circular graining: tile the scan so each swirl reads like perlage.
+    for (const t of [scans.circR, scans.circN]) {
+      t.wrapS = t.wrapT = THREE.RepeatWrapping;
+      t.repeat.set(4, 4);
+    }
+  }, [scans]);
+  const tex = useMemo(() => ({ aniso: radialAnisotropyTexture(), sun: sunburstTexture(), brushed: brushedTexture(), geneva: genevaTexture() }), []);
   const mat = useMemo(() => {
-    const steel = new THREE.MeshPhysicalMaterial({ color: "#d4d6d9", metalness: 1, roughness: 0.35, roughnessMap: tex.brushed, anisotropy: 0.6, anisotropyRotation: Math.PI / 2 });
-    const polished = new THREE.MeshPhysicalMaterial({ color: "#eef0f2", metalness: 1, roughness: 0.06 });
+    const steel = new THREE.MeshPhysicalMaterial({ color: "#d4d6d9", metalness: 1, roughness: 0.32, roughnessMap: tex.brushed, normalMap: scans.polN, normalScale: new THREE.Vector2(0.12, 0.12), anisotropy: 0.6, anisotropyRotation: Math.PI / 2 });
+    const polished = new THREE.MeshPhysicalMaterial({ color: "#eef0f2", metalness: 1, roughness: 0.22, roughnessMap: scans.polR, normalMap: scans.polN, normalScale: new THREE.Vector2(0.05, 0.05) });
     const dialMat = new THREE.MeshPhysicalMaterial({ color: dial, metalness: 0.85, roughness: 0.3, roughnessMap: tex.sun, anisotropy: 0.9, anisotropyMap: tex.aniso, clearcoat: 1, clearcoatRoughness: 0.05 });
     const lume = new THREE.MeshStandardMaterial({ color: "#f3f1e6", roughness: 0.6 });
     const brass = new THREE.MeshPhysicalMaterial({ color: "#d9b26a", metalness: 1, roughness: 0.28 });
     const bridge = new THREE.MeshPhysicalMaterial({ color: "#d8dadc", metalness: 1, roughness: 0.22, roughnessMap: tex.geneva });
-    const plate = new THREE.MeshPhysicalMaterial({ color: "#e4e5e7", metalness: 0.9, roughness: 0.42, roughnessMap: tex.perlage });
+    const plate = new THREE.MeshPhysicalMaterial({ color: "#e4e5e7", metalness: 1, roughness: 0.6, roughnessMap: scans.circR, normalMap: scans.circN, normalScale: new THREE.Vector2(0.6, 0.6) });
+    const back = new THREE.MeshPhysicalMaterial({ color: "#d9dbde", metalness: 1, roughness: 0.5, roughnessMap: scans.circR, normalMap: scans.circN, normalScale: new THREE.Vector2(0.4, 0.4) });
     const ruby = new THREE.MeshPhysicalMaterial({ color: "#9b0f2a", roughness: 0.05, transmission: 0.4, thickness: 0.05, ior: 1.76 });
     // Cheap glass: a faint tint with strong reflections reads better than transmission on a light page.
     const sapphire = new THREE.MeshPhysicalMaterial({ color: "#dfe9f5", metalness: 0, roughness: 0, transparent: true, opacity: 0.18, depthWrite: false, envMapIntensity: 2.5, clearcoat: 1, clearcoatRoughness: 0, ior: 1.77 });
     const glassEdge = new THREE.MeshPhysicalMaterial({ color: "#dfe8f2", roughness: 0.05, transmission: 0.6, thickness: 0.02, ior: 1.77 });
     const handMat = new THREE.MeshPhysicalMaterial({ color: "#f2f3f5", metalness: 1, roughness: 0.18 });
     const red = new THREE.MeshStandardMaterial({ color: "#c8102e", roughness: 0.4 });
-    return { handMat, steel, polished, dialMat, lume, brass, bridge, plate, ruby, sapphire, glassEdge, red };
-  }, [tex, dial]);
+    return { back, handMat, steel, polished, dialMat, lume, brass, bridge, plate, ruby, sapphire, glassEdge, red };
+  }, [tex, scans, dial]);
 
   const geo = useMemo(() => {
     const ext = (s: THREE.Shape, depth: number) => new THREE.ExtrudeGeometry(s, { depth, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.004, bevelSegments: 2, curveSegments: 24 });
@@ -414,7 +405,7 @@ function Watch({ progress, dial }: { progress: MutableRefObject<number>; dial: s
 
       {/* 6 caseback with sapphire window and rotor */}
       <group ref={L(6, -0.2)}>
-        <mesh material={mat.steel}>
+        <mesh material={mat.back}>
           <cylinderGeometry args={[1.0, 0.96, 0.06, 128]} />
         </mesh>
         <group ref={rotor} position={[0, -0.05, 0]}>
@@ -496,19 +487,15 @@ export default function Exploded3D({ parts, dial = "#1f3a68" }: { parts: Part[];
               >
                 <ambientLight intensity={0.25} />
                 <directionalLight position={[3, 6, 4]} intensity={1.4} />
-                <Environment resolution={512}>
-                  <mesh scale={50}>
-                    <sphereGeometry args={[1, 32, 16]} />
-                    <meshBasicMaterial color="#4a4640" side={THREE.BackSide} />
-                  </mesh>
-                  <Lightformer form="rect" intensity={5} position={[0, 5, 2]} scale={[10, 2.5, 1]} rotation={[Math.PI / 2.4, 0, 0]} />
-                  <Lightformer form="rect" intensity={4} position={[-5, 1, 1]} scale={[1.2, 8, 1]} rotation={[0, Math.PI / 2, 0]} />
-                  <Lightformer form="rect" intensity={4} position={[5, 0, 1]} scale={[1.2, 8, 1]} rotation={[0, -Math.PI / 2, 0]} />
-                  <Lightformer form="rect" intensity={3} position={[0, 1, -5]} scale={[8, 1, 1]} />
-                  <Lightformer form="ring" intensity={1.5} position={[0, 2, 5]} scale={3} />
-                  <Lightformer form="rect" intensity={0.5} position={[0, -4, 0]} scale={[10, 10, 1]} rotation={[-Math.PI / 2, 0, 0]} color="#f2e7d4" />
+                {/* CC0 studio HDRI (Poly Haven studio_small_09) plus softboxes for crisp highlights */}
+                <Environment files="/3d/studio.hdr" resolution={512} environmentIntensity={0.75}>
+                  <Lightformer form="rect" intensity={3} position={[0, 5, 2]} scale={[10, 2.5, 1]} rotation={[Math.PI / 2.4, 0, 0]} />
+                  <Lightformer form="rect" intensity={2.5} position={[-5, 1, 1]} scale={[1.2, 8, 1]} rotation={[0, Math.PI / 2, 0]} />
+                  <Lightformer form="rect" intensity={2.5} position={[5, 0, 1]} scale={[1.2, 8, 1]} rotation={[0, -Math.PI / 2, 0]} />
                 </Environment>
-                <Watch progress={progress} dial={dial} />
+                <Suspense fallback={null}>
+                  <Watch progress={progress} dial={dial} />
+                </Suspense>
                 <ContactShadows position={[0, -2.6, 0]} opacity={0.3} scale={9} blur={2.8} far={5} />
               </Canvas>
             )}

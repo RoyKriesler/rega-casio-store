@@ -23,10 +23,10 @@ export default function CreditsPage() {
         ))}
       </ul>
       <p className="mt-6 text-[15px] leading-relaxed text-ink-soft">
-        סרטוני המנגנון והלוח מאתר הסרטונים החופשי פקסלס. תמונות האווירה בדף הבית נוצרו במיוחד לאתר, ואינן מציגות דגמים אמיתיים.
+        סרטוני המנגנון והלוח מאתר הסרטונים החופשי פקסלס. תמונות האווירה בדף הבית נוצרו במיוחד לאתר, ואינן מציגות דגמים אמיתיים. בשעון התלת־ממד יש תאורת סטודיו ומרקמי מתכת ממאגרים חופשיים בנחלת הכלל.
       </p>
       <p className="mt-6 text-sm text-muted" dir="ltr">
-        Photos from unsplash.com under the Unsplash License, and from Wikimedia Commons under the Creative Commons license named next to each author (CC BY / CC BY-SA, see commons.wikimedia.org).
+        Photos from unsplash.com under the Unsplash License, and from Wikimedia Commons under the Creative Commons license named next to each author (CC BY / CC BY-SA, see commons.wikimedia.org). 3D studio lighting: Poly Haven studio_small_09 by Sergej Majboroda (CC0). Metal scans: ambientCG Metal012 and Metal051A (CC0).
       </p>
     </div>
   );
