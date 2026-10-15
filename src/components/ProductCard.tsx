@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatPrice, photoUrl, isCommons, type Product } from "@/data/products";
-import Tilt from "./Tilt";
 
 export default function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
   const photo = product.photos[0];
+  // Hover (H3, Roy 2026-10-15): soft crossfade to a second angle; a very slow zoom when there is none.
+  const second = product.photos[1] ?? product.variants?.find((v) => v.photo.id !== photo.id)?.photo;
   const size = product.specs.find((s) => s.label === "קוטר" || s.label === "רוחב")?.value;
   const label = product.compareAt ? "מבצע" : product.badge ?? (product.condition === "vintage" ? "וינטג׳" : undefined);
   return (
     <Link href={`/product/${product.slug}`} className="group block">
-      <Tilt>
       <div className="relative aspect-square overflow-hidden bg-sand">
         <Image
           src={photoUrl(photo.id, 800, 800)} unoptimized={isCommons(photo.id)}
@@ -17,10 +17,18 @@ export default function ProductCard({ product, priority }: { product: Product; p
           fill
           priority={priority}
           sizes="(min-width: 1024px) 25vw, 50vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          className={`object-cover ${second ? "transition-opacity duration-700 group-hover:opacity-0" : "transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]"}`}
         />
+        {second && (
+          <Image
+            src={photoUrl(second.id, 800, 800)} unoptimized={isCommons(second.id)}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 25vw, 50vw"
+            className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+          />
+        )}
       </div>
-      </Tilt>
       <div className="mt-3 space-y-1">
         <div className="flex items-center justify-between gap-2">
           <p dir="ltr" className="truncate font-mono text-xs text-muted">

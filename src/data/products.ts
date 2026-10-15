@@ -842,8 +842,15 @@ export const collectionCovers: Record<Collection, Photo> = {
 
 export const brands = [...new Set(products.filter((p) => p.collection !== "straps").map((p) => p.brand))];
 
+// Scroll-watch section photo (Wikimedia Commons, front view of a Casio F-91W).
+export const casioHeroPhoto: Photo = {
+  id: "https://upload.wikimedia.org/wikipedia/commons/9/93/Casio_F-91W_watch_%282023%29_%28front_closeup_-_time%29_%28minor_retouch%29.jpg#w=2880",
+  alt: "שעון קסיו דיגיטלי שחור, מבט מלפנים",
+  credit: "Multicherry · CC BY-SA 4.0",
+};
+
 export function allPhotos() {
-  const list: Photo[] = [storyPhoto];
+  const list: Photo[] = [storyPhoto, casioHeroPhoto];
   for (const p of products) {
     list.push(...p.photos);
     for (const v of p.variants ?? []) list.push(v.photo);

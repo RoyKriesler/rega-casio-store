@@ -3,9 +3,26 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import ProductDetail from "@/components/ProductDetail";
-import WatchAnatomy from "@/components/WatchAnatomy";
+import Exploded3D from "@/components/anatomy/Exploded3D";
 import { brandByName } from "@/data/brands";
-import { collections, getProduct, products } from "@/data/products";
+import { collections, getProduct, products, type Product } from "@/data/products";
+
+// Exploded-view captions from the product's own specs; nothing beyond them is claimed.
+function anatomyFor(p: Product) {
+  const spec = (l: string) => p.specs.find((x) => x.label === l)?.value;
+  const mov = spec("מנגנון");
+  const size = spec("קוטר");
+  const wr = spec("עמידות במים");
+  return [
+    { label: "זכוכית", detail: "שכבה שקופה ששומרת על הלוח." },
+    { label: "בזל", detail: "הטבעת שמסגרת את הזכוכית." },
+    { label: "מחוגים", detail: "שעות, דקות ושניות על ציר אחד." },
+    { label: "לוח", detail: "האינדקסים והמחוגים יושבים עליו." },
+    { label: "מנגנון", detail: mov ? `בדגם הזה: ${mov}.` : "גלגלי שיניים וגלגל איזון שמודדים את הזמן." },
+    { label: "מארז", detail: [size && `קוטר ${size}`, wr && `עמידות במים ${wr}`].filter(Boolean).join(", ") + (size || wr ? "." : "גוף השעון, עם הזיזים והכתר.") },
+    { label: "גב ורוטור", detail: "במנגנון אוטומטי, הרוטור מסתובב עם תנועת היד ומותח את הקפיץ." },
+  ];
+}
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -21,6 +38,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
+
+  const movement = product.specs.find((x) => x.label === "מנגנון")?.value ?? "";
+  const mechanical = /אוטומטי|מכני/.test(movement);
 
   const same = products.filter((p) => p.slug !== product.slug && p.collection === product.collection);
   const others = products.filter((p) => p.slug !== product.slug && p.collection !== product.collection);
@@ -40,8 +60,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       <ProductDetail product={product} />
 
-      {product.collection !== "straps" && (
-        <WatchAnatomy diameter={product.specs.find((x) => x.label === "קוטר")?.value.replace(/[^\d.]/g, "") || undefined} />
+      {mechanical && (
+        <section className="mt-16 border-t border-line pt-10">
+          <p className="text-[13px] font-semibold tracking-wide text-gold">המבנה</p>
+          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight">מה יש בפנים</h2>
+          <p className="mt-2 text-[14px] text-muted">מודל להמחשה של שעון מכני. הצורה והצבעים אינם של הדגם הזה.</p>
+          <Exploded3D parts={anatomyFor(product)} />
+        </section>
       )}
 
       {brandByName(product.brand) && (

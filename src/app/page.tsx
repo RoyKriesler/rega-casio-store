@@ -3,7 +3,8 @@ import Link from "next/link";
 import HeroPlaylist, { type Clip } from "@/components/HeroPlaylist";
 import Marquee from "@/components/Marquee";
 import { FadeIn, MaskReveal, SplitHeading } from "@/components/Reveal";
-import ScrubWatch from "@/components/ScrubWatch";
+import RetroScrubWatch from "@/components/RetroScrubWatch";
+import Exploded3D from "@/components/anatomy/Exploded3D";
 import AsciiReveal from "@/components/AsciiReveal";
 import CollectionsAccordion, { type Panel } from "@/components/CollectionsAccordion";
 import FilmCards, { type Film } from "@/components/FilmCards";
@@ -43,6 +44,15 @@ const films: Film[] = [
 export default function Home() {
   const watches = products.filter((p) => p.collection !== "straps");
   const brands = brandInfo.filter((b) => productsOfBrand(b.name).length > 0);
+  const anatomyParts = [
+    { label: "זכוכית", detail: "שכבה שקופה ששומרת על הלוח. בשעונים רבים היא מספיר, שעמיד מאוד בשריטות." },
+    { label: "בזל", detail: "הטבעת שמסגרת את הזכוכית ומחזיקה אותה במקום." },
+    { label: "מחוגים", detail: "שעות, דקות ושניות, על ציר אחד במרכז." },
+    { label: "לוח", detail: "הפנים של השעון, עם האינדקסים וחלון התאריך." },
+    { label: "מנגנון", detail: "גלגלי שיניים, גלגל איזון ואבני מסב שמודדים את הזמן." },
+    { label: "מארז", detail: "גוף הפלדה, עם הזיזים לרצועה והכתר לכיוון." },
+    { label: "גב ורוטור", detail: "במנגנון אוטומטי, הרוטור מסתובב עם תנועת היד ומותח את הקפיץ." },
+  ];
   const picks = ["prx-powermatic-80", "seiko-spb143", "hamilton-khaki-field", "orient-bambino", "citizen-tsuyosa", "oris-divers-65", "seiko-5-gmt"].map(
     (s) => getProduct(s)!,
   );
@@ -156,8 +166,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Scroll-driven watch */}
-      <ScrubWatch />
+      {/* Exploded automatic watch */}
+      <section className="pt-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <p className="text-[13px] font-semibold tracking-wide text-gold">מה יש בפנים</p>
+          <SplitHeading text="שבע שכבות, שעון אחד" className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl" />
+        </div>
+        <Exploded3D parts={anatomyParts} />
+      </section>
+
+      {/* Scroll-driven Casio */}
+      <RetroScrubWatch />
 
       {/* Brands */}
       <section className="border-y border-line">

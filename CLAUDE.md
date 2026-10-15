@@ -17,7 +17,7 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - Prices in ILS. `priceSource: "market"` = seen on zap.co.il 2026-10-13 (sources in `research/prices-2026-10-13.md`); others are estimates and the product page says "מחיר משוער". Never present an estimate as a market price.
 - Commons photos: id is `<upload.wikimedia.org url>#w=<original width>`; `photoUrl` serves a cached Commons thumbnail at a standard step (330/500/960/1280) and components pass `unoptimized={isCommons(id)}` (the Commons CDN returns 429 on bursts of originals). Credit is "Author · license" (CC BY / BY-SA).
 - Images: hotlinked from `images.unsplash.com` (Unsplash License, free), real Casio photos. Photographer credit per photo, listed on `/credits`. A photo must show the brand it is listed under.
-- Hero: `src/components/WristWatch.tsx`, live analog SVG wristwatch set to the visitor's time (Roy asked for a wristwatch, 2026-10-14). Round SVG coordinates to 2 decimals or hydration breaks.
+- Round SVG trig coordinates to 2 decimals or hydration breaks.
 - Variants: `Product.variants` (color + photo); cart lines keyed by `slug::variant`.
 - Cart: React context + localStorage (wrapped in try/catch), `src/lib/cart.tsx`.
 
@@ -51,5 +51,8 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 
 - No custom cursor: Roy disliked the ring around the pointer (2026-10-15); keep the native cursor.
 
-- `/options` (2026-10-15): side-by-side choices awaiting Roy: product-card hover H0-H5 (`HoverCard.tsx`), structure section S1 real 3D (`anatomy/Watch3D.tsx`, three.js + r3f + drei, local Lightformers only, no remote HDR), S2 scroll-exploded view, S3 ink blueprint, S0 current; scroll watch W1 retro digital photo with seven-segment overlay (`RetroScrubWatch.tsx`, LCD box measured from `public/art/retro-watch.jpg`) vs W0 current.
+- Roy's picks (2026-10-15), `/options` removed after:
+  - Hover H3: product cards crossfade to the second photo (or a variant photo); very slow zoom when there is none. No tilt.
+  - Structure S2, made realistic: `anatomy/Exploded3D.tsx`, r3f scene, scroll separates 7 layers (crystal, bezel, hands, dial, movement with turning extruded gears and a swinging balance, case with lathe profile + bezier lugs, caseback with rotor). Procedural CanvasTextures only (sunburst roughness + radial anisotropy DataTexture on the dial, brushed steel with anisotropyRotation, Geneva stripes, perlage), Lightformer studio inside Environment with a dark surround sphere for contrast, NeutralToneMapping. Glass is a faint transparent clearcoat material (transmission looked like a white disc). On home and on product pages whose movement spec is automatic/mechanical, captions from the product's own specs, labelled illustrative.
+  - Scroll watch: `RetroScrubWatch.tsx` over a real Casio F-91W photo from Commons (Multicherry, CC BY-SA 4.0, credited under the photo and on /credits). LCD box measured by colour scan; an SVG covers the printed digits with an LCD gradient and draws seven-segment time, day and date. The wrapper is mix-blend-multiply, so the sticky layer needs its own background.
 - Collections accordion toned down (open panel flex 2 vs 1, no image zoom) after Roy said it was too dramatic.
