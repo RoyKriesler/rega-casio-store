@@ -34,7 +34,7 @@ const items = [
 export default function LabPage() {
   return (
     <div className="mx-auto max-w-[1400px] px-4 py-16 sm:px-8">
-      <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl">מעבדת אפקטים</h1>
+      <h1 className="font-display text-5xl font-extralight tracking-tight sm:text-6xl">מעבדת אפקטים</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-soft">
         שתים עשרה דוגמאות חיות מתוך הרשימה, כל אחת עם רעיון איך לשלב אותה בחנות. נסו להזיז את העכבר מעליהן, ובחרו לפי המספרים מה נכנס לאתר.
       </p>

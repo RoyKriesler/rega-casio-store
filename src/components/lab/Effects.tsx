@@ -279,7 +279,7 @@ export function KineticType() {
       {["זמן", "רגע", "דיוק"].map((w, i) => (
         <p
           key={w}
-          className="font-display text-8xl leading-[0.9] font-black whitespace-nowrap transition-transform duration-500 ease-out"
+          className="font-display text-8xl leading-[0.9] font-extralight whitespace-nowrap transition-transform duration-500 ease-out"
           style={{
             transform: `translateX(${x * (i % 2 ? -260 : 260)}px)`,
             color: i === 1 ? "#c9ab74" : "transparent",
@@ -429,7 +429,7 @@ export function GradientMesh() {
         @keyframes mesh2{to{transform:translate(140px,-90px)}}
         @keyframes mesh3{to{transform:translate(-130px,-60px)}}
       `}</style>
-      <p className="absolute inset-0 grid place-items-center font-display text-5xl font-bold text-white">רגע</p>
+      <p className="absolute inset-0 grid place-items-center font-display text-5xl font-extralight text-white">רגע</p>
     </div>
   );
 }

@@ -57,7 +57,7 @@ export default function ProductDetail({ product }: { product: Product }) {
         <p dir="ltr" className="mt-3 text-end font-mono text-sm text-muted">
           {product.brand === "רגע" ? product.model : `${product.brand.toUpperCase()} · ${product.model}`}
         </p>
-        <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">{product.name}</h1>
+        <h1 className="mt-1 font-display text-4xl font-extralight tracking-tight">{product.name}</h1>
         <p className="mt-2 text-lg text-ink-soft">{product.tagline}</p>
 
         <div className="mt-6 flex items-baseline gap-3">

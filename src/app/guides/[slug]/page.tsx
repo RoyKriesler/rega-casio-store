@@ -33,7 +33,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <span className="mx-2" aria-hidden>‹</span>
         <Link href="/guides" className="hover:text-ink">מדריכים</Link>
       </nav>
-      <h1 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight">{g.title}</h1>
+      <h1 className="mt-6 font-display text-4xl font-extralight leading-tight tracking-tight">{g.title}</h1>
       <p className="mt-4 text-xl leading-relaxed text-ink-soft">{g.summary}</p>
 
       {g.slug === "size" && (

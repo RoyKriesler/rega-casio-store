@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import FilterDropdown from "@/components/FilterDropdown";
 import { brandByName } from "@/data/brands";
 import { brands, collections, products, type Collection } from "@/data/products";
 
@@ -49,9 +50,6 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
     return str ? `/shop?${str}` : "/shop";
   };
 
-  const tab = (on: boolean) =>
-    `inline-block border-b-2 pb-1 transition-colors ${on ? "border-ink font-semibold" : "border-transparent text-ink-soft hover:text-ink"}`;
-
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-14">
       <nav aria-label="פירורי לחם" className="text-sm text-muted">
@@ -59,7 +57,7 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
         <span className="mx-2" aria-hidden>‹</span>
         <span className="text-ink">{active ? collections[active].name : "כל השעונים"}</span>
       </nav>
-      <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight">
+      <h1 className="mt-4 font-display text-4xl font-extralight tracking-tight">
         {query ? (
           <>תוצאות עבור „{q}”</>
         ) : brand ? (
@@ -72,54 +70,38 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
       </h1>
       {active && <p className="mt-2 max-w-lg text-[17px] text-ink-soft">{collections[active].blurb}</p>}
 
-      <div className="mt-8 space-y-4 border-y border-line py-4">
-        <nav aria-label="קטגוריה">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
-            <li>
-              <Link href={href({ c: undefined })} className={tab(!active)} aria-current={!active ? "page" : undefined}>
-                הכל
-              </Link>
-            </li>
-            {(Object.keys(collections) as Collection[]).map((k) => (
-              <li key={k}>
-                <Link href={href({ c: k })} className={tab(active === k)} aria-current={active === k ? "page" : undefined}>
-                  {collections[k].name}
-                </Link>
-              </li>
-            ))}
+      {/* SF1 (Roy, 2026-10-16): collection as a segmented control, the rest as dropdowns. */}
+      <div className="mt-8 flex flex-col gap-4 border-y border-line py-4 lg:flex-row lg:items-center lg:justify-between">
+        <nav aria-label="קטגוריה" className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:px-0">
+          <ul className="flex w-max gap-1 rounded-full bg-sand p-1 text-[14px]">
+            {[{ k: undefined, name: "הכל" }, ...(Object.keys(collections) as Collection[]).map((k) => ({ k, name: collections[k].name }))].map((c) => {
+              const on = active === c.k;
+              return (
+                <li key={c.k ?? "all"}>
+                  <Link
+                    href={href({ c: c.k })}
+                    aria-current={on ? "page" : undefined}
+                    className={`block rounded-full px-4 py-1.5 whitespace-nowrap transition-colors ${on ? "bg-paper font-semibold shadow-sm" : "text-ink-soft hover:text-ink"}`}
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
-        <div className="flex flex-col gap-3 text-sm lg:flex-row lg:flex-wrap lg:items-center lg:justify-between">
-          <nav aria-label="מותג" className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span className="text-muted">מותג:</span>
-            <Link href={href({ b: undefined })} className={!brand ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
-              הכל
-            </Link>
-            {brands.map((k) => (
-              <Link key={k} href={href({ b: k })} dir="ltr" className={brand === k ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
-                {k}
-              </Link>
-            ))}
-          </nav>
-          <nav aria-label="מחיר" className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span className="text-muted">מחיר:</span>
-            <Link href={href({ p: undefined })} className={!band ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
-              הכל
-            </Link>
-            {(Object.keys(bands) as Band[]).map((k) => (
-              <Link key={k} href={href({ p: k })} className={band === k ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
-                {bands[k].label}
-              </Link>
-            ))}
-          </nav>
-          <nav aria-label="מיון" className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span className="text-muted">מיון:</span>
-            {(Object.keys(sorts) as Sort[]).map((k) => (
-              <Link key={k} href={href({ s: k })} className={sort === k ? "font-semibold underline underline-offset-4" : "text-ink-soft hover:text-ink"}>
-                {sorts[k]}
-              </Link>
-            ))}
-          </nav>
+        <div className="flex flex-wrap gap-2">
+          <FilterDropdown
+            label="מותג"
+            value={brand}
+            options={[{ href: href({ b: undefined }), label: "כל המותגים", active: !brand }, ...brands.map((k) => ({ href: href({ b: k }), label: k, active: brand === k, ltr: true }))]}
+          />
+          <FilterDropdown
+            label="מחיר"
+            value={band ? bands[band].label : undefined}
+            options={[{ href: href({ p: undefined }), label: "כל המחירים", active: !band }, ...(Object.keys(bands) as Band[]).map((k) => ({ href: href({ p: k }), label: bands[k].label, active: band === k }))]}
+          />
+          <FilterDropdown label={`מיון: ${sorts[sort]}`} options={(Object.keys(sorts) as Sort[]).map((k) => ({ href: href({ s: k }), label: sorts[k], active: sort === k }))} />
         </div>
       </div>
 

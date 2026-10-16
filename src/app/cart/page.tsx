@@ -12,7 +12,7 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">סל קניות</h1>
+      <h1 className="font-display text-4xl font-extralight tracking-tight">סל קניות</h1>
 
       {!ready ? null : lines.length === 0 ? (
         <div className="mt-12 rounded-none border border-dashed border-line-strong py-20 text-center">

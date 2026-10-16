@@ -19,8 +19,8 @@
   --color-lcd: #b9c49a;
   --color-lcd-ink: #1d2213;
 
-  --font-display: var(--font-heebo), system-ui, sans-serif;
-  --font-sans: var(--font-assistant), system-ui, sans-serif;
+  --font-display: var(--font-plex-hebrew), system-ui, sans-serif;
+  --font-sans: var(--font-plex-hebrew), system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
   --animate-fade-up: fade-up 0.5s ease-out both;
@@ -116,7 +116,7 @@ body {
   --color-cta: #1c1915;
   --color-cta-hover: #3a342c;
   --color-on-cta: #f7f3ec;
-  --font-display: var(--font-frank), "Times New Roman", serif;
+  --font-display: var(--font-plex-hebrew), system-ui, sans-serif;
   color-scheme: light;
 }
 

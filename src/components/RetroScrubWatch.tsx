@@ -66,7 +66,7 @@ export default function RetroScrubWatch() {
         <div className="mx-auto grid w-full max-w-[1300px] items-center gap-8 px-4 sm:px-8 md:grid-cols-2">
           <div className="order-2 text-[#1c1915] md:order-1">
             <p className="text-[13px] font-semibold tracking-wide text-[#866a3a]">{live ? "עכשיו" : "גללו כדי להריץ את היום"}</p>
-            <h2 className="mt-4 font-display text-5xl leading-[1.05] font-bold tracking-tight sm:text-7xl">{live ? "זו השעה אצלך." : "עשרים וארבע שעות."}</h2>
+            <h2 className="mt-4 font-display text-5xl leading-[1.05] font-extralight tracking-tight sm:text-7xl">{live ? "זו השעה אצלך." : "עשרים וארבע שעות."}</h2>
             <p className="mt-6 max-w-md text-[17px] leading-relaxed text-[#4a443c]">
               הדיגיטלי הקלאסי של קסיו: מסך קטן, מארז שרף ורצועת גומי. גללו, והיום כולו עובר על המסך.
             </p>

@@ -63,7 +63,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {mechanical && (
         <section className="mt-16 border-t border-line pt-10">
           <p className="text-[13px] font-semibold tracking-wide text-gold">המבנה</p>
-          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight">מה יש בפנים</h2>
+          <h2 className="mt-2 font-display text-3xl font-extralight tracking-tight">מה יש בפנים</h2>
           <p className="mt-2 text-[14px] text-muted">מודל להמחשה של שעון מכני. הצורה והצבעים אינם של הדגם הזה.</p>
           <Exploded3D parts={anatomyFor(product)} />
         </section>
@@ -88,7 +88,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       )}
 
       <section className="mt-24">
-        <h2 className="mb-8 font-display text-2xl font-semibold">אולי תאהבו גם</h2>
+        <h2 className="mb-8 font-display text-2xl font-light">אולי תאהבו גם</h2>
         <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
           {more.map((p) => (
             <ProductCard key={p.slug} product={p} />

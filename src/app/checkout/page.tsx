@@ -29,7 +29,7 @@ export default function CheckoutPage() {
   if (ready && lines.length === 0) {
     return (
       <div className="mx-auto max-w-xl px-4 py-24 text-center">
-        <h1 className="font-display text-3xl font-semibold">אין מה לשלם</h1>
+        <h1 className="font-display text-3xl font-extralight">אין מה לשלם</h1>
         <p className="mt-3 text-muted">הסל ריק. אפשר לחזור לחנות ולבחור שעון.</p>
         <Link href="/shop" className="mt-8 inline-block rounded-sm bg-cta px-7 py-4 text-on-cta hover:bg-cta-hover">
           לכל השעונים
@@ -74,7 +74,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">תשלום</h1>
+      <h1 className="font-display text-4xl font-extralight tracking-tight">תשלום</h1>
 
       <div className="mt-6 border border-line bg-sand px-5 py-4 text-[15px] text-ink">
         זהו אתר הדגמה. לא נדרשים פרטי אשראי ולא מתבצע שום חיוב, וההזמנה לא נשלחת לשום מקום.

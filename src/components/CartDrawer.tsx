@@ -9,7 +9,7 @@ import { CloseIcon } from "./icons";
 import QtyStepper from "./QtyStepper";
 
 export default function CartDrawer() {
-  const { lines, subtotal, drawerOpen, setDrawerOpen, setQty, remove } = useCart();
+  const { lines, count, subtotal, drawerOpen, setDrawerOpen, setQty, remove } = useCart();
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -41,8 +41,9 @@ export default function CartDrawer() {
           drawerOpen ? "visible translate-x-0" : "invisible -translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-line px-6 py-5">
-          <h2 className="text-xl font-semibold">הסל שלך</h2>
+        {/* CD1 (Roy, 2026-10-16): editorial drawer. Larger photos, quiet quantity, full summary. */}
+        <div className="flex items-center justify-between px-6 pt-5 pb-3">
+          <h2 className="font-display text-2xl font-light">הסל{count > 0 ? ` · ${count}` : ""}</h2>
           <button
             ref={closeRef}
             type="button"
@@ -67,45 +68,46 @@ export default function CartDrawer() {
           </div>
         ) : (
           <>
-            <div className="border-b border-line px-6 py-4">
-              <p className="text-sm text-ink-soft">
-                {remaining > 0 ? `עוד ${formatPrice(remaining)} למשלוח חינם` : "המשלוח עלינו"}
+            <div className="px-6">
+              <p className="text-[13px] text-ink-soft">
+                {remaining > 0 ? `עוד ${formatPrice(remaining)} והמשלוח עלינו` : "המשלוח עלינו. נשאר רק לבחור."}
               </p>
-              <div className="mt-2 h-1 overflow-hidden rounded-sm bg-line">
-                <div className="h-full bg-ink transition-all" style={{ width: `${progress * 100}%` }} />
+              <div className="mt-3 h-px bg-line">
+                <div className="h-px bg-gold transition-all duration-500" style={{ width: `${progress * 100}%` }} />
               </div>
             </div>
 
-            <ul className="flex-1 divide-y divide-line overflow-y-auto px-6">
+            <ul className="mt-2 flex-1 divide-y divide-line overflow-y-auto px-6">
               {lines.map((l) => {
                 const p = getProduct(l.slug)!;
                 const ph = linePhoto(l);
                 return (
-                  <li key={lineKey(l)} className="flex gap-4 py-5">
+                  <li key={lineKey(l)} className="flex gap-4 py-6">
                     <Image
-                      src={photoUrl(ph.id, 200, 200)} unoptimized={isCommons(ph.id)}
+                      src={photoUrl(ph.id, 300, 360)} unoptimized={isCommons(ph.id)}
                       alt={ph.alt}
-                      width={88}
-                      height={88}
-                      className="h-22 w-22 shrink-0 rounded-sm bg-sand object-cover"
+                      width={96}
+                      height={116}
+                      className="h-[116px] w-24 shrink-0 bg-sand object-cover"
                     />
-                    <div className="flex flex-1 flex-col justify-between">
-                      <div className="flex justify-between gap-2">
-                        <div>
-                          <p className="text-[17px] leading-tight font-semibold">{p.name}</p>
-                          <p className="text-sm text-muted">{l.variant ? `צבע: ${l.variant}` : p.model}</p>
+                    <div className="flex min-w-0 flex-1 flex-col">
+                      <p dir="ltr" className="truncate text-end font-mono text-[11px] text-muted">
+                        {p.brand === "רגע" ? p.model : `${p.brand.toUpperCase()} · ${p.model}`}
+                      </p>
+                      <p className="font-display text-lg leading-snug font-light">{p.name}</p>
+                      {l.variant && <p className="text-[13px] text-muted">צבע: {l.variant}</p>}
+                      <div className="mt-auto flex items-center justify-between gap-3 pt-3">
+                        <div className="flex items-center gap-4">
+                          <QtyStepper value={l.qty} onChange={(q) => setQty(lineKey(l), q)} label={p.name} small />
+                          <button
+                            type="button"
+                            onClick={() => remove(lineKey(l))}
+                            className="cursor-pointer text-[13px] text-muted underline-offset-4 hover:text-ink hover:underline"
+                          >
+                            הסרה
+                          </button>
                         </div>
-                        <p className="font-medium">{formatPrice(p.price * l.qty)}</p>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <QtyStepper value={l.qty} onChange={(q) => setQty(lineKey(l), q)} label={p.name} small />
-                        <button
-                          type="button"
-                          onClick={() => remove(lineKey(l))}
-                          className="cursor-pointer text-sm text-muted underline-offset-4 hover:text-ink hover:underline"
-                        >
-                          הסרה
-                        </button>
+                        <p className="text-[15px]">{formatPrice(p.price * l.qty)}</p>
                       </div>
                     </div>
                   </li>
@@ -114,16 +116,22 @@ export default function CartDrawer() {
             </ul>
 
             <div className="border-t border-line px-6 py-5">
-              <div className="mb-4 flex justify-between text-lg">
-                <span>סכום ביניים</span>
-                <span className="font-medium">{formatPrice(subtotal)}</span>
+              <div className="space-y-2 text-[14px]">
+                <p className="flex justify-between text-ink-soft">
+                  <span>משלוח</span>
+                  <span>{remaining > 0 ? "יחושב בתשלום" : "חינם"}</span>
+                </p>
+                <p className="flex justify-between text-lg font-semibold">
+                  <span>סך הכול</span>
+                  <span>{formatPrice(subtotal)}</span>
+                </p>
               </div>
               <Link
                 href="/checkout"
                 onClick={() => setDrawerOpen(false)}
-                className="block rounded-sm bg-cta py-4 text-center text-on-cta transition-colors hover:bg-cta-hover"
+                className="mt-4 block bg-cta py-4 text-center text-[15px] font-semibold text-on-cta transition-colors hover:bg-cta-hover"
               >
-                למעבר לתשלום
+                לתשלום
               </Link>
               <Link
                 href="/cart"

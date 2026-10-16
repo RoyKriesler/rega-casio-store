@@ -10,7 +10,7 @@ export default function CreditsPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">קרדיט לצלמים</h1>
+      <h1 className="font-display text-4xl font-extralight tracking-tight">קרדיט לצלמים</h1>
       <p className="mt-4 text-lg leading-relaxed text-ink-soft">
         התמונות באתר מגיעות ממאגרי תמונות חופשיים, ברישיונות שמתירים שימוש ללא תשלום עם ציון שם הצלם. תודה לצלמים:
       </p>

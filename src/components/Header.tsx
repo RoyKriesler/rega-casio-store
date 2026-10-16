@@ -24,7 +24,7 @@ const secondary = [
 
 export function Logo() {
   return (
-    <Link href="/" className="font-display text-[26px] font-bold tracking-[0.3em]" aria-label="רגע, לדף הבית">
+    <Link href="/" className="font-display text-[24px] font-semibold tracking-[0.3em]" aria-label="רגע, לדף הבית">
       רגע
     </Link>
   );
@@ -98,32 +98,26 @@ export default function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[transform,background-color,color] duration-500 ${
           hidden && !open ? "-translate-y-full" : "translate-y-0"
-        } ${transparent ? "bg-transparent text-white" : "border-b border-line bg-paper text-ink"}`}
+        } ${transparent ? "border-b border-white/25 bg-transparent text-white" : "border-b border-line bg-paper/95 text-ink backdrop-blur-sm"}`}
       >
-        <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-8">
-          <div className="flex items-center gap-6">
-            <button
-              type="button"
-              onClick={() => setOpen((o) => !o)}
-              aria-expanded={open}
-              aria-controls="site-menu"
-              className="group flex h-11 cursor-pointer items-center gap-3"
-            >
-              <span className="relative block h-3 w-7" aria-hidden>
-                <span className={`absolute inset-x-0 top-0 h-px bg-current transition-transform duration-300 ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-                <span className={`absolute inset-x-0 bottom-0 h-px bg-current transition-transform duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
-              </span>
-              <span className="hidden text-[14px] tracking-wide sm:inline">{open ? "סגירה" : "תפריט"}</span>
-            </button>
-            <nav aria-label="קיצורים" className="hidden lg:block">
-              <ul className="flex gap-6 text-[14px] opacity-80">
-                <li><Link href="/shop" className="hover:opacity-70">שעונים</Link></li>
-                <li><Link href="/brands" className="hover:opacity-70">מותגים</Link></li>
-              </ul>
-            </nav>
-          </div>
+        {/* HD2 (Roy, 2026-10-16): one quiet line. Wordmark at the start, links in the middle,
+            search, bag and (on phones) the menu at the end. Hairline under it. */}
+        <div className="mx-auto flex h-[72px] max-w-[1600px] items-center justify-between gap-6 px-4 sm:px-8">
           <Logo />
-          <div className="flex items-center justify-end gap-2">
+          <nav aria-label="ראשי" className="hidden md:block">
+            <ul className="flex items-center gap-9 text-[15px]">
+              <li><Link href="/shop" className="opacity-85 transition-opacity hover:opacity-100">שעונים</Link></li>
+              <li>
+                <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="site-menu" className="cursor-pointer opacity-85 transition-opacity hover:opacity-100">
+                  קולקציות
+                </button>
+              </li>
+              <li><Link href="/brands" className="opacity-85 transition-opacity hover:opacity-100">מותגים</Link></li>
+              <li><Link href="/shop?c=straps" className="opacity-85 transition-opacity hover:opacity-100">רצועות</Link></li>
+              <li><Link href="/guides" className="opacity-85 transition-opacity hover:opacity-100">מדריכים</Link></li>
+            </ul>
+          </nav>
+          <div className="flex items-center gap-1">
             <button type="button" onClick={() => setSearching((s) => !s)} className="grid h-11 w-11 cursor-pointer place-items-center" aria-label="חיפוש">
               {Icon.search}
             </button>
@@ -135,10 +129,23 @@ export default function Header() {
             >
               {Icon.bag}
               {ready && count > 0 && (
-                <span className="absolute end-1 top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
+                <span className="absolute end-1 top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-ink px-1 text-[10px] font-semibold text-paper">
                   {count}
                 </span>
               )}
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              aria-expanded={open}
+              aria-controls="site-menu"
+              aria-label={open ? "סגירת התפריט" : "תפריט"}
+              className="grid h-11 w-11 cursor-pointer place-items-center md:hidden"
+            >
+              <span className="relative block h-3 w-6" aria-hidden>
+                <span className={`absolute inset-x-0 top-0 h-px bg-current transition-transform duration-300 ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+                <span className={`absolute inset-x-0 bottom-0 h-px bg-current transition-transform duration-300 ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+              </span>
             </button>
           </div>
         </div>
@@ -183,7 +190,7 @@ export default function Header() {
         aria-hidden={!open}
       >
         <div className="mx-auto grid h-full max-w-[1600px] gap-10 px-4 pt-[104px] pb-10 sm:px-8 lg:grid-cols-[1.1fr_1fr]">
-          <nav aria-label="ראשי" className="flex flex-col justify-between overflow-y-auto [scrollbar-width:none]">
+          <nav aria-label="קולקציות" className="flex flex-col justify-between overflow-y-auto [scrollbar-width:none]">
             <ul>
               {menu.map((m, i) => (
                 <li key={m.href} className="overflow-hidden">

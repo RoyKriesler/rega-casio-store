@@ -69,7 +69,7 @@ export default function Home() {
                   as="h1"
                   instant
                   text="שעונים שבחרנו אחד אחד"
-                  className="mt-4 font-display text-5xl leading-[1.02] font-bold tracking-tight text-white sm:text-8xl"
+                  className="mt-4 font-display text-5xl leading-[1.02] font-extralight tracking-tight text-white sm:text-8xl"
                 />
                 <p className="mt-5 text-lg text-white/90">
                   {watches.length} שעונים מ־{brands.length} מותגים, מקסיו של 79 שקל ועד אוריס.
@@ -90,7 +90,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
         </MaskReveal>
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-8 md:pb-20">
-          <SplitHeading text="נבנו לעומק, ענודים ביום־יום" className="font-display text-4xl font-bold tracking-tight sm:text-7xl" />
+          <SplitHeading text="נבנו לעומק, ענודים ביום־יום" className="font-display text-4xl font-extralight tracking-tight sm:text-7xl" />
           <p className="mt-4 max-w-xl text-lg text-white/85">צוללנים, שעוני שדה ושעונים שעומדים בכל מה שתעשו איתם.</p>
           <Link href="/shop?c=sport" className="mt-8 inline-block bg-white px-7 py-3.5 text-[14px] font-semibold text-black hover:bg-white/85">
             לשעוני הספורט
@@ -101,7 +101,7 @@ export default function Home() {
       {/* Collections accordion */}
       <section className="bg-paper px-1 pt-24 pb-1">
         <div className="mx-auto mb-12 max-w-3xl px-4 text-center">
-          <SplitHeading text="הקולקציות" className="font-display text-5xl font-bold tracking-tight sm:text-7xl" />
+          <SplitHeading text="הקולקציות" className="font-display text-5xl font-extralight tracking-tight sm:text-7xl" />
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
             משעון ספורט עם צמיד משולב, דרך שעון שדה על נאטו ועד שעון ערב עם זכוכית קמורה. שש משפחות, כל אחת לחיים אחרים.
           </p>
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/30" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-8 md:pb-20">
           <p className="text-[13px] font-semibold tracking-wide text-[#c9ab74]">בתנועה</p>
-          <SplitHeading text="כל שנייה, מקרוב." className="mt-3 font-display text-4xl font-bold tracking-tight text-white sm:text-7xl" />
+          <SplitHeading text="כל שנייה, מקרוב." className="mt-3 font-display text-4xl font-extralight tracking-tight text-white sm:text-7xl" />
         </div>
       </section>
 
@@ -129,7 +129,7 @@ export default function Home() {
       {/* Picks rail */}
       <section className="py-24">
         <div className="mx-auto flex max-w-7xl items-end justify-between gap-6 px-4 sm:px-8">
-          <SplitHeading text="הבחירות שלנו" className="font-display text-4xl font-bold tracking-tight sm:text-6xl" />
+          <SplitHeading text="הבחירות שלנו" className="font-display text-4xl font-extralight tracking-tight sm:text-6xl" />
           <Link href="/shop" className="border-b border-ink/50 pb-1 text-[14px] font-semibold hover:border-ink">
             לכל השעונים
           </Link>
@@ -147,7 +147,7 @@ export default function Home() {
       <section className="pt-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <p className="text-[13px] font-semibold tracking-wide text-gold">מה יש בפנים</p>
-          <SplitHeading text="שבע שכבות, שעון אחד" className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl" />
+          <SplitHeading text="שבע שכבות, שעון אחד" className="mt-3 font-display text-4xl font-extralight tracking-tight sm:text-6xl" />
         </div>
         <Exploded3D parts={anatomyParts} />
       </section>
@@ -160,12 +160,12 @@ export default function Home() {
         <Marquee items={brands.map((b) => b.name.toUpperCase())} />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-8">
-        <SplitHeading text="המותגים" className="font-display text-4xl font-bold tracking-tight sm:text-6xl" />
+        <SplitHeading text="המותגים" className="font-display text-4xl font-extralight tracking-tight sm:text-6xl" />
         <ul className="mt-10 grid grid-cols-2 border-s border-t border-line sm:grid-cols-3 lg:grid-cols-5">
           {brands.map((b) => (
             <li key={b.slug} className="border-e border-b border-line">
               <Link href={`/brands/${b.slug}`} className="block px-4 py-9 text-center transition-colors hover:bg-sand">
-                <span dir="ltr" className="block font-display text-lg font-semibold tracking-[0.18em]">{b.name.toUpperCase()}</span>
+                <span dir="ltr" className="block font-display text-lg font-light tracking-[0.18em]">{b.name.toUpperCase()}</span>
                 <span className="mt-2 block text-xs text-muted">
                   {b.country.split(",")[0]} · {b.founded}
                 </span>
@@ -178,7 +178,7 @@ export default function Home() {
       {/* Guides */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-8">
-          <SplitHeading text="לפני שבוחרים" className="font-display text-4xl font-bold tracking-tight sm:text-6xl" />
+          <SplitHeading text="לפני שבוחרים" className="font-display text-4xl font-extralight tracking-tight sm:text-6xl" />
           <ul className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {guides.map((g, i) => (
               <li key={g.slug}>

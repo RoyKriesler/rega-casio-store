@@ -31,7 +31,7 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - Motion layer: Lenis smooth scroll, `Reveal.tsx` (SplitHeading word reveal, FadeIn, MaskReveal), `Marquee.tsx`, `Tilt.tsx` on product cards, `ScrubWatch.tsx` (scroll turns the hands). All respect prefers-reduced-motion. Hero headline uses CSS-only animation so it never depends on hydration.
 - `/lab`: 12 live effect demos from an Instagram list Roy sent (particles, split-flap, wireframe 3D, blueprint, holographic, neon, kinetic type, glass, ASCII, halftone, liquid, gradient mesh). Roy picks by number which go into the site.
 - Generated art: `art/gen.sh` (mflux FLUX.2 klein 4B, local, free) -> `art/raw/*.png`; `art/export.sh` -> `public/art/*.jpg` and Ken Burns clips `public/video/film-*.mp4`. Atmosphere only: never generate a picture that stands in for a real product listing. Prompts end with "no text, no logo".
-- Fonts: Heebo (display, bold), Assistant body, IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
+- Fonts: IBM Plex Sans Hebrew (display extralight, body), IBM Plex Mono for model numbers (Latin only, never for Hebrew labels).
 - No emoji as icons; inline SVG only.
 - Respect `prefers-reduced-motion`.
 
@@ -58,4 +58,10 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - Collections accordion toned down (open panel flex 2 vs 1, no image zoom) after Roy said it was too dramatic.
 
 - Films section ("החלקים הקטנים הם הכוכבים", `FilmCards.tsx`) removed from home at Roy's request (2026-10-15).
-- `/options` (2026-10-15) awaiting Roy: headers HD1-HD5, font pairings F0-F7, shop filters SF1-SF4, cart drawer CD1-CD4, glyph field G1-G4 (`GlyphField.tsx`, effect from the Claude app). Components in `src/components/options/`.
+- Roy's picks (2026-10-16):
+  - Header HD2: one quiet line, wordmark at the start, links in the middle (שעונים, קולקציות opens the full-screen collections menu, מותגים, רצועות, מדריכים), search + bag (+ menu on phones) at the end; transparent with a white hairline over the home hero, otherwise paper/95 with blur.
+  - Fonts F4: IBM Plex Sans Hebrew for display and body (`--font-plex-hebrew`); headlines font-extralight (3xl and up) or font-light; the wordmark stays semibold with wide tracking. Frank Ruhl, Heebo and Assistant removed.
+  - Shop filters SF1: collections as a segmented pill control, brand / price / sort as `FilterDropdown` pills (<details>, works before hydration).
+  - Cart drawer CD1: editorial, larger photos, brand·model mono line, quiet quantity, shipping + total summary, square CTA.
+  - Glyph field G4: on `/checkout/success` a GlyphField band rings and spells the order number.
+- `/options` (2026-10-16) awaiting Roy: collections menu M1-M4 (`src/components/options/MenuOptions.tsx`).

@@ -4,7 +4,7 @@ export default function Marquee({ items }: { items: string[] }) {
     <div className="flex shrink-0 items-center gap-12 pe-12" aria-hidden>
       {items.map((t, i) => (
         <span key={i} className="flex items-center gap-12">
-          <span dir="ltr" className="font-display text-6xl font-bold tracking-tight text-transparent [-webkit-text-stroke:1px_var(--color-ink-soft)] transition-colors hover:text-ink sm:text-8xl">
+          <span dir="ltr" className="font-display text-6xl font-extralight tracking-tight text-transparent [-webkit-text-stroke:1px_var(--color-ink-soft)] transition-colors hover:text-ink sm:text-8xl">
             {t}
           </span>
           <span className="h-2 w-2 rounded-full bg-gold" />

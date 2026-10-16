@@ -10,7 +10,7 @@ export default function BrandsPage() {
   const list = brandInfo.filter((b) => productsOfBrand(b.name).length > 0);
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-14">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">מותגים</h1>
+      <h1 className="font-display text-4xl font-extralight tracking-tight">מותגים</h1>
       <p className="mt-2 max-w-xl text-[17px] text-ink-soft">כל מותג בחנות נבחר בגלל שעון אחד לפחות שהיינו עונדים בעצמנו.</p>
       <ul className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {list.map((b) => {
