@@ -64,4 +64,4 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
   - Shop filters SF1: collections as a segmented pill control, brand / price / sort as `FilterDropdown` pills (<details>, works before hydration).
   - Cart drawer CD1: editorial, larger photos, brand·model mono line, quiet quantity, shipping + total summary, square CTA.
   - Glyph field G4: on `/checkout/success` a GlyphField band rings and spells the order number.
-- `/options` (2026-10-16) awaiting Roy: collections menu M1-M4 (`src/components/options/MenuOptions.tsx`).
+  - Collections menu M1: desktop mega menu under the header (hover or click on קולקציות): collections with model counts, brands in Hebrew linking to brand pages, a photo that follows the hovered collection. Phones keep the full-screen menu. `/options` removed.
