@@ -40,6 +40,7 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 - Screenshot home, shop, product, cart, checkout at 375px and 1440px in the browser pane.
 
 ## Deploy
+- After every finished task (Roy, 2026-10-16): once the deploy is live, open the relevant page in a Chrome tab on the Mac with `open -a "Google Chrome" <url>` and also give the URL in chat, since Roy may be on another computer via remote control.
 - Live: https://rega-casio-store.vercel.app (Vercel team `roys-projects-91d17c62`, project `rega-casio-store`).
 - Repo: https://github.com/RoyKriesler/rega-casio-store (public).
 - Pushes to `main` auto-deploy. Manual fallback: `vercel deploy --prod --yes` (CLI at `~/.local/npm-global/bin`, logged in as roykriesler). Vercel MCP returns 403 on project create; use the CLI.
