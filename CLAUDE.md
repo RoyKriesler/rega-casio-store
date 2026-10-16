@@ -60,9 +60,9 @@ Trademark rules (decided 2026-10-13): store name is "רגע", never brand logos 
 
 - Films section ("החלקים הקטנים הם הכוכבים", `FilmCards.tsx`) removed from home at Roy's request (2026-10-15).
 - Roy's picks (2026-10-16):
-  - Header HD2: one quiet line, wordmark at the start, links in the middle (שעונים, קולקציות opens the full-screen collections menu, מותגים, רצועות, מדריכים), search + bag (+ menu on phones) at the end; transparent with a white hairline over the home hero, otherwise paper/95 with blur.
+  - Header HD2: one quiet line, wordmark at the start, links in the middle (שעונים, מותגים, רצועות, מדריכים), search + bag (+ menu on phones) at the end; transparent with a white hairline over the home hero, otherwise paper/95 with blur.
   - Fonts F4: IBM Plex Sans Hebrew for display and body (`--font-plex-hebrew`); headlines font-extralight (3xl and up) or font-light; the wordmark stays semibold with wide tracking. Frank Ruhl, Heebo and Assistant removed.
   - Shop filters SF1: collections as a segmented pill control, brand / price / sort as `FilterDropdown` pills (<details>, works before hydration).
   - Cart drawer CD1: editorial, larger photos, brand·model mono line, quiet quantity, shipping + total summary, square CTA.
   - Glyph field G4: on `/checkout/success` a GlyphField band rings and spells the order number.
-  - Collections menu M1: desktop mega menu under the header (hover or click on קולקציות): collections with model counts, brands in Hebrew linking to brand pages, a photo that follows the hovered collection. Phones keep the full-screen menu. `/options` removed.
+  - Collections menu: M1 mega menu was tried and removed the same day; Roy dislikes panels that pop open on hover. Header nav is plain links only (שעונים, מותגים, רצועות, מדריכים). Collections live in the shop's segmented filter and the home accordion. Phones keep the full-screen menu behind the menu button.
